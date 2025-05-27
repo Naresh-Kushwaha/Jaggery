@@ -5,9 +5,11 @@ import com.naresh.dto.UserEntityRequest;
 import com.naresh.dto.UserEntityResponse;
 import com.naresh.model.UserEntity;
 import com.naresh.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +21,7 @@ public class UserController {
 
     private final UserService service;
     @PostMapping("/register")
-    public ResponseEntity<UserEntityResponse> register(@RequestBody UserEntityRequest user){
+    public ResponseEntity<UserEntityResponse> register(@RequestBody @Valid UserEntityRequest user){
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.register(user));
     }
@@ -32,4 +34,5 @@ public class UserController {
     public ResponseEntity<List<AddressDTO>>getAddress(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.OK).body(service.getAddress(id));
     }
+
 }

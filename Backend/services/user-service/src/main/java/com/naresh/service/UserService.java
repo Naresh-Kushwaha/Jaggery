@@ -3,6 +3,7 @@ package com.naresh.service;
 import com.naresh.dto.AddressDTO;
 import com.naresh.dto.UserEntityRequest;
 import com.naresh.dto.UserEntityResponse;
+import com.naresh.exception.CustomerNotFoundException;
 import com.naresh.mapper.AddressMapper;
 import com.naresh.mapper.UserMapper;
 import com.naresh.model.Address;
@@ -34,10 +35,13 @@ public class UserService {
     }
 
     public UserEntity getUser(Long id){
-        return userEntityRepository.findById(id).get();
+
+        return userEntityRepository.findById(id).orElseThrow(()->
+                new CustomerNotFoundException("Customer not Found With the give ID : "+id));
     }
     public List<AddressDTO> getAddress(Long id){
-        UserEntity user= userEntityRepository.findById(id).get();
+        UserEntity user= userEntityRepository.findById(id).orElseThrow(()->
+                new CustomerNotFoundException("Customer not found for the given ID : "+id));
         return
                 user.getAddress().stream()
                         .map(addressMapper::toAddressDTO)
