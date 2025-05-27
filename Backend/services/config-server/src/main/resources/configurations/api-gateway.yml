@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: after_route
+          uri: ${server.hostname}:${server.port}/
+          predicates:
+          - After: 20225-06-50T17:42:47.789-07:00[America/Denver]
+          - Path=/red/
+          filters:
+#            - CircuitBreaker=myCircuitBreaker
+            - name: CircuitBreaker
+              args:
+                name: myCircuitBreaker
+                fallbackUri: forward:/inCaseOfFailureUseThis
+                statusCodes:
+                  - 500
+                  - "NOT_FOUND"
