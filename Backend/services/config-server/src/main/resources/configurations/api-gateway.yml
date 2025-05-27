@@ -1,18 +1,28 @@
+server:
+  port: 8222
 spring:
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
-        - id: after_route
-          uri: ${server.hostname}:${server.port}/
+        - id: user-service
+          uri: lb:http://user-service
           predicates:
-          - After: 20225-06-50T17:42:47.789-07:00[America/Denver]
-          - Path=/red/
-          filters:
-#            - CircuitBreaker=myCircuitBreaker
-            - name: CircuitBreaker
-              args:
-                name: myCircuitBreaker
-                fallbackUri: forward:/inCaseOfFailureUseThis
-                statusCodes:
-                  - 500
-                  - "NOT_FOUND"
+            - Path=/api/v1/user/**
+#        - id: after_route
+#          uri: ${server.hostname}:${server.port}/
+#          predicates:
+#          - After: 20225-06-50T17:42:47.789-07:00[America/Denver]
+#          - Path=/red/
+#          filters:
+##            - CircuitBreaker=myCircuitBreaker
+#            - name: CircuitBreaker
+#              args:
+#                name: myCircuitBreaker
+#                fallbackUri: forward:/inCaseOfFailureUseThis
+#                statusCodes:
+#                  - 500
+#                  - "NOT_FOUND"
