@@ -39,8 +39,14 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.updateAddByAddId(id,addressDTO));
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteCustomer(@PathVariable Long id){
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(service.deleteUser(id));
+    public ResponseEntity<Void> deleteCustomer(@PathVariable Long id){
+        service.deleteUser(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    @DeleteMapping("/address/{id}")
+    public ResponseEntity<Void> deleteAddress(@PathVariable Long id){
+        service.deleteAddress(id);
+        return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 

@@ -3,6 +3,7 @@ package com.naresh.service;
 import com.naresh.dto.AddressDTO;
 import com.naresh.dto.CustomerRequest;
 import com.naresh.dto.CustomerResponse;
+import com.naresh.exception.AddressNotFoundException;
 import com.naresh.exception.CustomerNotFoundException;
 import com.naresh.mapper.AddressMapper;
 import com.naresh.mapper.CustomerMapper;
@@ -49,7 +50,7 @@ public class CustomerService {
 
     public AddressDTO updateAddByAddId(Long id, AddressDTO addressDTO) {
         Address address=addressRepository.findById(id).orElseThrow(()->{
-            return new CustomerNotFoundException("Address not found ");
+            return new CustomerNotFoundException("Address not found for Id: "+id);
         });
 
         setIfNotNull(addressDTO.country(), address::setCountry);
@@ -69,12 +70,23 @@ public class CustomerService {
         }
     }
 
-    public String deleteUser(Long id) {
-        customerRepository.findById(id).orElseThrow(()->
-           new CustomerNotFoundException("Customer  not Found with the given Id: "+id)
+    public void deleteUser(Long id) {
+        customerRepository.findById(id).ifPresentOrElse(
+                customer -> customerRepository.deleteById(id),
+                () -> { throw new CustomerNotFoundException("Customer not Found with the given Id: " + id); }
         );
-        customerRepository.deleteById(id);
 
-        return "Customer deleted Successfully";
+    }
+
+    public void deleteAddress(Long id) {
+
+        addressRepository.findById(id).ifPresentOrElse(
+                address -> addressRepository.deleteById(id),
+                ()-> {
+                    throw new AddressNotFoundException("Address  not Found with the given Id: " + id);
+                }        );
+
+
+
     }
 }

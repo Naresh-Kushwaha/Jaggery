@@ -7,6 +7,10 @@
         <option value="$PROJECT_DIR$/services/config-server/pom.xml" />
         <option value="$PROJECT_DIR$/services/api-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/services/discovey-server/pom.xml" />
+        <option value="$PROJECT_DIR$/Backend/services/config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/Backend/services/api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/Backend/services/discovey-server/pom.xml" />
+        <option value="$PROJECT_DIR$/Backend/services/customer-service/pom.xml" />
       </list>
     </option>
   </component>
