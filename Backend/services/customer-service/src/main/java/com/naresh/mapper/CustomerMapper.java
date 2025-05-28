@@ -1,18 +1,18 @@
 package com.naresh.mapper;
 
-import com.naresh.dto.UserEntityRequest;
-import com.naresh.dto.UserEntityResponse;
+import com.naresh.dto.CustomerRequest;
+import com.naresh.dto.CustomerResponse;
 import com.naresh.model.Address;
-import com.naresh.model.UserEntity;
+import com.naresh.model.Customer;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class UserMapper {
+public class CustomerMapper {
 
-    public UserEntity toUserEntity(UserEntityRequest req) {
+    public Customer toUserEntity(CustomerRequest req) {
         if (req == null) return null;
 
         List<Address> addressList = new ArrayList<>();
@@ -32,7 +32,7 @@ public class UserMapper {
             }
         }
 
-        return UserEntity.builder()
+        return Customer.builder()
                 .username(req.username())
                 .password(req.password())
                 .mobile(req.mobile())
@@ -41,12 +41,12 @@ public class UserMapper {
                 .build();
     }
 
-    public UserEntityResponse fromUserEntity(UserEntity userEntity){
-        if(userEntity==null)return null;
-        return new UserEntityResponse(
-                userEntity.getId(),
-                userEntity.getUsername(),
-                userEntity.getEmail()
+    public CustomerResponse fromUserEntity(Customer customer){
+        if(customer ==null)return null;
+        return new CustomerResponse(
+                customer.getId(),
+                customer.getUsername(),
+                customer.getEmail()
         );
     }
 }

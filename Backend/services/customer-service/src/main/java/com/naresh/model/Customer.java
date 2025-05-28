@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.engine.internal.Cascade;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -19,7 +18,7 @@ import java.util.List;
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserEntity {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,7 +26,7 @@ public class UserEntity {
     private String password;
     private String mobile;
     private String email;
-    @OneToMany(mappedBy = "userEntity", cascade= CascadeType.ALL,fetch=FetchType.LAZY)
+    @OneToMany(mappedBy = "customer", cascade= CascadeType.ALL,fetch=FetchType.LAZY)
     private List<Address> address=new ArrayList<>();
     @CreatedDate
     @Column(updatable = false)

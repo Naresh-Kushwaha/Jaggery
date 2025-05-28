@@ -3,11 +3,10 @@ package com.naresh.dto;
 import com.naresh.model.Address;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.NonNull;
 
 import java.util.List;
 
-public record UserEntityRequest(
+public record CustomerRequest(
         @NotEmpty(message="Provide UserName")
         String username,
         @NotEmpty(message="Provide Password")

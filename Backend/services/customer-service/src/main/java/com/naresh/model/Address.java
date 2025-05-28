@@ -18,8 +18,8 @@ public class Address {
     private String country;
     private String pinCode;
     @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="customer_id")
     @JsonIgnore
-    private UserEntity userEntity;
+    private Customer customer;
 
 }
