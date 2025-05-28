@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/Backend/services/api-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/Backend/services/discovey-server/pom.xml" />
         <option value="$PROJECT_DIR$/Backend/services/customer-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Backend/services/product-service/pom.xml" />
       </list>
     </option>
   </component>

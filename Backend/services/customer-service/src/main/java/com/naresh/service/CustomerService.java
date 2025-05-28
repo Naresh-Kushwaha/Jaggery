@@ -28,7 +28,6 @@ public class CustomerService {
 
     public CustomerResponse register(CustomerRequest customerRequest) {
         Customer user = usermapper.toUserEntity(customerRequest);
-        List<Address> add = user.getAddress();
         for (Address addr : user.getAddress()) {
             addr.setCustomer(user);
         }

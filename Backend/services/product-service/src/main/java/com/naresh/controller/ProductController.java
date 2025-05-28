@@ -1,0 +1,53 @@
+package com.naresh.controller;
+
+import com.naresh.dto.CategoryRequest;
+import com.naresh.dto.CategoryResponse;
+import com.naresh.dto.ProductRequest;
+import com.naresh.dto.ProductResponse;
+import com.naresh.model.Category;
+import com.naresh.service.ProductService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
+import org.springframework.http.CacheControl;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/v1/product")
+@RequiredArgsConstructor
+public class ProductController {
+    private final ProductService service;
+
+    @GetMapping("/getCategory")
+     public ResponseEntity<Category> getCategory(@RequestParam("categoryId") Long id){
+         return ResponseEntity.status(HttpStatus.OK).body(service.getCategory(id));
+     }
+     @PostMapping("/createCategory")
+    public ResponseEntity<Category>createCategory(@RequestBody CategoryRequest categoryRequest){
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.createCategory(categoryRequest));
+     }
+     @PostMapping("/addProductToCategory")
+     public ResponseEntity <ProductResponse> addProductToCategory(@RequestParam("categoryId") Long id, @RequestBody ProductRequest productRequest){
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.addProductToCategory(id,productRequest));
+     }
+    @PostMapping("/addProductListToCategory")
+    public ResponseEntity<List<ProductResponse>> addProductListToCategory(@RequestParam("categoryId") Long id,
+                                                                          @RequestBody  List<ProductRequest> productRequestList){
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.addProductListToCategory(id,productRequestList));
+    }
+    @DeleteMapping("/deleteCategory")
+    public ResponseEntity deleteCategory(@RequestParam("category_id") Long id){
+        service.DeleteCategory(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+    @DeleteMapping("/deleteProduct")
+    public ResponseEntity deleteProdcut(@RequestParam("category_id") Long id){
+        service.DeleteProduct(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+}
+
