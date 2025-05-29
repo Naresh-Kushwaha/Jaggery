@@ -20,7 +20,7 @@ public record OrderRequest(
         @NotNull(message="customer should be present")
         @NotEmpty(message ="customer should be present" )
         @NotBlank(message ="customer should be present" )
-        String customerId,
+        Long customerId,
         @NotEmpty(message="you should at least purchase one product")
         List<PurchaseRequest> products
 ) {

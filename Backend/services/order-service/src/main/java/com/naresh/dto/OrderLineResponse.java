@@ -1,7 +1,7 @@
 package com.naresh.dto;
 
 public record OrderLineResponse(
-        Integer id,
+        Long id,
         double quantity
 ) {
 }

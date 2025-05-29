@@ -2,8 +2,8 @@ package com.naresh.dto;
 
 public record OrderLineRequest(
 
-        Integer orderId,
-        Integer productId,
+        Long orderId,
+        @jakarta.validation.constraints.NotNull(message = "Product is mandatory") Long productId,
         double quantity
 ) {
 }
