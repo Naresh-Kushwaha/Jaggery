@@ -2,20 +2,19 @@ package com.naresh.service;
 
 import com.naresh.Repository.CategoryRepository;
 import com.naresh.Repository.ProductRepository;
-import com.naresh.dto.CategoryRequest;
-import com.naresh.dto.CategoryResponse;
-import com.naresh.dto.ProductRequest;
-import com.naresh.dto.ProductResponse;
+import com.naresh.dto.*;
 import com.naresh.exception.CategoryNotFoundException;
-import com.naresh.exception.ProductNotFoundException;
+import com.naresh.exception.ProductPurchaseException;
 import com.naresh.mapper.CategoryMapper;
 import com.naresh.mapper.ProductMapper;
 import com.naresh.model.Category;
 import com.naresh.model.Product;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -32,7 +31,7 @@ public class ProductService {
     }
     public Product getProduct(Long id){
         return productRepository.findById(id).orElseThrow(()->{
-            return new ProductNotFoundException("Product not found with the give ID: "+id);
+            return new ProductPurchaseException("Product not found with the give ID: "+id);
         });
     }
     public Category createCategory(CategoryRequest categoryRequest){
@@ -67,5 +66,34 @@ public class ProductService {
     public void DeleteProduct(Long id){
         getProduct(id);
         productRepository.deleteById(id);
+    }
+    @Transactional(rollbackOn=ProductPurchaseException.class)
+    public List<PurchaseResponse>purchaseProduct(List<PurchaseRequest>request ){
+        var productIds=request
+                .stream().map(PurchaseRequest::productId )
+                .toList();
+        var storedProducts=productRepository.findAllByIdInOrderById(productIds);
+        if(productIds.size()!= storedProducts.size()){
+            throw new ProductPurchaseException("One or more product does not exist");
+
+        }
+        var sortedRequest=request.stream().sorted(
+                Comparator.comparing(PurchaseRequest::productId)
+        ).toList();
+        var purchasedProduct=new ArrayList<PurchaseResponse>();
+        for(int i=0;i< storedProducts.size();i++){
+            var product=storedProducts.get(i);
+            var productRequest=sortedRequest.get(i);
+            if(product.getAvailableQuantity()< productRequest.quantity()){
+                throw new ProductPurchaseException("Insufficient stock quantity");
+            }
+            var newAvailableQuantity=product.getAvailableQuantity()- productRequest.quantity();
+            product.setAvailableQuantity(newAvailableQuantity);
+            productRepository.save(product);
+            purchasedProduct.add(productMapper.toPurchaseResponse(product, productRequest.quantity()));
+
+        }
+        return purchasedProduct;
+
     }
 }

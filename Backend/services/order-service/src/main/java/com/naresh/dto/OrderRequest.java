@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public record OrderRequest(

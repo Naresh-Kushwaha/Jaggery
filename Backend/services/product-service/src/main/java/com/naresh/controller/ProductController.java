@@ -1,9 +1,6 @@
 package com.naresh.controller;
 
-import com.naresh.dto.CategoryRequest;
-import com.naresh.dto.CategoryResponse;
-import com.naresh.dto.ProductRequest;
-import com.naresh.dto.ProductResponse;
+import com.naresh.dto.*;
 import com.naresh.model.Category;
 import com.naresh.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -37,6 +34,12 @@ public class ProductController {
     public ResponseEntity<List<ProductResponse>> addProductListToCategory(@RequestParam("categoryId") Long id,
                                                                           @RequestBody  List<ProductRequest> productRequestList){
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.addProductListToCategory(id,productRequestList));
+    }
+    @PostMapping("/purchase")
+    public ResponseEntity<List<PurchaseResponse>> purchaseProduct(
+            @RequestBody List<PurchaseRequest>req
+    ) {
+        return ResponseEntity.ok(service.purchaseProduct(req));
     }
     @DeleteMapping("/deleteCategory")
     public ResponseEntity deleteCategory(@RequestParam("category_id") Long id){
