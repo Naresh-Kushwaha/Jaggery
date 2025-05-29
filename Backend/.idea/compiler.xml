@@ -13,10 +13,12 @@
         <module name="discovey-server" />
         <module name="product-service" />
         <module name="order-service" />
-        <module name="notification-service" />
         <module name="Discovey-Server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="notification-service" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

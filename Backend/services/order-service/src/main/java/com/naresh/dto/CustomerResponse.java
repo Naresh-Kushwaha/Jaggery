@@ -1,4 +1,4 @@
-package com.naresh.customer;
+package com.naresh.dto;
 
 public record CustomerResponse(
         Long id,

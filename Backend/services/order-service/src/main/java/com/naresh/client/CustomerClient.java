@@ -1,6 +1,7 @@
-package com.naresh.customer;
+package com.naresh.client;
 
 
+import com.naresh.dto.CustomerResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
