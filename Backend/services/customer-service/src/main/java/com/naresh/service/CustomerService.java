@@ -34,9 +34,10 @@ public class CustomerService {
         Customer savedUser = customerRepository.save(user);
         return usermapper.fromUserEntity(savedUser);
     }
-    public Customer getCustomer(Long id){
-        return customerRepository.findById(id).orElseThrow(()->
+    public CustomerResponse findCustomer(Long id){
+        Customer customer= customerRepository.findById(id).orElseThrow(()->
                 new CustomerNotFoundException("Customer not Found With the give ID : "+id));
+        return usermapper.fromUserEntity(customer);
     }
     public List<AddressDTO> getAddressByCustomerId(Long id){
         Customer user= customerRepository.findById(id).orElseThrow(()->

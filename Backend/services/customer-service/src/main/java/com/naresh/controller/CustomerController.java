@@ -25,8 +25,8 @@ public class CustomerController {
                 .body(service.register(customer));
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Customer>getUser(@PathVariable Long id){
-        return ResponseEntity.status(HttpStatus.OK).body(service.getCustomer(id));
+    public ResponseEntity<CustomerResponse>findCustomer(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(service.findCustomer(id));
     }
 
     @GetMapping("/address")
