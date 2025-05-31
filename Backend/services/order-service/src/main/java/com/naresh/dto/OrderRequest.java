@@ -14,12 +14,12 @@ import java.util.List;
 public record OrderRequest(
         String reference,
         @Positive(message="order amount should be positive")
-        BigDecimal amount,
+        BigDecimal totalAmount,
         @NotNull(message="Payment method should be present")
         PaymentMethod paymentMethod,
         @NotNull(message="customer should be present")
-        @NotEmpty(message ="customer should be present" )
-        @NotBlank(message ="customer should be present" )
+//        @NotEmpty(message ="customer should be present" )
+//        @NotBlank(message ="customer should be present" )
         Long customerId,
         @NotEmpty(message="you should at least purchase one product")
         List<PurchaseRequest> products

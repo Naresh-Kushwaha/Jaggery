@@ -2,11 +2,32 @@ server:
   port: 8083
 spring:
   datasource:
-    url: jdbc:postgresql:http://localhost:5432/jaggery
+    url: jdbc:postgresql://localhost:5432/jaggery
     username: postgres
     password: root
-
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: paymentGroup,orderGroup
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: '*'
+        spring.json.type.mapping: orderConfirmation:com.naresh.kafka.order.OrderConfirmation,paymentConfirmation:com.naresh.kafka.payment.PaymentConfirmation
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: nn9619807@gmail.com
+    password: ibdj srkn owla ddqt
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 jpa:
   hibernate:
     ddl-auto: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+

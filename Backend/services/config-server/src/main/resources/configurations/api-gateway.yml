@@ -12,10 +12,25 @@ spring:
           uri: lb:http://customer-service
           predicates:
             - Path=/api/v1/customer/**
+
         - id: product-service
           uri: lb:http://product-service
           predicates:
               - Path=/api/v1/product/**
+
+        - id: payment-service
+          uri: lb:http://payment-service
+          predicates:
+              - Path=/api/v1/payment/**
+
+        - id: order-service
+          uri: lb:http://order-service
+          predicates:
+              - Path=/api/v1/order/**
+        - id: notification-service
+          uri: lb:http://notification-service
+          predicates:
+            - Path=/api/v1/notification/**
 #        - id: after_route
 #          uri: ${server.hostname}:${server.port}/
 #          predicates:

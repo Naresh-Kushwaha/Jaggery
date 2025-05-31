@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="config-server" />
+        <module name="payment-service" />
         <module name="customer-service" />
         <module name="api-gateway" />
         <module name="discovey-server" />
@@ -27,6 +28,7 @@
       <module name="discovey-server" options="-parameters" />
       <module name="notification-service" options="-parameters" />
       <module name="order-service" options="-parameters" />
+      <module name="payment-service" options="-parameters" />
       <module name="product-service" options="-parameters" />
     </option>
   </component>

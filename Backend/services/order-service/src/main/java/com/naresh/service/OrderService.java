@@ -43,14 +43,14 @@ private final OrderLineService orderLineService;
                     )
             );}
             var paymentRequest=new PaymentRequest(
-                    request.amount(),
+                    request.totalAmount(),
                     request.paymentMethod(),
                  order.getId(),
                    order.getReference(),
                     customer);
             paymentClient.requestOrderPayment(paymentRequest);
             orderProducer.sendOrderConfirmation(new OrderConfirmation(
-                    request.reference(), request.amount(),request.paymentMethod()
+                    request.reference(), request.totalAmount(),request.paymentMethod()
                     ,customer,purchasedProduct
             ));
             return order.getId();
