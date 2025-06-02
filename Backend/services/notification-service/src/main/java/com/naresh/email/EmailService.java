@@ -29,11 +29,11 @@ public class EmailService {
     @Async
     public void send() throws MessagingException {
         SimpleMailMessage message = new SimpleMailMessage();
-
+        message.setFrom("nn9619807@gmail.com");
         message.setTo("nareshkushwaha0307@gmail.com");
         message.setSubject("Testing Email");
         message.setText("hiii");
-        message.setFrom("nn9619807@gmail.com"); // your configured email
+         // your configured email
 
         mailSender.send(message);
 

@@ -1,25 +1,18 @@
-import ProductCard from "./components/ProductCard"
-import Home from "./pages/Home"
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Register from './components/Register';
+import Login from './components/Login';
 
 
 function App() {
-
-
   return (
-    <>
-  <div className="min-h-screen bg-gray-200 flex items-center justify-center">
-    <div>
-      <Home></Home>
- {/* <ProductCard /> */}
-    </div>
- 
-   
-  
-    </div>
-      
-    </>
-  )
+<Routes>
+  {/* <Route path="/login" element={<Login></Login>}></Route> */}
+  <Route path="/register" element={<Register></Register>}></Route>
+  <Route path="/login" element={<Login></Login>}></Route>
+</Routes>
+  );
 }
 
-export default App
+export default App;
