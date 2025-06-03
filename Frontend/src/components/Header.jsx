@@ -6,7 +6,7 @@ export default function Header() {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <header className="p-4 bg-white dark:bg-gray-800 shadow-md flex justify-between items-center">
+    <header className="p-4 bg-white dark:bg-gray-800 shadow-md flex justify-between items-center md:px-16">
       <h1 className="text-xl font-bold text-gray-800 dark:text-white">MyApp</h1>
       <nav className="flex items-center space-x-4">
         {user ? (

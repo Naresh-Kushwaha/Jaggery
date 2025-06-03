@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Login(){
-
+  const { login } = useContext(AuthContext);
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const [error,setError]=useState("");
@@ -19,7 +20,7 @@ export default function Login(){
                 if(response.ok){
                     const data=await response.json();
                     const token=data.token;
-                    localStorage.setItem("token",token);
+                     login(token)
                     setSuccess("Login successful!");
                     setError("");
                 }

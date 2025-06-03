@@ -7,11 +7,16 @@ import Login from './components/Login';
 
 function App() {
   return (
+    <div>
+
+    
+    <Header></Header>
 <Routes>
   {/* <Route path="/login" element={<Login></Login>}></Route> */}
   <Route path="/register" element={<Register></Register>}></Route>
   <Route path="/login" element={<Login></Login>}></Route>
 </Routes>
+</div>
   );
 }
 
