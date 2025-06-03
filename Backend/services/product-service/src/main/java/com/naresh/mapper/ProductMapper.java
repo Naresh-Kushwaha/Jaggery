@@ -12,13 +12,13 @@ public class ProductMapper {
         return Product.builder()
                 .price(productRequest.price())
                 .name(productRequest.name())
-                .availableQuantity(productRequest.availableQuantity())
+                .stock(productRequest.stock())
                 .description(productRequest.description())
                 .build();
     }
     public ProductResponse fromProduct(Product product){
         return new ProductResponse(
-                product.getName(), product.getAvailableQuantity()
+                product.getName(), product.getstock()
         );
     }
     public PurchaseResponse toPurchaseResponse(Product product,double quantity){

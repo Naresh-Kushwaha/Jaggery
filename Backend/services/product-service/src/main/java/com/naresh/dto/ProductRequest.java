@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 public record ProductRequest(
         String name,
         String description,
-        double availableQuantity,
+        double stock,
         BigDecimal price
         ) {
 }

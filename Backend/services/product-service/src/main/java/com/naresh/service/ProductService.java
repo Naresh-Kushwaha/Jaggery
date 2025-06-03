@@ -84,11 +84,11 @@ public class ProductService {
         for(int i=0;i< storedProducts.size();i++){
             var product=storedProducts.get(i);
             var productRequest=sortedRequest.get(i);
-            if(product.getAvailableQuantity()< productRequest.quantity()){
+            if(product.getstock()< productRequest.quantity()){
                 throw new ProductPurchaseException("Insufficient stock quantity");
             }
-            var newAvailableQuantity=product.getAvailableQuantity()- productRequest.quantity();
-            product.setAvailableQuantity(newAvailableQuantity);
+            var newstock=product.getstock()- productRequest.quantity();
+            product.setstock(newstock);
             productRepository.save(product);
             purchasedProduct.add(productMapper.toPurchaseResponse(product, productRequest.quantity()));
 

@@ -18,9 +18,11 @@ public class Product {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
    private String name;
+   private String image;
    private String description;
-   private double availableQuantity;
+   private double stock;
    private BigDecimal price;
+   private String ingredients;
    @ManyToOne
    @JoinColumn(name="category_id")
    private Category category;
