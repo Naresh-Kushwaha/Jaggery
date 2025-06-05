@@ -12,6 +12,7 @@ import com.naresh.model.Product;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -33,6 +34,9 @@ public class ProductService {
         return productRepository.findById(id).orElseThrow(()->{
             return new ProductPurchaseException("Product not found with the give ID: "+id);
         });
+    }
+    public List<ProductResponse>getProductByCategory(Long id){
+       return productRepository.findAllByCategoryId(id);
     }
     public Category createCategory(CategoryRequest categoryRequest){
         Category category= categoryMapper.toCategory(categoryRequest);
@@ -84,11 +88,11 @@ public class ProductService {
         for(int i=0;i< storedProducts.size();i++){
             var product=storedProducts.get(i);
             var productRequest=sortedRequest.get(i);
-            if(product.getstock()< productRequest.quantity()){
+            if(product.getStock()< productRequest.quantity()){
                 throw new ProductPurchaseException("Insufficient stock quantity");
             }
-            var newstock=product.getstock()- productRequest.quantity();
-            product.setstock(newstock);
+            var newstock=product.getStock()- productRequest.quantity();
+            product.setStock(newstock);
             productRepository.save(product);
             purchasedProduct.add(productMapper.toPurchaseResponse(product, productRequest.quantity()));
 

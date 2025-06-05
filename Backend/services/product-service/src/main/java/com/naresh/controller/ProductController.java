@@ -22,6 +22,10 @@ public class ProductController {
      public ResponseEntity<Category> getCategory(@RequestParam("categoryId") Long id){
          return ResponseEntity.status(HttpStatus.OK).body(service.getCategory(id));
      }
+     @GetMapping ("/category")
+     public ResponseEntity<List<ProductResponse>>getProductByCategoryId(@RequestParam("id")Long id){
+        return ResponseEntity.ok(service.getProductByCategory(id));
+     }
      @PostMapping("/createCategory")
     public ResponseEntity<Category>createCategory(@RequestBody CategoryRequest categoryRequest){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.createCategory(categoryRequest));

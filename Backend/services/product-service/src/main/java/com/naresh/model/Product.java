@@ -1,5 +1,6 @@
 package com.naresh.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +24,7 @@ public class Product {
    private double stock;
    private BigDecimal price;
    private String ingredients;
+   @JsonIgnore
    @ManyToOne
    @JoinColumn(name="category_id")
    private Category category;

@@ -51,7 +51,7 @@ export default function Login(){
                         value={email}
                         onChange={((e)=>setEmail(e.target.value))}
                         required
-                        className="w-full  px-4 py-2 border rounnded-md bg-gray-100 "
+                        className="w-full  px-4 py-2 border rounded-md bg-gray-100 "
 
                         ></input>
                     </div>
@@ -62,7 +62,7 @@ export default function Login(){
                         value={email}
                         onChange={((e)=>setEmail(e.target.value))}
                         required
-                        className="w-full  px-4 py-2 border rounnded-md bg-gray-100 "
+                        className="w-full  px-4 py-2 border rounded-md bg-gray-100 "
                         ></input>
                     </div>
                     <button 
@@ -70,6 +70,10 @@ export default function Login(){
                     className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 "
                     
                     >Login</button>
+                    
+                        <p className="mt-4 text-gray-600">
+                            Don't have an account? <a href="/register" className="text-blue-600 hover:underline">Register</a>
+                        </p>
                 </form>
                </div>
             )

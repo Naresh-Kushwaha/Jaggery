@@ -8,8 +8,11 @@ import java.math.BigDecimal;
 
 public record ProductRequest(
         String name,
+        String image,
         String description,
         double stock,
-        BigDecimal price
+        BigDecimal price,
+        String ingredients
+
         ) {
 }

@@ -14,12 +14,13 @@ public class ProductMapper {
                 .name(productRequest.name())
                 .stock(productRequest.stock())
                 .description(productRequest.description())
+                .image(productRequest.image())
+                .ingredients(productRequest.ingredients())
                 .build();
     }
     public ProductResponse fromProduct(Product product){
-        return new ProductResponse(
-                product.getName(), product.getstock()
-        );
+        return new ProductResponse(product.getName(), product.getImage(), product.getDescription(), product.getStock(),
+                product.getPrice(), product.getIngredients());
     }
     public PurchaseResponse toPurchaseResponse(Product product,double quantity){
         return  new PurchaseResponse(

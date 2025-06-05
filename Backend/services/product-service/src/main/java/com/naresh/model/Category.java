@@ -1,5 +1,6 @@
 package com.naresh.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +22,7 @@ public class Category {
     private Long id;
     private String name;
     private String description;
+    @JsonIgnore
     @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
     private List<Product> productList=new ArrayList<>();
 }

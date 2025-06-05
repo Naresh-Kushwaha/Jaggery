@@ -1,8 +1,10 @@
-
+import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 import { createContext, useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 export const AuthContext = createContext();
 export const AuthProvider=({children})=>{
+    const navigate=useNavigate();
     const[user,setUser]=useState(null);
     useEffect(()=>{
         const token=localStorage.getItem("token");
@@ -18,13 +20,16 @@ export const AuthProvider=({children})=>{
         }
     },[]);
     const login=(token)=>{
-        localStorage.setItem("token",token);
+        Cookies.set("token", token, { expires: 7 }); // Store token in cookies for 7 days
         const decode=jwtDecode(token);
+        
         setUser(decode);  
     };
     const logout=()=>{
-        localStorage.removeItem("token");
+       Cookies.remove("token");
+    navigate("/login");
         setUser(null);
+
     };
     return(
         <AuthContext.Provider value={{user,login,logout}}>
