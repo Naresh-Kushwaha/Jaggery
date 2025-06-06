@@ -11,8 +11,7 @@ const addToCart = (product, quantity) => {
       const newQuantity = existingItem.quantity + quantity;
 
       // Check if new quantity exceeds stock
-      console.log("Current stock:", product.stock);
-      console.log("New quantity:", newQuantity);
+     
       if (newQuantity <= product.stock) {
         return prev.map((item) =>
           item.id === product.id

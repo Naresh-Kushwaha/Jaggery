@@ -1,40 +1,21 @@
 import { useParams } from "react-router-dom";
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
-
-// Simulate fetch by ID
-export const allProducts =[ {
-  id: 1,
-  name: "Palm Jaggery",
-  price: 150,
-  image: "https://spicecliq.com/wp-content/uploads/2021/07/palm-jaggery.jpg",
-  description: "Organic palm jaggery made from natural palm sap. Rich in minerals and iron.",
-  ingredients: "Palm sap, no additives",
-  stock: 1
-},
-{
- id: 2,
-  name: "Palm Jaggery",
-  price: 150,
-  image: "https://spicecliq.com/wp-content/uploads/2021/07/palm-jaggery.jpg",
-  description: "Organic palm jaggery made from natural palm sap. Rich in minerals and iron.",
-  ingredients: "Palm sap, no additives",
-  stock: 15
-},
-];
+import products from  "../assets/products" // Assuming you have a data file for products
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
   const {addToCart}=useContext(CartContext);
   
   const [quantity, setQuantity] = useState(1);
- const product = allProducts.find((p) => String(p.id) === id);
+ const product = products.find((p) => String(p.id) === id);
 
   // const addToCart = () => {
      
   //   alert(`Added ${quantity} of ${product.name} to cart`);
   //   // You’ll connect this with cart context or Redux later
   // };
+
 
 if (!product) {
   return <div className="text-center mt-10 text-red-500">Product not found</div>;
