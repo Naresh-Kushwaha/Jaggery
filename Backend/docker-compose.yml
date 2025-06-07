@@ -27,14 +27,11 @@ services:
     networks:
        - jaggery-net
   mail-dev:
-    container_name: ms-mail-dev
+    container_name: ms-mail
     image: maildev/maildev
     ports:
       - 1080:1080
       - 1025:1025
-
-
-
 
 networks:
   jaggery-net:
