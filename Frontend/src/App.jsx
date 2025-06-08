@@ -10,6 +10,9 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckOutPage';
+import OrderConfirmationPage from './pages/OrderConfirmationPage';
+import TrackOrderPage from './pages/TrackOrderPage';
 
 
 
@@ -20,7 +23,7 @@ function App() {
     
   <Header></Header>
 <Routes>
-  {/* <Route path="/login" element={<Login></Login>}></Route> */}
+ 
   <Route path="/register" element={<Register></Register>}></Route>
   <Route path="/login" element={<Login></Login>}></Route>
   <Route path="/" element={<Home></Home>}> </Route>
@@ -29,6 +32,11 @@ function App() {
     <Route path="/contact" element={<div><Contact></Contact></div>}></Route>
     <Route path="/product/:id" element={<ProductDetailsPage></ProductDetailsPage>}></Route>
     <Route path="/cart" element={<CartPage></CartPage>}></Route>
+    <Route path="/checkout" element={<CheckoutPage></CheckoutPage>}></Route>
+    <Route path="/order-confirmation" element={<OrderConfirmationPage/>} />
+<Route path="/track-order" element={<TrackOrderPage/>} />
+
+
 </Routes>
 <Footer />
 </div>

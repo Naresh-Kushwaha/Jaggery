@@ -20,12 +20,12 @@ public class NotificationConsumer {
     private final EmailService emailService;
 
     @KafkaListener(topics = "payment-topic")
-    public void consumePaymentSuccessNotification(PaymentConfiramtion paymentConfiramtion) throws MessagingException {
+    public void consumePaymentSuccessNotification(PaymentConfirmation paymentConfiramtion) throws MessagingException {
         log.info("Consuming the message from payment-topic");
         repository.save(Notification.builder()
                 .type(NotificationType.PAYMENT_CONFIRMATION)
                         .notificationDate(LocalDateTime.now())
-                        .paymentConfiramtion(paymentConfiramtion)
+                        .paymentConfirmation(paymentConfiramtion)
                         .build()
                 );
         var customerName=paymentConfiramtion.customerName;

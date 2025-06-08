@@ -58,7 +58,10 @@ export default function CartPage() {
                 className="bg-yellow-700 text-white px-6 py-2 rounded w-full hover:bg-yellow-800"
                 disabled={cartItems.length === 0}
               >
-                Proceed to Checkout
+                <Link to="/checkout" className="text-white">  
+                    Proceed to Checkout
+                </Link>
+            
               </button>
             </div>
           </>

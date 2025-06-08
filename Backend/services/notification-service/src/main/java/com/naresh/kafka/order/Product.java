@@ -1,8 +1,10 @@
-package com.naresh.kafka.payment.order;
+package com.naresh.kafka.order;
 
+import jakarta.persistence.Embeddable;
 import lombok.Data;
 
 import java.math.BigDecimal;
+@Embeddable
 @Data
 public class Product{
         Long productId;
