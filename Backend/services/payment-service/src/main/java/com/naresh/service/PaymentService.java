@@ -14,6 +14,13 @@ public class PaymentService {
     private final PaymentRepository repository;
     private final PaymentMapper mapper;
 private final NotificationProducer notificationProducer;
+
+    public PaymentService(PaymentRepository repository, PaymentMapper mapper, NotificationProducer notificationProducer) {
+        this.repository = repository;
+        this.mapper = mapper;
+        this.notificationProducer = notificationProducer;
+    }
+
     public Long createPayment(PaymentRequest request){
         var payment=this.repository.save(mapper.toPayment(request));
         notificationProducer.sendNotification(

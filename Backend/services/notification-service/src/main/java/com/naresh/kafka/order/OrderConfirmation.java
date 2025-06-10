@@ -1,6 +1,7 @@
 package com.naresh.kafka.order;
 
 import com.naresh.kafka.payment.PaymentMethod;
+import com.naresh.notification.Notification;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,7 +15,7 @@ public class OrderConfirmation{
         private   BigDecimal totalAmount;
         @Enumerated(EnumType.STRING)
         private  PaymentMethod paymentMethod;
-        @Embedded
-        @ElementCollection
         private List<Long> products;
+        @ManyToOne
+        private Notification notification;
 }

@@ -15,6 +15,10 @@ import static org.springframework.kafka.support.KafkaHeaders.TOPIC;
 public class NotificationProducer {
     private final KafkaTemplate<String,PaymentNotificationRequest>kafkaTemplat;
 
+    public NotificationProducer(KafkaTemplate<String, PaymentNotificationRequest> kafkaTemplat) {
+        this.kafkaTemplat = kafkaTemplat;
+    }
+
     public void sendNotification(PaymentNotificationRequest request){
         log.info("Sending  notification with body =< {} >",request);
         Message<PaymentNotificationRequest> message= MessageBuilder
