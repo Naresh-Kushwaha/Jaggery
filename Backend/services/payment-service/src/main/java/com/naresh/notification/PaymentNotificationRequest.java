@@ -1,14 +1,18 @@
 package com.naresh.notification;
 
 import com.naresh.dto.PaymentMethod;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.math.BigDecimal;
 
-public record PaymentNotificationRequest(
-        String orderReference,
-        BigDecimal amount,
-        PaymentMethod paymentMethod,
-        String CustomerName,
-        String email
-) {
+@Data
+@AllArgsConstructor
+public class PaymentNotificationRequest{
+    private String orderReference;
+    private   BigDecimal amount;
+    private PaymentMethod paymentMethod;
+    private String CustomerName;
+    private String email;
+
 }

@@ -1,6 +1,8 @@
 package com.naresh.kafka.payment;
 import com.naresh.email.EmailService;
 import com.naresh.notification.NotificationRepository;
+import com.naresh.notification.PaymentNotificationRequest;
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -15,9 +17,9 @@ public class NotificationConsumer {
 
 
     @KafkaListener(topics = "payment-topic",groupId = "notificationGroup")
-    public void consumePaymentSuccessNotification(String paymentRequest) {
+    public void consumePaymentSuccessNotification(PaymentNotificationRequest paymentRequest) throws MessagingException {
       System.out.println("Consuming the message from payment-topic");
-
+emailService.send();
 
     }
 }

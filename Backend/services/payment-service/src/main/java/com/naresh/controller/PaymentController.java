@@ -18,10 +18,6 @@ public class PaymentController {
 
     private final PaymentService service;
 
-    public PaymentController(PaymentService service) {
-        this.service = service;
-    }
-
     @PostMapping
     ResponseEntity<Long> createPayment(
             @RequestBody @Valid PaymentRequest request
