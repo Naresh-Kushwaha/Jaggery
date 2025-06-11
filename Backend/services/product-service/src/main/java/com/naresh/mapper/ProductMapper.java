@@ -19,7 +19,7 @@ public class ProductMapper {
                 .build();
     }
     public ProductResponse fromProduct(Product product){
-        return new ProductResponse(product.getName(), product.getImage(), product.getDescription(), product.getStock(),
+        return new ProductResponse(product.getId(),product.getName(), product.getImage(), product.getDescription(), product.getStock(),
                 product.getPrice(), product.getIngredients());
     }
     public PurchaseResponse toPurchaseResponse(Product product,double quantity){

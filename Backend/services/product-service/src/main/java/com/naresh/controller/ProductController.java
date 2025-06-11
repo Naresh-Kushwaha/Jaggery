@@ -4,13 +4,12 @@ import com.naresh.dto.*;
 import com.naresh.model.Category;
 import com.naresh.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
-import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/product")
@@ -18,6 +17,10 @@ import java.util.List;
 public class ProductController {
     private final ProductService service;
 
+    @GetMapping()
+    public ResponseEntity<Optional<ProductResponse>> getProductById(@RequestParam("id") Long id){
+        return ResponseEntity.ok(service.getProductById(id));
+    }
     @GetMapping("/getCategory")
      public ResponseEntity<Category> getCategory(@RequestParam("categoryId") Long id){
          return ResponseEntity.status(HttpStatus.OK).body(service.getCategory(id));
@@ -25,6 +28,10 @@ public class ProductController {
      @GetMapping ("/category")
      public ResponseEntity<List<ProductResponse>>getProductByCategoryId(@RequestParam("id")Long id){
         return ResponseEntity.ok(service.getProductByCategory(id));
+     }
+     @GetMapping("/getAllProducts")
+     public ResponseEntity<List<ProductResponse>> getAllProduct(){
+        return ResponseEntity.ok(service.getAllProducts());
      }
      @PostMapping("/createCategory")
     public ResponseEntity<Category>createCategory(@RequestBody CategoryRequest categoryRequest){
@@ -39,6 +46,7 @@ public class ProductController {
                                                                           @RequestBody  List<ProductRequest> productRequestList){
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.addProductListToCategory(id,productRequestList));
     }
+
     @PostMapping("/purchase")
     public ResponseEntity<List<PurchaseResponse>> purchaseProduct(
             @RequestBody List<PurchaseRequest>req

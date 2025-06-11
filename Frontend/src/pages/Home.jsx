@@ -4,6 +4,9 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import Testimonials from "../components/Testimonials";
 import NewsletterSignup from "../components/NewsletterSignup";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+
 
 const sampleProducts = [
   {
@@ -47,6 +50,8 @@ const sampleProducts = [
 
 
 export default function Home() {
+  
+ 
   return (
     <>
       <div className="min-h-screen md:px-12 px-6 flex justify-center items-center bg-[#FBEAEB]">

@@ -8,14 +8,14 @@ useEffect(() => {
     setSelectedCategory();
   }
 }, [categoryId]);
-
+ console.log(selectedCategory);
   return (
     <div className="mb-6 md:mb-0">
       <h3 className="text-lg font-bold mb-4">Filter by Category</h3>
       <ul className="space-y-2">
         <li
           onClick={() => setSelectedCategory(0)}
-          className={`cursor-pointer ${selectedCategory === 0 ? "font-bold text-yellow-700" : ""}`}
+          className={`cursor-pointer ${selectedCategory ===0? "font-bold text-yellow-700" : ""}`}
         >
           All
         </li>

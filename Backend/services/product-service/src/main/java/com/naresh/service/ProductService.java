@@ -12,11 +12,11 @@ import com.naresh.model.Product;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -30,10 +30,14 @@ public class ProductService {
              return new CategoryNotFoundException("Category not found with the give ID: "+id);
          });
     }
-    public Product getProduct(Long id){
-        return productRepository.findById(id).orElseThrow(()->{
-            return new ProductPurchaseException("Product not found with the give ID: "+id);
-        });
+    public Optional<ProductResponse> getProductById(Long id){
+        return Optional.ofNullable(productRepository.findById(id).map(productMapper::fromProduct).orElseThrow(() -> {
+            return new ProductPurchaseException("Product not found with the give ID: " + id);
+        }));
+    }
+    public List<ProductResponse> getAllProducts(){
+      return productRepository.findAll().stream().map(productMapper::fromProduct).toList();
+
     }
     public List<ProductResponse>getProductByCategory(Long id){
        return productRepository.findAllByCategoryId(id);
@@ -68,7 +72,7 @@ public class ProductService {
         categoryRepository.deleteById(id);
     }
     public void DeleteProduct(Long id){
-        getProduct(id);
+
         productRepository.deleteById(id);
     }
     @Transactional(rollbackOn=ProductPurchaseException.class)

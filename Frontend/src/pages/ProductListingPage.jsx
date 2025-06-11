@@ -5,24 +5,47 @@ import SearchSortBar from "../components/SearchSortBar";
 import FilterSidebar from "../components/FilterSidebar";
 import { Link, useParams } from "react-router-dom";
 import Categories from "../assets/categories"; // Assuming you have a data file for products
-import Products from "../assets/products"; // Assuming you have a data file for products
+// import Products from "../assets/products"; // Assuming you have a data file for products
+import axios from "axios";
 
 
 
 export default function ProductListingPage() {
     const { id } = useParams();
-  
-
+ 
+const backendApi=import.meta.env.VITE_BACKEND_URL;
+const [products,setProducts]=useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [sort, setSort] = useState("default");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState();
+
+const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+  const fetchProducts = async () => {
+    setLoading(true);
+    try {
+      const url = selectedCategory
+        ? `${backendApi}/product/category?id=${selectedCategory}`
+        : `${backendApi}/product/getAllProducts`;
+      const res = await axios.get(url);
+      setProducts(res.data);
+    } catch (err) {
+      console.error("Error fetching products:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchProducts();
+}, [backendApi, selectedCategory]);
 
 
+  const filteredProducts = products
+    // .filter((p) =>
+    //   selectedCategory === 0 ? true : p.categoryId === selectedCategory
+    // )
 
-  const filteredProducts = Products
-    .filter((p) =>
-      selectedCategory === 0 ? true : p.categoryId === selectedCategory
-    )
     .filter((p) => p.name.toLowerCase().includes(searchTerm.toLowerCase()))
     .sort((a, b) => {
       if (sort === "price_low") return a.price - b.price;
@@ -57,7 +80,8 @@ export default function ProductListingPage() {
 
           <main className="md:w-3/4">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {filteredProducts.length > 0 ? (
+              {loading?<p>loading...</p>:(
+              filteredProducts.length > 0 ? (
                 filteredProducts.map((p) => (
                  
                     <ProductCard  product={p} key={p.id}/>
@@ -65,7 +89,7 @@ export default function ProductListingPage() {
                 ))
               ) : (
                 <p>No products found</p>
-              )}
+              ))}
             </div>
           </main>
         </div>

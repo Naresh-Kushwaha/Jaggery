@@ -1,21 +1,34 @@
 import { useParams } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import products from  "../assets/products" // Assuming you have a data file for products
+import axios from "axios";
 
 export default function ProductDetailsPage() {
+
   const { id } = useParams();
   const {addToCart}=useContext(CartContext);
-  
+  const [product, setProduct] = useState({});
+  const [loading,setLoading]=useState(!product);
+  const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
- const product = products.find((p) => String(p.id) === id);
+ const backendApi=import.meta.env.VITE_BACKEND_URL;
+ useEffect(()=>{
+  axios.get(`${backendApi}/product?id=${id}`)
+  .then((response)=>{
+    setProduct(response.data);
+    setLoading(false);
+    console.log(product);
+  })
+  .catch((error)=>{
+    setError(error);
+    setLoading(fasle);
+  })
+ },[id,product])
+// /product/getAllProducts
 
-  // const addToCart = () => {
-     
-  //   alert(`Added ${quantity} of ${product.name} to cart`);
-  //   // You’ll connect this with cart context or Redux later
-  // };
-
+if (loading) return <p>Loading product...</p>;
+  if (error) return <p>{error}</p>;
 
 if (!product) {
   return <div className="text-center mt-10 text-red-500">Product not found</div>;
