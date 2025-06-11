@@ -1,8 +1,11 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Login(){
+    const navigate=useNavigate();
   const { login } = useContext(AuthContext);
+  const backendApi=import.meta.env.VITE_BACKEND_URL;
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const [error,setError]=useState("");
@@ -10,19 +13,22 @@ export default function Login(){
         const handleLogin=async(e)=>{
             e.preventDefault();
             try{
-                const response=await fetch("/api/login",{
+                const response=await fetch(`${backendApi}/customer/login`,{
                     method:"POST",
                     headers:{
-                        "Content-type":"application/json"
+                        "Content-Type":"application/json"
                     },
                     body: JSON.stringify({email,password})
                 });
+                
                 if(response.ok){
-                    const data=await response.json();
-                    const token=data.token;
-                     login(token)
+                    // const data=await response.json();
+                    // const token=data.token;
+                    //  login(token)
                     setSuccess("Login successful!");
                     setError("");
+                    console.log("Login Successfully..");
+                    navigate("/");
                 }
                 else{
                     const errData=await response.json();
@@ -37,6 +43,7 @@ export default function Login(){
             };
             return(
                <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 ">
+                
                 <form
                  onSubmit={handleLogin}
                  className="bg-gray-200 p-8 rounded-lg shadow-md w-full max-w-md"
@@ -59,8 +66,8 @@ export default function Login(){
                         <label className="block text-gray-700 mb-1">Password</label>
                         <input 
                         type="password"
-                        value={email}
-                        onChange={((e)=>setEmail(e.target.value))}
+                        value={password}
+                        onChange={((e)=>setPassword(e.target.value))}
                         required
                         className="w-full  px-4 py-2 border rounded-md bg-gray-100 "
                         ></input>

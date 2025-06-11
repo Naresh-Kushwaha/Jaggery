@@ -14,7 +14,7 @@ export const AuthProvider=({children})=>{
                 setUser(decode);
             }
             catch(error){
-                console.log("Invalid token",error);
+                console.log("Invalid token",error);  
                 setUser(null);
             }
         }

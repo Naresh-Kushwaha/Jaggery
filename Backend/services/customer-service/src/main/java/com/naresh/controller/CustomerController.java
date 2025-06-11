@@ -3,6 +3,7 @@ package com.naresh.controller;
 import com.naresh.dto.AddressDTO;
 import com.naresh.dto.CustomerRequest;
 import com.naresh.dto.CustomerResponse;
+import com.naresh.dto.LoginRequest;
 import com.naresh.model.Customer;
 import com.naresh.service.CustomerService;
 import jakarta.validation.Valid;
@@ -24,10 +25,15 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.register(customer));
     }
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody @Valid LoginRequest loginRequest){
+       return service.login(loginRequest);
+    }
     @GetMapping("/{id}")
     public ResponseEntity<CustomerResponse>findCustomer(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.OK).body(service.findCustomer(id));
     }
+
 
     @GetMapping("/address")
     public ResponseEntity<List<AddressDTO>>getAddressByCustomerId(@RequestParam("userId") Long id){

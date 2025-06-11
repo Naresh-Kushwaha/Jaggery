@@ -1,22 +1,27 @@
+import { Monitor } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Register(){
+    const navigate=useNavigate();
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
-    const [name,setName]=useState("");
+    const [mobile,setMobile]=useState("");
+    const [username,setUsername]=useState("");
     const [error,setError]=useState("");
     const [success,setSuccess]=useState("");
-
+const backendApi=import.meta.env.VITE_BACKEND_URL;
     const handleRegister=async(e)=>{
+        
         e.preventDefault();
         try{
-            const response=await fetch("/api/register",{
+            const response=await fetch(`${backendApi}/customer/register`,{
                 method:"POST",
-              header:{
-                "content-type":"application/json"
+              headers:{
+                "Content-Type":"application/json"
               },
               body:JSON.stringify({
-                name,email,password
+                username,password,mobile,email
               })
             });
             if(response.ok){
@@ -25,6 +30,9 @@ export default function Register(){
                 localStorage.setItem("token",token);
                 setSuccess("Registration successfull!");
                 setError("");
+                
+                console.log(response);
+                navigate("/login");
             }
         }
         catch(err){
@@ -35,6 +43,7 @@ export default function Register(){
     };
     return(
         <div className="min-h-screen flex items-center justify-center bg-gray-100  px-4 ">
+        <div>{success}</div>
             <form 
             onSubmit={handleRegister}
               className="bg-white p-8 rounded-lg shadow-md w-full max-w-md"
@@ -46,8 +55,8 @@ export default function Register(){
                 <input
                 type="text"
                 className="w-full px-4 py-2 border rounded-md bg-gray-100  "
-                vale={name}
-                onChange={(e)=>setName(e.target.value)}
+                vale={username}
+                onChange={(e)=>setUsername(e.target.value)}
                 required
                 ></input>
                </div>
@@ -62,7 +71,16 @@ export default function Register(){
                 required
                 ></input>
                 </div> 
-
+  <div className="mb-4">
+                    <label className=" block text-gray-700 mb-1">Mobile</label>
+                    <input
+                    type="text"
+                    className="w-full px-4 py-2 border rounded-md bg-gray-100  "
+                    value={mobile}
+                    onChange={(e)=>setMobile(e.target.value)}
+                    required
+                    ></input>
+                </div>
                 <div className="mb-4">
                     <label className=" block text-gray-700 mb-1">Password</label>
                     <input
@@ -73,6 +91,7 @@ export default function Register(){
                     required
                     ></input>
                 </div>
+              
                <button 
                type="submit"
                className=" w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"

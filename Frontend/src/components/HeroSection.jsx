@@ -31,7 +31,7 @@ export default function Header() {
          {/* Desktop Nav */}
       <nav className="hidden md:flex gap-6 text-gray-700">
         <a href="/">Home</a>
-        <a href="/products/0">Products</a>
+        <a href="/products/0">Products</a> 
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
       </nav>

@@ -3,6 +3,7 @@ package com.naresh.service;
 import com.naresh.dto.AddressDTO;
 import com.naresh.dto.CustomerRequest;
 import com.naresh.dto.CustomerResponse;
+import com.naresh.dto.LoginRequest;
 import com.naresh.exception.AddressNotFoundException;
 import com.naresh.exception.CustomerNotFoundException;
 import com.naresh.mapper.AddressMapper;
@@ -12,6 +13,8 @@ import com.naresh.model.Customer;
 import com.naresh.repository.AddressRepository;
 import com.naresh.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,6 +36,14 @@ public class CustomerService {
         }
         Customer savedUser = customerRepository.save(user);
         return usermapper.fromUserEntity(savedUser);
+    }
+    public ResponseEntity<String> login(LoginRequest loginRequest){
+       Customer customer= customerRepository.findByEmail(loginRequest.email()).orElseThrow(()->
+               new CustomerNotFoundException("No User found with the given Email"));
+       if(customer.getPassword().equals(loginRequest.password())){
+          return ResponseEntity.ok("token");
+       }
+       return ResponseEntity.status(HttpStatus.FORBIDDEN).body("password or email is incorrect");
     }
     public CustomerResponse findCustomer(Long id){
         Customer customer= customerRepository.findById(id).orElseThrow(()->

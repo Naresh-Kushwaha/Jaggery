@@ -16,7 +16,7 @@ export default function ProductListingPage() {
 const backendApi=import.meta.env.VITE_BACKEND_URL;
 const [products,setProducts]=useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [sort, setSort] = useState("default");
+  const [sort, setSort] = useState("default"); 
   const [selectedCategory, setSelectedCategory] = useState();
 
 const [loading, setLoading] = useState(true);
