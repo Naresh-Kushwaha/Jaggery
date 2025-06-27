@@ -8,6 +8,10 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
+        - id: auth-service
+          uri: lb:http://auth-service
+          predicates:
+            - Path=/api/v1/auth/**
         - id: customer-service
           uri: lb:http://customer-service
           predicates:

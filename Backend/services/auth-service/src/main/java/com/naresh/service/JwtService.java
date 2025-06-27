@@ -1,11 +1,10 @@
-package com.naresh.Jwt_Module.service;
+package com.naresh.service;
 
+
+import com.naresh.entity.Roles;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
-import jakarta.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
@@ -16,17 +15,17 @@ import java.util.function.Function;
 
 @Component
 public class JwtService {
-//    @Value("${jwt.secret}")
+    //    @Value("${jwt.secret}")
 //    private String secret;
-private String secret="YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYQ==";
+    private String secret="YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYQ==";
 
-    private SecretKey key;
+
     private SecretKey getKey() {
         return Keys.hmacShaKeyFor(secret.getBytes());
     }
 
 
-    public String generateToken(String username, List<String> roles){
+    public String generateToken(String username, List<Roles> roles){
         Map<String,Object> claims=new HashMap<>();
         claims.put("roles",roles);
         return Jwts.builder()
