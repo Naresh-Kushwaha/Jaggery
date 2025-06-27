@@ -1,6 +1,7 @@
 package com.naresh.controller;
 
 import com.naresh.dto.AuthRequest;
+import com.naresh.dto.LoginResponse;
 import com.naresh.entity.UserEntity;
 import com.naresh.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -23,10 +24,10 @@ public class AuthController {
         return new ResponseEntity<>(authService.saveUser(userEntity), HttpStatus.OK);
     }
     @PostMapping("/token")
-    public ResponseEntity<String> getToken(@RequestBody AuthRequest authRequest){
+    public ResponseEntity<LoginResponse> getToken(@RequestBody AuthRequest authRequest){
         Authentication authentication= authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(),authRequest.getPassword()));
         if(authentication.isAuthenticated()){
-            String token= authService.generateToken(authRequest.getUsername());
+            LoginResponse token= authService.generateToken(authRequest.getUsername());
             return new ResponseEntity<>(token,HttpStatus.OK);
         }else {
             throw new RuntimeException("Invalid access");

@@ -15,7 +15,7 @@ const backendApi=import.meta.env.VITE_BACKEND_URL;
         
         e.preventDefault();
         try{
-            const response=await fetch(`${backendApi}/customer/register`,{
+            const response=await fetch(`${backendApi}/auth/register`,{
                 method:"POST",
               headers:{
                 "Content-Type":"application/json"
@@ -25,9 +25,8 @@ const backendApi=import.meta.env.VITE_BACKEND_URL;
               })
             });
             if(response.ok){
-                const data=await response.json();
-                const token=data.token;
-                localStorage.setItem("token",token);
+                const data= response;
+               
                 setSuccess("Registration successfull!");
                 setError("");
                 

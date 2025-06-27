@@ -1,15 +1,13 @@
 package com.naresh.service;
 
 
-import com.naresh.dto.AuthRequest;
-import com.naresh.entity.Roles;
+import com.naresh.dto.LoginResponse;
 import com.naresh.entity.UserEntity;
 import com.naresh.repository.UserEntityRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -22,13 +20,14 @@ public class AuthService {
     public String saveUser(UserEntity userEntity){
         userEntity.setPassword(passwordEncoder.encode(userEntity.getPassword()));
         repository.save(userEntity);
-        return "User added to the system";
+        return "Registration successfull!";
     }
-    public String generateToken(String username){
+    public LoginResponse generateToken(String username){
         UserEntity userEntity=repository.findByUsername(username).orElseThrow(()->{
             throw new RuntimeException("user not found");
         });
-        return jwtService.generateToken(username,userEntity.getRoles());
+        String token=jwtService.generateToken(username,userEntity.getRoles());
+        return new LoginResponse(token);
 
     }
     public  void validateToken(String token){

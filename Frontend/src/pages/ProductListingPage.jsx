@@ -29,6 +29,7 @@ useEffect(() => {
         ? `${backendApi}/product/category?id=${selectedCategory}`
         : `${backendApi}/product/getAllProducts`;
       const res = await axios.get(url);
+      console.log(res.data);
       setProducts(res.data);
     } catch (err) {
       console.error("Error fetching products:", err);
@@ -42,11 +43,7 @@ useEffect(() => {
 
 
   const filteredProducts = products
-    // .filter((p) =>
-    //   selectedCategory === 0 ? true : p.categoryId === selectedCategory
-    // )
-
-    .filter((p) => p.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    .filter((p) => p.description.toLowerCase().includes(searchTerm.toLowerCase()))
     .sort((a, b) => {
       if (sort === "price_low") return a.price - b.price;
       if (sort === "price_high") return b.price - a.price;

@@ -20,11 +20,21 @@ import java.util.Map;
 public class JwtFilter implements GlobalFilter{
     @Autowired
     private JwtUtil jwtUtil;
+    private static final List<String>WHITELIST=List.of(
+            "/api/v1/auth/token",
+            "/api/v1/auth/register",
+            "/api/v1/product/getCategory",
+            "/api/v1/product/category",
+            "/api/v1/product/getAllProducts"
+    );
     private static final Logger log = LoggerFactory.getLogger(JwtFilter.class);
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         log.info("Global filter executed");
-        String path = exchange.getRequest().getURI().getPath();
+        String path=exchange.getRequest().getURI().getPath();
+        if(WHITELIST.stream().anyMatch(path::startsWith)){
+            return chain.filter(exchange);
+        }
         String authHeader=exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
         if(authHeader==null || !authHeader.startsWith("Bearer ")){
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);

@@ -6,25 +6,29 @@ export default function Login(){
     const navigate=useNavigate();
   const { login } = useContext(AuthContext);
   const backendApi=import.meta.env.VITE_BACKEND_URL;
-    const [email,setEmail]=useState("");
+    const [username,setUsername]=useState("");
     const [password,setPassword]=useState("");
     const [error,setError]=useState("");
     const [success,setSuccess]=useState("");
         const handleLogin=async(e)=>{
             e.preventDefault();
+          
             try{
-                const response=await fetch(`${backendApi}/customer/login`,{
+                const response=await fetch(`${backendApi}/auth/token`,{
                     method:"POST",
                     headers:{
                         "Content-Type":"application/json"
                     },
-                    body: JSON.stringify({email,password})
+                    body: JSON.stringify({username,password})
                 });
-                
+               
                 if(response.ok){
-                    // const data=await response.json();
-                    // const token=data.token;
-                    //  login(token)
+                    const data=await response.json();
+                 
+                    const token=data.response;
+                   
+                     login(token)
+                    
                     setSuccess("Login successful!");
                     setError("");
                     console.log("Login Successfully..");
@@ -36,7 +40,8 @@ export default function Login(){
                     setSuccess("");
 
                 }
-                }catch(err){
+                }
+                catch(err){
                     setError("Login failed. Please try again.");
                     setSuccess("");
                 }
@@ -55,8 +60,8 @@ export default function Login(){
                         <label className="block text-gray-700 mb-1">Email</label>
                         <input 
                         type="text"
-                        value={email}
-                        onChange={((e)=>setEmail(e.target.value))}
+                        value={username}
+                        onChange={((e)=>setUsername(e.target.value))}
                         required
                         className="w-full  px-4 py-2 border rounded-md bg-gray-100 "
 
