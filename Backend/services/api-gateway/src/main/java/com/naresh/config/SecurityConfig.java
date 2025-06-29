@@ -1,10 +1,10 @@
-package com.naresh.config;
-
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.security.config.web.server.ServerHttpSecurity;
-//import org.springframework.security.web.server.SecurityWebFilterChain;
-
-public class SecurityConfig {
+//package com.naresh.config;
+//
+////import org.springframework.context.annotation.Bean;
+////import org.springframework.security.config.web.server.ServerHttpSecurity;
+////import org.springframework.security.web.server.SecurityWebFilterChain;
+//
+//public class SecurityConfig {
 //    @Bean
 //    public SecurityWebFilterChain  springSecurityFilterChain(ServerHttpSecurity http){
 //         http
@@ -17,5 +17,5 @@ public class SecurityConfig {
 //                ).oauth2ResourceServer(ServerHttpSecurity.OAuth2ResourceServerSpec::jwt);
 //               return http.build();
 //    }
-
-}
+//
+//}

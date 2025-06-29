@@ -10,6 +10,8 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,24 +22,23 @@ import java.util.List;
 public class CustomerController {
 
     private final CustomerService service;
-    @PostMapping("/register")
+    @GetMapping("/me")
+    public ResponseEntity<?>JwtDecode(@AuthenticationPrincipal Jwt jwt){
+
+        return ResponseEntity.status(HttpStatus.OK).body(jwt.getClaims());
+    }
+    @PostMapping("/saveCustomerDetails")
     public ResponseEntity<CustomerResponse> register(@RequestBody @Valid CustomerRequest customer){
         return ResponseEntity.status(HttpStatus.OK)
-                .body(service.register(customer));
+                .body(service.saveCustomerDetails(customer));
     }
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody @Valid LoginRequest loginRequest){
-       return service.login(loginRequest);
-    }
-    @GetMapping("/{id}")
-    public ResponseEntity<CustomerResponse>findCustomer(@PathVariable Long id){
-        return ResponseEntity.status(HttpStatus.OK).body(service.findCustomer(id));
-    }
-
-
     @GetMapping("/address")
     public ResponseEntity<List<AddressDTO>>getAddressByCustomerId(@RequestParam("userId") Long id){
         return ResponseEntity.status(HttpStatus.OK).body(service.getAddressByCustomerId(id));
+    }
+    @GetMapping("/getCustomer/{id}")
+    public ResponseEntity<CustomerResponse>getCustomer(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(service.findCustomer(id));
     }
 
     @PutMapping("/update/address")

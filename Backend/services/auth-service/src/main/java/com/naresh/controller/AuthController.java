@@ -20,7 +20,7 @@ public class AuthController {
     private final AuthService authService;
     private final AuthenticationManager authenticationManager;
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody UserEntity userEntity){
+    public ResponseEntity<Long> register(@RequestBody UserEntity userEntity){
         return new ResponseEntity<>(authService.saveUser(userEntity), HttpStatus.OK);
     }
     @PostMapping("/token")

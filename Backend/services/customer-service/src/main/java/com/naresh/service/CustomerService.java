@@ -29,7 +29,7 @@ public class CustomerService {
     private final AddressMapper addressMapper;
 
 
-    public CustomerResponse register(CustomerRequest customerRequest) {
+    public CustomerResponse saveCustomerDetails(CustomerRequest customerRequest) {
         Customer user = usermapper.toUserEntity(customerRequest);
         for (Address addr : user.getAddress()) {
             addr.setCustomer(user);
@@ -37,14 +37,7 @@ public class CustomerService {
         Customer savedUser = customerRepository.save(user);
         return usermapper.fromUserEntity(savedUser);
     }
-    public ResponseEntity<String> login(LoginRequest loginRequest){
-       Customer customer= customerRepository.findByEmail(loginRequest.email()).orElseThrow(()->
-               new CustomerNotFoundException("No User found with the given Email"));
-       if(customer.getPassword().equals(loginRequest.password())){
-          return ResponseEntity.ok("token");
-       }
-       return ResponseEntity.status(HttpStatus.FORBIDDEN).body("password or email is incorrect");
-    }
+
     public CustomerResponse findCustomer(Long id){
         Customer customer= customerRepository.findById(id).orElseThrow(()->
                 new CustomerNotFoundException("Customer not Found With the give ID : "+id));

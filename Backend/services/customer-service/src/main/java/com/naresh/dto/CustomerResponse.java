@@ -1,8 +1,12 @@
 package com.naresh.dto;
 
+import com.naresh.model.Address;
+
+import java.util.List;
+
 public record CustomerResponse(
-        Long id,
-        String username,
-        String email
+        String mobile,
+        String email,
+        List<Address> address
 ) {
 }

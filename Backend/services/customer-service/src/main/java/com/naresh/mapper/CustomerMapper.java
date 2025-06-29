@@ -33,8 +33,7 @@ public class CustomerMapper {
         }
 
         return Customer.builder()
-                .username(req.username())
-                .password(req.password())
+                .id(req.id())
                 .mobile(req.mobile())
                 .email(req.email())
                 .address(addressList)
@@ -44,9 +43,7 @@ public class CustomerMapper {
     public CustomerResponse fromUserEntity(Customer customer){
         if(customer ==null)return null;
         return new CustomerResponse(
-                customer.getId(),
-                customer.getUsername(),
-                customer.getEmail()
+                customer.getMobile(), customer.getEmail(), customer.getAddress()
         );
     }
 }

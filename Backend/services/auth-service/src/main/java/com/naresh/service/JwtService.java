@@ -2,8 +2,10 @@ package com.naresh.service;
 
 
 import com.naresh.entity.Roles;
+import com.naresh.entity.UserEntity;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -15,34 +17,26 @@ import java.util.function.Function;
 
 @Component
 public class JwtService {
-    //    @Value("${jwt.secret}")
-//    private String secret;
-    private String secret="YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYQ==";
+    String base64Secret = "VYm92hHgq/FS0I4awR87SFnD7t68dZ0je8PI4Q45ZwhJex9VILCWdJhbfipCROpHZ8J7Z5CfoqWqPpgQ0Yo4CA==";
+    byte[] decodedSecret = Base64.getDecoder().decode(base64Secret);
+    SecretKey key = Keys.hmacShaKeyFor(decodedSecret);
 
-
-    private SecretKey getKey() {
-        return Keys.hmacShaKeyFor(secret.getBytes());
-    }
-
-
-    public String generateToken(String username, List<Roles> roles){
+    public String generateToken(String username, UserEntity userEntity){
         Map<String,Object> claims=new HashMap<>();
-        claims.put("roles",roles);
+        claims.put("username",userEntity.getUsername());
+        claims.put("email",userEntity.getEmail());
+        claims.put("mobile",userEntity.getMobile());
+        claims.put("roles",userEntity.getRoles());
+        claims.put("id",userEntity.getId());
         return Jwts.builder()
                 .claims()
                 .add(claims)
                 .subject(username)
-                .issuer("naresh-kushwaha")
-                .audience().add("jaggery-frontend")
-                .and()
-                .id(UUID.randomUUID().toString())
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis()+1000*60*15))
                 .and()
-                .signWith(getKey())
+                .signWith(key, SignatureAlgorithm.HS512)
                 .compact();
-
-
     }
     public String generateRefreshToken(String username){
         return Jwts.builder()
@@ -53,7 +47,7 @@ public class JwtService {
                 .id(UUID.randomUUID().toString())
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis()+1000*60*60*24*7))
-                .signWith(getKey())
+                .signWith(key, SignatureAlgorithm.HS512)
                 .compact();
     }
     public Map<String ,Object>validateAndExtractClaims(String token){
@@ -62,7 +56,7 @@ public class JwtService {
             Claims claims=extractAllClaims(token);
             response.put("username",claims.getSubject());
             response.put("roles",claims.get("roles"));
-            response.put("token_id",claims.getId());
+            response.put("id",claims.getId());
             response.put("issuer",claims.getIssuer());
         }catch (Exception e){
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,"Token validation failed");
@@ -89,7 +83,7 @@ public class JwtService {
     public Claims extractAllClaims(String token){
         try{
             return Jwts.parser()
-                    .verifyWith(getKey())
+                    .verifyWith(key)
                     .build()
                     .parseSignedClaims(token)
                     .getPayload();

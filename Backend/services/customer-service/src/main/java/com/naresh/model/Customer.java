@@ -1,5 +1,4 @@
 package com.naresh.model;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,10 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
-    private String password;
     private String mobile;
     private String email;
     @OneToMany(mappedBy = "customer", cascade= CascadeType.ALL,fetch=FetchType.LAZY)
@@ -33,4 +29,5 @@ public class Customer {
     private LocalDateTime createdAt;
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
 }
