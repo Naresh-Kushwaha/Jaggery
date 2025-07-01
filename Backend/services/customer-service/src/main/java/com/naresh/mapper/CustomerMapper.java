@@ -1,5 +1,6 @@
 package com.naresh.mapper;
 
+import com.naresh.dto.AddressDTO;
 import com.naresh.dto.CustomerRequest;
 import com.naresh.dto.CustomerResponse;
 import com.naresh.model.Address;
@@ -18,22 +19,21 @@ public class CustomerMapper {
         List<Address> addressList = new ArrayList<>();
 
         if (req.address() != null) {
-            for (Address addrReq : req.address()) {
+            for (AddressDTO addrReq : req.address()) {
                 Address address = new Address();
-                address.setHouseNo(addrReq.getHouseNo());
-                address.setStreet(addrReq.getStreet());
-                address.setLandmark(addrReq.getLandmark());
-                address.setDistrict(addrReq.getDistrict());
-                address.setState(addrReq.getState());
-                address.setCountry(addrReq.getCountry());
-                address.setPinCode(addrReq.getPinCode());
+                address.setHouseNo(addrReq.houseNo());
+                address.setStreet(addrReq.street());
+                address.setLandmark(addrReq.landmark());
+                address.setDistrict(addrReq.district());
+                address.setState(addrReq.state());
+                address.setCountry(addrReq.country());
+                address.setPinCode(addrReq.pinCode());
                 // Do NOT set userEntity here. Set it in service after user is built.
                 addressList.add(address);
             }
         }
 
         return Customer.builder()
-                .id(req.id())
                 .mobile(req.mobile())
                 .email(req.email())
                 .address(addressList)

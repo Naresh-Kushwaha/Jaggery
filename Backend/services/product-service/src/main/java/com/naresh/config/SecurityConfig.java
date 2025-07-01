@@ -18,7 +18,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(auth->auth
-                .requestMatchers("api/v1/product/getAllProducts","api/v1/product/getCategory","api/v1/product/category").permitAll()
+                .requestMatchers("api/v1/product/getAllProducts","api/v1/product/getCategory","api/v1/product/category","api/v1/product").permitAll()
                 .anyRequest().authenticated())
                 .oauth2ResourceServer(oauth2->oauth2
                         .jwt(jwtConfigurer->jwtConfigurer

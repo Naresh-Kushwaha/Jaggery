@@ -33,6 +33,7 @@ public class ProductController {
      public ResponseEntity<List<ProductResponse>> getAllProduct(){
         return ResponseEntity.ok(service.getAllProducts());
      }
+
      @PostMapping("/createCategory")
     public ResponseEntity<Category>createCategory(@RequestBody CategoryRequest categoryRequest){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.createCategory(categoryRequest));

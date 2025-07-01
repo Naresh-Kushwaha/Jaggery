@@ -19,9 +19,9 @@ import java.util.List;
 @AllArgsConstructor
 public class Customer {
     @Id
-    private Long id;
-    private String mobile;
     private String email;
+    private String mobile;
+
     @OneToMany(mappedBy = "customer", cascade= CascadeType.ALL,fetch=FetchType.LAZY)
     private List<Address> address=new ArrayList<>();
     @CreatedDate

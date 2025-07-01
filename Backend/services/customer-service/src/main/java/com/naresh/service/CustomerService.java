@@ -38,12 +38,12 @@ public class CustomerService {
         return usermapper.fromUserEntity(savedUser);
     }
 
-    public CustomerResponse findCustomer(Long id){
+    public CustomerResponse findCustomer(String id){
         Customer customer= customerRepository.findById(id).orElseThrow(()->
                 new CustomerNotFoundException("Customer not Found With the give ID : "+id));
         return usermapper.fromUserEntity(customer);
     }
-    public List<AddressDTO> getAddressByCustomerId(Long id){
+    public List<AddressDTO> getAddressByCustomerId(String id){
         Customer user= customerRepository.findById(id).orElseThrow(()->
                 new CustomerNotFoundException("Customer not found for the given ID : "+id));
         return
@@ -74,7 +74,7 @@ public class CustomerService {
         }
     }
 
-    public void deleteUser(Long id) {
+    public void deleteUser(String id) {
         customerRepository.findById(id).ifPresentOrElse(
                 customer -> customerRepository.deleteById(id),
                 () -> { throw new CustomerNotFoundException("Customer not Found with the given Id: " + id); }

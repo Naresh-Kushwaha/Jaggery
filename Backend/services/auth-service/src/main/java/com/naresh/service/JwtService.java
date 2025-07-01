@@ -23,17 +23,16 @@ public class JwtService {
 
     public String generateToken(String username, UserEntity userEntity){
         Map<String,Object> claims=new HashMap<>();
-        claims.put("username",userEntity.getUsername());
+        claims.put("name",userEntity.getName());
         claims.put("email",userEntity.getEmail());
         claims.put("mobile",userEntity.getMobile());
         claims.put("roles",userEntity.getRoles());
-        claims.put("id",userEntity.getId());
         return Jwts.builder()
                 .claims()
                 .add(claims)
                 .subject(username)
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis()+1000*60*15))
+                .expiration(new Date(System.currentTimeMillis()+1000*60*60))
                 .and()
                 .signWith(key, SignatureAlgorithm.HS512)
                 .compact();

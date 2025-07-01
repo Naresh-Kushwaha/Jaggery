@@ -7,7 +7,7 @@ export default function Register(){
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const [mobile,setMobile]=useState("");
-    const [username,setUsername]=useState("");
+    const [name,setName]=useState("");
     const [error,setError]=useState("");
     const [success,setSuccess]=useState("");
 const backendApi=import.meta.env.VITE_BACKEND_URL;
@@ -21,15 +21,12 @@ const backendApi=import.meta.env.VITE_BACKEND_URL;
                 "Content-Type":"application/json"
               },
               body:JSON.stringify({
-                username,password,mobile,email
+                name,password,mobile,email
               })
             });
             if(response.ok){
-                const data= response;
-               
                 setSuccess("Registration successfull!");
                 setError("");
-                
                 console.log(response);
                 navigate("/login");
             }
@@ -40,6 +37,7 @@ const backendApi=import.meta.env.VITE_BACKEND_URL;
             setSuccess("");
         }
     };
+    
     return(
         <div className="min-h-screen flex items-center justify-center bg-gray-100  px-4 ">
         <div>{success}</div>
@@ -54,8 +52,8 @@ const backendApi=import.meta.env.VITE_BACKEND_URL;
                 <input
                 type="text"
                 className="w-full px-4 py-2 border rounded-md bg-gray-100  "
-                vale={username}
-                onChange={(e)=>setUsername(e.target.value)}
+                value={name}
+                onChange={(e)=>setName(e.target.value)}
                 required
                 ></input>
                </div>

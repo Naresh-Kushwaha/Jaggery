@@ -1,13 +1,17 @@
 import { ShoppingCart, User } from "lucide-react";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { CartContext} from "../context/CartContext";
+import { PiUserRectangleFill } from "react-icons/pi";
 
 export default function Header() {
- 
+const navigate=useNavigate();
+ const userDetails=JSON.parse(localStorage.getItem("userDetails"));
  const {cartItems} =useContext(CartContext);
  const totalQty=cartItems.reduce((sum,item)=>sum+item.quantity,0);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [BasicDetails,setBasicDetails]=useState(false);
+
   return (
     <header className="flex items-center justify-between px-6 py-4 shadow-md bg-white sticky top-0 z-50">
       <div className="text-2xl font-bold text-yellow-800">JaggeryFarm</div>
@@ -26,8 +30,10 @@ export default function Header() {
     </span>
   )}
 </Link>
-
-        <Link to="/login"><User className="w-6 h-6 cursor-pointer"  /></Link>
+{/* absolute top-16 right-2 max-w-md  bg-white shadow-lg flex flex-col items-start gap-4 px-4 py-6 text-gray-700 z-50   */}
+        
+          
+        <Link  to="/profile"><User className="w-6 h-6 cursor-pointer"  /></Link>
          {/* Desktop Nav */}
       <nav className="hidden md:flex gap-6 text-gray-700">
         <a href="/">Home</a>

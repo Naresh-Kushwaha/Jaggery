@@ -1,39 +1,47 @@
-import Cookies from "js-cookie";
+
 import { jwtDecode } from "jwt-decode";
 import { createContext, useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-export const AuthContext = createContext();
-export const AuthProvider=({children})=>{
-    const navigate=useNavigate();
-    const[user,setUser]=useState(null);
-    useEffect(()=>{
-        const token=localStorage.getItem("token");
-        if(token){
-            try{
-                const decode=jwtDecode(token);
-                setUser(decode);
-            }
-            catch(error){
-                console.log("Invalid token",error);  
-                setUser(null);
-            }
-        }
-    },[]);
-    const login=(token)=>{
-        Cookies.set("token", token, { expires: 7 }); // Store token in cookies for 7 days
-        const decode=jwtDecode(token);
-        
-        setUser(decode);  
-    };
-    const logout=()=>{
-       Cookies.remove("token");
-    navigate("/login");
-        setUser(null);
+import { useNavigate } from "react-router-dom";
 
-    };
-    return(
-        <AuthContext.Provider value={{user,login,logout}}>
-            {children}
-        </AuthContext.Provider>
-    )
-}
+export const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
+  const navigate = useNavigate();
+  const [userDetails, setUserDetails] = useState(null);
+
+  // 🔑 Restore userDetails on page load from localStorage
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const decoded =jwtDecode(token);
+       
+        localStorage.setItem("userDetails",JSON.stringify(decoded))
+          
+      } catch (e) {
+        console.error("Failed to decode token:", e);
+        // Optionally remove invalid token
+        localStorage.removeItem("token");
+      }
+    }
+  }, []);
+
+  const login = async (token) => {
+    localStorage.setItem("token", token);
+   const decoded =jwtDecode(token); 
+  localStorage.setItem("userDetails",JSON.stringify(decoded))      
+  };
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userDetails");
+    navigate("/login");
+    setUserDetails(null);
+  };
+
+  return (
+    <AuthContext.Provider value={{ userDetails, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};

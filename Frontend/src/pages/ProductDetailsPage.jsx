@@ -22,9 +22,9 @@ export default function ProductDetailsPage() {
   })
   .catch((error)=>{
     setError(error);
-    setLoading(fasle);
+    setLoading(false);
   })
- },[id,product])
+ },[])
 // /product/getAllProducts
 
 if (loading) return <p>Loading product...</p>;

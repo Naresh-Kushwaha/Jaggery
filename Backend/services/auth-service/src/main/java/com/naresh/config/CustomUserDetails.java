@@ -6,10 +6,11 @@ import java.util.Collection;
 import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
-    private final String username;
+
+    private final String email;
     private final String password;
     public CustomUserDetails(UserEntity userEntity){
-        this.username=userEntity.getUsername();
+        this.email=userEntity.getEmail();
         this.password = userEntity.getPassword();
     }
     @Override
@@ -24,7 +25,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
     }
 
     @Override

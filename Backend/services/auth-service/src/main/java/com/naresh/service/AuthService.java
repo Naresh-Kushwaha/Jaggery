@@ -17,13 +17,13 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
 
-    public Long saveUser(UserEntity userEntity){
+    public String saveUser(UserEntity userEntity){
         userEntity.setPassword(passwordEncoder.encode(userEntity.getPassword()));
         UserEntity savedUser=repository.save(userEntity);
-        return savedUser.getId();
+        return savedUser.getEmail();
     }
     public LoginResponse generateToken(String username){
-        UserEntity userEntity=repository.findByUsername(username).orElseThrow(()->{
+        UserEntity userEntity=repository.findById(username).orElseThrow(()->{
             throw new RuntimeException("user not found");
         });
         String token=jwtService.generateToken(username,userEntity);

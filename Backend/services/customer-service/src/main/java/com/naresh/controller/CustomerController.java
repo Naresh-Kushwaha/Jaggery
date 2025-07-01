@@ -33,11 +33,11 @@ public class CustomerController {
                 .body(service.saveCustomerDetails(customer));
     }
     @GetMapping("/address")
-    public ResponseEntity<List<AddressDTO>>getAddressByCustomerId(@RequestParam("userId") Long id){
+    public ResponseEntity<List<AddressDTO>>getAddressByCustomerId(@RequestParam("userId") String id){
         return ResponseEntity.status(HttpStatus.OK).body(service.getAddressByCustomerId(id));
     }
     @GetMapping("/getCustomer/{id}")
-    public ResponseEntity<CustomerResponse>getCustomer(@PathVariable Long id){
+    public ResponseEntity<CustomerResponse>getCustomer(@PathVariable String id){
         return ResponseEntity.status(HttpStatus.OK).body(service.findCustomer(id));
     }
 
@@ -46,7 +46,7 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.updateAddByAddId(id,addressDTO));
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCustomer(@PathVariable Long id){
+    public ResponseEntity<Void> deleteCustomer(@PathVariable String id){
         service.deleteUser(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
