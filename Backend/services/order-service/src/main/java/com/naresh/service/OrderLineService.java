@@ -21,10 +21,6 @@ public class OrderLineService {
         var order=mapper.toOrderLine(request);
         return repository.save(order).getId();
     }
-    public List<OrderLineResponse> findAllByOrderId(Long orderId){
-        return repository.findAllByOrderId(orderId).stream()
-                .map(mapper::toOrderLineResponse)
-                .collect(Collectors.toList());
-    }
+
 
 }

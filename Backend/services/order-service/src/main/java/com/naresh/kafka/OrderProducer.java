@@ -14,10 +14,10 @@ import static org.springframework.kafka.support.KafkaHeaders.TOPIC;
 @RequiredArgsConstructor
 public class OrderProducer {
     private final KafkaTemplate<String,OrderConfirmation>kafkaTemplate;
-    public void sendOrderConfirmation(OrderConfirmation orderConfirmation){
+    public void sendOrderConfirmation(OrderConfirmation OrderConfirmation){
         log.info("Sending order confirmation");
         Message<OrderConfirmation> message= MessageBuilder
-                .withPayload(orderConfirmation)
+                .withPayload(OrderConfirmation)
                 .setHeader(TOPIC,"order-topic")
                 .build();
         kafkaTemplate.send(message);

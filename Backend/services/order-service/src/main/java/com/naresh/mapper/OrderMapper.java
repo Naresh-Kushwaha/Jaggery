@@ -23,18 +23,13 @@ public class OrderMapper {
         }
         if(orderRequest==null)return null;
         return Order.builder()
-                .reference(orderRequest.reference())
-                .paymentMethod(orderRequest.paymentMethod())
                 .totalAmount(orderRequest.totalAmount())
-                .customerId(orderRequest.customerId())
-                        .orderLines(orderLineList).
+                .orderLines(orderLineList).
                 build();
     }
     public OrderResponse fromOrder(Order order){
         return new OrderResponse(order.getId(),
-                order.getReference(),
-                order.getTotalAmount(),
-                order.getPaymentMethod(),
-                 order.getCustomerId());
+                order.getTotalAmount());
+
     }
 }

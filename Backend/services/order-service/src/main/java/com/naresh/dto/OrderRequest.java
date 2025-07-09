@@ -12,15 +12,9 @@ import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public record OrderRequest(
-        String reference,
         @Positive(message="order amount should be positive")
         BigDecimal totalAmount,
-        @NotNull(message="Payment method should be present")
-        PaymentMethod paymentMethod,
         @NotNull(message="customer should be present")
-//        @NotEmpty(message ="customer should be present" )
-//        @NotBlank(message ="customer should be present" )
-        Long customerId,
         @NotEmpty(message="you should at least purchase one product")
         List<PurchaseRequest> products
 ) {

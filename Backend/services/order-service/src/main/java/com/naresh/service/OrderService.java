@@ -1,6 +1,5 @@
 package com.naresh.service;
 
-import com.naresh.client.CustomerClient;
 import com.naresh.client.PaymentClient;
 import com.naresh.client.ProductClient;
 import com.naresh.dto.*;
@@ -20,40 +19,30 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class OrderService {
     private final OrderRepository orderRepository;
-
-    private final CustomerClient customerClient;
     private final ProductClient productClient;
     private  final OrderMapper mapper;
     private final PaymentClient paymentClient;
     private final OrderProducer orderProducer;
-private final OrderLineService orderLineService;
+    private final OrderLineService orderLineService;
 
-    public Long createOrder(OrderRequest request){
-        var customer=this.customerClient.findCustomer(request.customerId())
-                .orElseThrow(()-> new BusinessException("Cannot create order :: no customer exists with the provided ID"));
+    public String createOrder(OrderRequest request){
 
         var purchasedProduct=productClient.purchaseProduct(request.products());
         var order=this.orderRepository.save(mapper.toOrder(request));
         for(PurchaseRequest purchaseRequest:request.products()){
             orderLineService.saveOrderLine(
                     new OrderLineRequest(
-                            order.getId(),
+                            order,
                             purchaseRequest.productId(),
-                            purchaseRequest.quantity()
-                    )
+                            purchaseRequest.quantity())
             );}
             var paymentRequest=new PaymentRequest(
                     request.totalAmount(),
-                    request.paymentMethod(),
-                 order.getId(),
-                   order.getReference(),
-                    customer);
-            paymentClient.requestOrderPayment(paymentRequest);
+                   order.getId());
+           String paymentResponse= paymentClient.requestOrderPayment(paymentRequest);
             orderProducer.sendOrderConfirmation(new OrderConfirmation(
-                    request.reference(), request.totalAmount(),request.paymentMethod()
-                    ,customer,purchasedProduct
-            ));
-            return order.getId();
+                    order.getId(), request.totalAmount(),purchasedProduct));
+            return paymentResponse;
 }
     public List<OrderResponse> findAllOrders() {
         return this.orderRepository.findAll()
