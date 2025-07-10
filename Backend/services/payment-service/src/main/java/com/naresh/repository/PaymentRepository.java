@@ -1,8 +1,10 @@
 package com.naresh.repository;
 
-import com.naresh.model.Payment;
+import com.naresh.model.PaymentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PaymentRepository extends JpaRepository<Payment,Long> {
+import java.util.Optional;
 
+public interface PaymentRepository extends JpaRepository<PaymentEntity,Long> {
+Optional<PaymentEntity>findByRazorpayOrderId(String razorpayOrderId);
 }

@@ -1,34 +1,33 @@
 package com.naresh.model;
 
-import com.fasterxml.jackson.databind.deser.std.NumberDeserializers;
-import com.naresh.dto.PaymentMethod;
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
-import org.springframework.context.event.EventListener;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 @Entity
 @Data
-@Builder
-public class Payment {
+public class PaymentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
-    private BigDecimal amount;
-    private Long orderId;
-    @Enumerated(EnumType.STRING)
-    private PaymentMethod paymentMethod;
+    private Long id;
+    private String razorpayOrderId;
+    private String razorpayPaymentId;
+    private String razorpaySignature;
+    private Long amount;
+    private String currency;
+    private String status;
+    private String userEmail;
+    private String method;
     @CreatedDate
     @Column(updatable = false,nullable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime created;
     @LastModifiedDate
     @Column(insertable = false)
-    private LocalDateTime lastModifiedDate;
+    private LocalDateTime updated;
+
 
 }
