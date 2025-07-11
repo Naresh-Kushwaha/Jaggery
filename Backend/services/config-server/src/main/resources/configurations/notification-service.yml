@@ -6,14 +6,20 @@ spring:
     username: postgres
     password: root
   kafka:
+    bootstrap-servers: localhost:9092
     consumer:
-      bootstrap-servers: localhost:9092
       group-id: notificationGroup
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: "*"
+
+
+
+
+
+
   mail:
     host: smtp.gmail.com
     port: 587
@@ -30,3 +36,5 @@ jpa:
     ddl-auto: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
+email:
+  setFrom: "nn9619807@gmail.com"

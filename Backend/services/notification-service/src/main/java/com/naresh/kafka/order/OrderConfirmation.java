@@ -1,21 +1,32 @@
 package com.naresh.kafka.order;
 
-import com.naresh.kafka.payment.PaymentMethod;
+
 import com.naresh.notification.Notification;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
+
 @Entity
 @Data
-public class OrderConfirmation{
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class OrderConfirmation {
+
         @Id
-        private  String orderReference;
-        private   BigDecimal totalAmount;
-        @Enumerated(EnumType.STRING)
-        private  PaymentMethod paymentMethod;
-        private List<Long> products;
+        private String orderReference;
+
+        private String email;
+
+        private BigDecimal totalAmount;
+
+        @OneToMany(mappedBy = "orderConfirmation", cascade = CascadeType.ALL, orphanRemoval = true)
+        private List<PurchaseResponse> products = new ArrayList<>();
+
         @ManyToOne
+        @JoinColumn(name = "notification_id")
         private Notification notification;
 }

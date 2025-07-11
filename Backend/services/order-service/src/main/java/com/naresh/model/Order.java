@@ -30,7 +30,7 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<OrderLine> orderLines = new ArrayList<>();
-
+    private String email;
     @CreatedDate
     @Column(updatable = false, nullable = false)
     private LocalDateTime createdDate;

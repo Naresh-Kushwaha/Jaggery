@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -18,8 +19,8 @@ public class OrderController {
 
 private final OrderService service;
  @PostMapping
-    public ResponseEntity<String> createOrder(@RequestBody @Valid OrderRequest request){
-     return  ResponseEntity.ok(service.createOrder(request));
+    public ResponseEntity<String> createOrder(@RequestBody @Valid OrderRequest request, Principal principal){
+     return  ResponseEntity.ok(service.createOrder(request,principal));
  }
     @GetMapping
     public ResponseEntity<List<OrderResponse>> findAll() {

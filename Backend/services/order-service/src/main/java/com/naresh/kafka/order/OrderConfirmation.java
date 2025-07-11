@@ -1,14 +1,13 @@
-package com.naresh.kafka;
+package com.naresh.kafka.order;
 
 import com.naresh.dto.PurchaseResponse;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 public record OrderConfirmation(
         Long orderReference,
+        String email,
         BigDecimal totalAmount,
         List<PurchaseResponse> products
 

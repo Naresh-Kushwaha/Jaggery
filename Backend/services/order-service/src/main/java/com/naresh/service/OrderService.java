@@ -3,18 +3,17 @@ package com.naresh.service;
 import com.naresh.client.PaymentClient;
 import com.naresh.client.ProductClient;
 import com.naresh.dto.*;
-import com.naresh.exception.BusinessException;
-import com.naresh.kafka.OrderConfirmation;
-import com.naresh.kafka.OrderProducer;
+import com.naresh.kafka.order.OrderConfirmation;
+import com.naresh.kafka.order.OrderConfirmationDTO;
+import com.naresh.kafka.order.OrderProducer;
 import com.naresh.mapper.OrderMapper;
 import com.naresh.repository.OrderRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
+import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
-
 @Service
 @RequiredArgsConstructor
 public class OrderService {
@@ -24,11 +23,11 @@ public class OrderService {
     private final PaymentClient paymentClient;
     private final OrderProducer orderProducer;
     private final OrderLineService orderLineService;
-
-    public String createOrder(OrderRequest request){
-
+    public String createOrder(OrderRequest request, Principal principal){
         var purchasedProduct=productClient.purchaseProduct(request.products());
-        var order=this.orderRepository.save(mapper.toOrder(request));
+        var order=mapper.toOrder(request);
+        order.setEmail(principal.getName());
+        var savedOrder=this.orderRepository.save(order);
         for(PurchaseRequest purchaseRequest:request.products()){
             orderLineService.saveOrderLine(
                     new OrderLineRequest(
@@ -40,9 +39,9 @@ public class OrderService {
                     request.totalAmount(),
                    order.getId());
            String paymentResponse= paymentClient.requestOrderPayment(paymentRequest);
-            orderProducer.sendOrderConfirmation(new OrderConfirmation(
-                    order.getId(), request.totalAmount(),purchasedProduct));
-            return paymentResponse;
+            orderProducer.sendOrderConfirmation(new OrderConfirmationDTO(
+                    order.getId(),principal.getName(), request.totalAmount(),purchasedProduct));
+    return paymentResponse;
 }
     public List<OrderResponse> findAllOrders() {
         return this.orderRepository.findAll()

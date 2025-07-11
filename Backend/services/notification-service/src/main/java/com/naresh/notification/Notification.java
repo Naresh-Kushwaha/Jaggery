@@ -1,26 +1,30 @@
 package com.naresh.notification;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.naresh.kafka.OrderConfirmation;
+import com.naresh.kafka.order.OrderConfirmation;
+import com.naresh.kafka.payment.PaymentConfirmation;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
-
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
 public class Notification {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long customerId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String email;
     @JsonIgnore
-    @OneToMany
-    private List<OrderConfirmation> orderConfirmations;
-//    @JsonIgnore
-//    @OneToMany
-////    private List<PaymentConfirmation>paymentConfirmations;
-//
+    @OneToMany(mappedBy = "notification",cascade = CascadeType.ALL)
+    private List<OrderConfirmation> orderConfirmations=new ArrayList<>();
+    @JsonIgnore
+    @OneToMany(mappedBy = "notification",cascade = CascadeType.ALL)
+    private List<PaymentConfirmation>paymentConfirmations=new ArrayList<>();
+
 }
