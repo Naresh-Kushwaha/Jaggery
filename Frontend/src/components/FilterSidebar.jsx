@@ -1,13 +1,5 @@
-import { useEffect } from "react";
 
 export default function FilterSidebar({ categories, selectedCategory, setSelectedCategory ,categoryId}) {
-useEffect(() => {
-  if (categoryId) {
-    setSelectedCategory(parseInt(categoryId));
-  } else {
-    setSelectedCategory();
-  }
-}, [categoryId]);
  console.log(selectedCategory);
   return (
     <div className="mb-6 md:mb-0">

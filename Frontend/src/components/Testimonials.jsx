@@ -9,7 +9,6 @@ export default function Testimonials() {
       feedback: "Superb quality jaggery and beautiful packaging!",
     },
   ];
-
   return (
     <section className="bg-yellow-50 px-6 py-12">
       <h2 className="text-2xl font-bold text-yellow-800 text-center mb-6">

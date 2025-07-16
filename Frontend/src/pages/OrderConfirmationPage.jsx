@@ -1,23 +1,17 @@
-
 import { Link, useLocation } from "react-router-dom";
-
 export default function OrderConfirmationPage() {
   const location = useLocation();
   const orderData = location.state?.order || {};
-
   const {
     id = "ORD" + Math.floor(Math.random() * 100000),
     address = {},
     cartItems = [],
     total = 0,
   } = orderData;
-
   const deliveryDate = new Date();
   deliveryDate.setDate(deliveryDate.getDate() + 4); // 4 days delivery
-
   return (
     <>
-   
       <div className="max-w-4xl mx-auto px-4 py-10">
         <div className="bg-green-100 p-6 rounded-md text-center mb-6 shadow">
           <h2 className="text-2xl font-bold text-green-800 mb-2">

@@ -2,9 +2,11 @@ package com.naresh.kafka.order;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.math.BigDecimal;
+
 @Data
 @Entity
 public class PurchaseResponse {

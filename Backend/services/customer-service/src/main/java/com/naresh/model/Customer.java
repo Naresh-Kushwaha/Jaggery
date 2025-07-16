@@ -11,6 +11,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
 @Builder
 @Entity
 @Data
@@ -19,9 +21,13 @@ import java.util.List;
 @AllArgsConstructor
 public class Customer {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long customerId;
+    @Column(nullable = false)
+    private UUID userId;
+    private String name;
     private String email;
-    private String mobile;
-
+    private String contact;
     @OneToMany(mappedBy = "customer", cascade= CascadeType.ALL,fetch=FetchType.LAZY)
     private List<Address> address=new ArrayList<>();
     @CreatedDate
@@ -30,4 +36,7 @@ public class Customer {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
+    public Customer(UUID id) {
+        this.userId=id;
+    }
 }

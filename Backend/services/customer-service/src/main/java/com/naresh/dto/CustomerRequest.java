@@ -8,11 +8,9 @@ import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 public record CustomerRequest(
-        @NotEmpty(message="Provide mobile")
-        String mobile,
-        @NotEmpty(message="Provide Email")
-        @Email(message = "Enter Valid Email")
+        String name,
         String email,
+        String contact,
         List<AddressDTO> address
 ) {
 }

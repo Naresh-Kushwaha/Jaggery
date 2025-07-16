@@ -1,6 +1,7 @@
 package com.naresh.service;
 
 
+import com.naresh.dto.AuthRequest;
 import com.naresh.dto.LoginResponse;
 import com.naresh.entity.UserEntity;
 import com.naresh.repository.UserEntityRepository;
@@ -22,11 +23,11 @@ public class AuthService {
         UserEntity savedUser=repository.save(userEntity);
         return savedUser.getEmail();
     }
-    public LoginResponse generateToken(String username){
-        UserEntity userEntity=repository.findById(username).orElseThrow(()->{
+    public LoginResponse generateToken(AuthRequest authRequest){
+        UserEntity userEntity=repository.findByEmail(authRequest.getEmail()).orElseThrow(()->{
             throw new RuntimeException("user not found");
         });
-        String token=jwtService.generateToken(username,userEntity);
+        String token=jwtService.generateToken(userEntity);
         return new LoginResponse(token);
 
     }

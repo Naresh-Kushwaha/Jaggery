@@ -9,15 +9,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
 @Component
 public class CustomerMapper {
-
     public Customer toUserEntity(CustomerRequest req) {
         if (req == null) return null;
-
         List<Address> addressList = new ArrayList<>();
-
         if (req.address() != null) {
             for (AddressDTO addrReq : req.address()) {
                 Address address = new Address();
@@ -32,18 +28,16 @@ public class CustomerMapper {
                 addressList.add(address);
             }
         }
-
         return Customer.builder()
-                .mobile(req.mobile())
-                .email(req.email())
+                .name(req.name())
+                .contact(req.contact())
                 .address(addressList)
                 .build();
     }
-
     public CustomerResponse fromUserEntity(Customer customer){
-        if(customer ==null)return null;
-        return new CustomerResponse(
-                customer.getMobile(), customer.getEmail(), customer.getAddress()
+        if(customer==null)return null;
+        return new CustomerResponse(customer.getUserId(),
+                customer.getName(), customer.getEmail(), customer.getContact()
         );
     }
 }

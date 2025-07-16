@@ -19,9 +19,10 @@ import java.math.BigDecimal;
 public class PaymentConfirmation{
        @Id
        private String orderReference;
-       private  BigDecimal amount;
+       private  BigDecimal totalAmount;
        private   String paymentMethod;
        private String email;
+    private String name;
       @ManyToOne
     private Notification notification;
 

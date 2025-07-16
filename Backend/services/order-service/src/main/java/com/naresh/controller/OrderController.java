@@ -7,6 +7,8 @@ import com.naresh.service.OrderService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -18,9 +20,9 @@ import java.util.List;
 public class OrderController {
 
 private final OrderService service;
- @PostMapping
-    public ResponseEntity<String> createOrder(@RequestBody @Valid OrderRequest request, Principal principal){
-     return  ResponseEntity.ok(service.createOrder(request,principal));
+ @PostMapping("/create-order")
+    public ResponseEntity<String> createOrder(@RequestBody @Valid OrderRequest request, @AuthenticationPrincipal Jwt jwt){
+     return  ResponseEntity.ok(service.createOrder(request,jwt));
  }
     @GetMapping
     public ResponseEntity<List<OrderResponse>> findAll() {

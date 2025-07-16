@@ -27,7 +27,7 @@ public class AuthController {
     public ResponseEntity<LoginResponse> getToken(@RequestBody AuthRequest authRequest){
         Authentication authentication= authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getEmail(),authRequest.getPassword()));
         if(authentication.isAuthenticated()){
-            LoginResponse token= authService.generateToken(authRequest.getEmail());
+            LoginResponse token= authService.generateToken(authRequest);
             return new ResponseEntity<>(token,HttpStatus.OK);
         }else {
             throw new RuntimeException("Invalid access");

@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
+
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-
 export default function Header() {
   const { user, logout } = useContext(AuthContext);
-
   return (
     <header className="p-4 bg-white dark:bg-gray-800 shadow-md flex justify-between items-center md:px-16">
       <h1 className="text-xl font-bold text-gray-800 dark:text-white">MyApp</h1>

@@ -9,8 +9,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Map;
 
 @RestController
@@ -22,10 +25,10 @@ public class PaymentController {
 
     @PostMapping("/create-order")
     ResponseEntity<String> requestOrderPayment(
-            @RequestBody @Valid PaymentRequest request
-    ) {
+            @RequestBody @Valid PaymentRequest request, @AuthenticationPrincipal Jwt jwt
+            ) {
         try {
-            return ResponseEntity.ok(service.createOrder(request));
+            return ResponseEntity.ok(service.createOrder(request,jwt));
 
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
@@ -34,9 +37,9 @@ public class PaymentController {
     }
 
     @PostMapping("/verify")
-    public ResponseEntity<?> verifyPayment(@RequestBody RazorpayVerifyRequest request) throws Exception {
+    public ResponseEntity<?> verifyPayment(@RequestBody RazorpayVerifyRequest request,@AuthenticationPrincipal Jwt jwt) throws Exception {
 
-            boolean verified = service.verifyPayment(request);
+            boolean verified = service.verifyPayment(request,jwt);
             return ResponseEntity.ok(Map.of("Success", verified));
 
     }

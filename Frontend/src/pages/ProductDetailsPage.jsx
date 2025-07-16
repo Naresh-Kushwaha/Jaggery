@@ -1,41 +1,25 @@
-import { useParams } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useLocation} from "react-router-dom";
+import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
-import products from  "../assets/products" // Assuming you have a data file for products
-import axios from "axios";
 
 export default function ProductDetailsPage() {
-
-  const { id } = useParams();
+const location = useLocation();
+const {product}=location.state || {};
   const {addToCart}=useContext(CartContext);
-  const [product, setProduct] = useState({});
+ 
   const [loading,setLoading]=useState(!product);
   const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
  const backendApi=import.meta.env.VITE_BACKEND_URL;
- useEffect(()=>{
-  axios.get(`${backendApi}/product?id=${id}`)
-  .then((response)=>{
-    setProduct(response.data);
-    setLoading(false);
-    console.log(product);
-  })
-  .catch((error)=>{
-    setError(error);
-    setLoading(false);
-  })
- },[])
-// /product/getAllProducts
+
 
 if (loading) return <p>Loading product...</p>;
   if (error) return <p>{error}</p>;
-
 if (!product) {
   return <div className="text-center mt-10 text-red-500">Product not found</div>;
 }
   return (
     <>
-     
       <div className="max-w-6xl mx-auto px-4 py-10">
         <div className="flex flex-col md:flex-row gap-8">
           {/* Image */}
@@ -64,7 +48,7 @@ if (!product) {
 
             {/* Add to Cart */}
             <button
-              onClick={()=>addToCart(product,quantity)}
+              onClick={()=>addToCart(product.id)}
               className="mt-4 bg-yellow-700 text-white px-6 py-2 rounded hover:bg-yellow-800"
               disabled={product.stock === 0}
             >

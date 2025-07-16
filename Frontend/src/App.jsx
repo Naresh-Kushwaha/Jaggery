@@ -14,23 +14,26 @@ import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import TrackOrderPage from './pages/TrackOrderPage';
 import UserProfile from './pages/UserProfile';
 import PrivateRoute from './routes/PrivateRoute';
-
+import PaymentSuccess from './pages/PaymentSuccess';
+import PaymentFailed from './pages/PaymentFailed';
 function App() {
   return (
-    <div >
+    <div>
       <Header></Header>
       <Routes>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/" element={<Home></Home>}> </Route>
-        <Route path="/products/:id" element={<ProductListingPage></ProductListingPage>}></Route>
+        <Route path="/products" element={<ProductListingPage></ProductListingPage>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/contact" element={<div><Contact></Contact></div>}></Route>
-        <Route path="/product/:id" element={<ProductDetailsPage></ProductDetailsPage>}></Route>
+        <Route path="/product/detail" element={<ProductDetailsPage></ProductDetailsPage>}></Route>
         <Route path="/cart" element={<PrivateRoute><CartPage></CartPage></PrivateRoute>}></Route>
         <Route path="/checkout" element={<PrivateRoute><CheckoutPage></CheckoutPage></PrivateRoute>}></Route>
         <Route path="/order-confirmation" element={<OrderConfirmationPage/>} />
-        <Route path="/track-order" element={<TrackOrderPage/>} />
+        <Route path="/track-order" element={<PrivateRoute><TrackOrderPage/></PrivateRoute>} />
+        <Route path="/payment-success" element={<PrivateRoute><PaymentSuccess/></PrivateRoute>} />
+        <Route path="/payment-failed" element={<PrivateRoute><PaymentFailed/></PrivateRoute>} />
         <Route path="/profile" element={
           <PrivateRoute>
             <UserProfile />
@@ -41,5 +44,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

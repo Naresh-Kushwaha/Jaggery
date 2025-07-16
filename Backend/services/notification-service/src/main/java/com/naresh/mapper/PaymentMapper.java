@@ -13,13 +13,13 @@ public class PaymentMapper {
                         .orderReference(paymentConfirmationDTO.orderReference())
                                 .email(paymentConfirmationDTO.email())
                                         .paymentMethod(paymentConfirmationDTO.paymentMethod())
-                                                .amount(paymentConfirmationDTO.amount())
+                                                .totalAmount(paymentConfirmationDTO.totalAmount())
                 .build();
     }
     public PaymentConfirmationDTO fromPaymentConfirmation(PaymentConfirmation paymentConfirmation){
-        return new PaymentConfirmationDTO(paymentConfirmation.getOrderReference(),
+        return new PaymentConfirmationDTO(paymentConfirmation.getName(), paymentConfirmation.getOrderReference(),
                 paymentConfirmation.getEmail(), paymentConfirmation.getPaymentMethod(),
-                paymentConfirmation.getAmount());
+                paymentConfirmation.getTotalAmount());
 
     }
 }

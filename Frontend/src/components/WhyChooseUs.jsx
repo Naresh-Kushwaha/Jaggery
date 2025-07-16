@@ -5,7 +5,6 @@ export default function WhyChooseUs() {
     { title: "Eco Friendly", desc: "Plastic-free, biodegradable packaging" },
     { title: "Certified Quality", desc: "Lab-tested for purity & safety" },
   ];
-
   return (
     <section className="px-6 py-12 bg-white">
       <h2 className="text-2xl font-bold text-center text-yellow-800 mb-8">

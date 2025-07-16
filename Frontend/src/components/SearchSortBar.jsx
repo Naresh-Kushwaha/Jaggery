@@ -8,7 +8,6 @@ export default function SearchSortBar({ searchTerm, setSearchTerm, sort, setSort
         onChange={(e) => setSearchTerm(e.target.value)}
         className="px-4 py-2 border rounded w-full md:w-1/2"
       />
-
       <select
         value={sort}
         onChange={(e) => setSort(e.target.value)}

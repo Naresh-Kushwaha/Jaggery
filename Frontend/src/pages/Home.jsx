@@ -4,10 +4,6 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import Testimonials from "../components/Testimonials";
 import NewsletterSignup from "../components/NewsletterSignup";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-
-
-
 const sampleProducts = [
   {
     id: 1,
@@ -46,12 +42,7 @@ const sampleProducts = [
   stock: 15
   },
 ];
-
-
-
 export default function Home() {
-  
- 
   return (
     <>
       <div className="min-h-screen md:px-12 px-6 flex justify-center items-center bg-[#FBEAEB]">
@@ -75,7 +66,6 @@ export default function Home() {
               ))}
             </div>
           </section>
-
           <WhyChooseUs />
           <Testimonials />
           <NewsletterSignup />

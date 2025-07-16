@@ -3,10 +3,12 @@ package com.naresh.dto;
 import com.naresh.model.Address;
 
 import java.util.List;
+import java.util.UUID;
 
 public record CustomerResponse(
-        String mobile,
+        UUID userId,
+        String name,
         String email,
-        List<Address> address
+        String contact
 ) {
 }

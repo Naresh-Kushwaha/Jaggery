@@ -1,9 +1,12 @@
 package com.naresh.dto;
 
+import java.math.BigDecimal;
+
 public record PaymentRequest(
-     Long amount,
-     String orderReference,
-     String email
+        String name,
+        String email,
+        BigDecimal amount,
+        Long orderReference
 
 ) {
 }

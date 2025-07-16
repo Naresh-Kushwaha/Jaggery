@@ -21,18 +21,16 @@ public class JwtService {
     byte[] decodedSecret = Base64.getDecoder().decode(base64Secret);
     SecretKey key = Keys.hmacShaKeyFor(decodedSecret);
 
-    public String generateToken(String username, UserEntity userEntity){
+    public String generateToken( UserEntity userEntity){
         Map<String,Object> claims=new HashMap<>();
-        claims.put("name",userEntity.getName());
         claims.put("email",userEntity.getEmail());
-        claims.put("mobile",userEntity.getMobile());
         claims.put("roles",userEntity.getRoles());
         return Jwts.builder()
                 .claims()
                 .add(claims)
-                .subject(username)
+                .subject(userEntity.getUser_id().toString())
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis()+1000*60*60))
+                .expiration(new Date(System.currentTimeMillis()+1000*60*60*24))
                 .and()
                 .signWith(key, SignatureAlgorithm.HS512)
                 .compact();
@@ -45,7 +43,7 @@ public class JwtService {
                 .and()
                 .id(UUID.randomUUID().toString())
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis()+1000*60*60*24*7))
+                .expiration(new Date(System.currentTimeMillis()+1000*60*60*24*24))
                 .signWith(key, SignatureAlgorithm.HS512)
                 .compact();
     }
@@ -53,7 +51,7 @@ public class JwtService {
         Map<String ,Object>response=new HashMap<>();
         try{
             Claims claims=extractAllClaims(token);
-            response.put("username",claims.getSubject());
+            response.put("user_id",claims.getSubject());
             response.put("roles",claims.get("roles"));
             response.put("id",claims.getId());
             response.put("issuer",claims.getIssuer());

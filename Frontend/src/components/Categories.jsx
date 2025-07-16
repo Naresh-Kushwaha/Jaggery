@@ -2,11 +2,6 @@ export default function Categories({name,image}) {
 
 
   return (
-    // <section className="bg-yellow-50 py-12 px-6 ">
-    //    <h2 className="text-2xl font-bold mb-6 text-yellow-800 text-center">
-    //     Shop by Category
-    //   </h2> 
-    //    <div className="grid  grid-cols-1 md:grid-cols-4 gap-6"> 
 
           <div
         
@@ -19,8 +14,6 @@ export default function Categories({name,image}) {
             />
             <div className="text-center py-2 font-semibold">{name}</div>
           </div>
-        
-      // </div>
-    // </section>
+
   );
 }

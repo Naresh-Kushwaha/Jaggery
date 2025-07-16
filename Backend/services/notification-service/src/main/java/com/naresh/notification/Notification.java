@@ -21,7 +21,7 @@ public class Notification {
     private Long id;
     private String email;
     @JsonIgnore
-    @OneToMany(mappedBy = "notification",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "notification",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderConfirmation> orderConfirmations=new ArrayList<>();
     @JsonIgnore
     @OneToMany(mappedBy = "notification",cascade = CascadeType.ALL)

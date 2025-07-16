@@ -1,5 +1,6 @@
 package com.naresh.notification;
 
+import com.naresh.kafka.payment.PaymentConfirmationDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -13,13 +14,10 @@ import static org.springframework.kafka.support.KafkaHeaders.TOPIC;
 @Slf4j
 @RequiredArgsConstructor
 public class NotificationProducer {
-    private final KafkaTemplate<String,PaymentNotificationRequest>kafkaTemplat;
-
-
-
-    public void sendNotification(PaymentNotificationRequest request){
+    private final KafkaTemplate<String, PaymentConfirmationDTO>kafkaTemplat;
+    public void sendNotification(PaymentConfirmationDTO request){
         log.info("Sending  notification with body =< {} >",request);
-        Message<PaymentNotificationRequest> message= MessageBuilder
+        Message<PaymentConfirmationDTO> message= MessageBuilder
                 .withPayload(request)
                 .setHeader(TOPIC,"payment-topic")
                 .build();

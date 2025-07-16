@@ -1,5 +1,4 @@
 package com.naresh.service;
-
 import com.naresh.Repository.CategoryRepository;
 import com.naresh.Repository.ProductRepository;
 import com.naresh.dto.*;
@@ -12,12 +11,10 @@ import com.naresh.model.Product;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
 public class ProductService {
@@ -37,10 +34,12 @@ public class ProductService {
     }
     public List<ProductResponse> getAllProducts(){
       return productRepository.findAll().stream().map(productMapper::fromProduct).toList();
-
     }
     public List<ProductResponse>getProductByCategory(Long id){
-       return productRepository.findAllByCategoryId(id);
+       if(id==0){
+           return getAllProducts();
+       }
+        return productRepository.findAllByCategoryId(id);
     }
     public Category createCategory(CategoryRequest categoryRequest){
         Category category= categoryMapper.toCategory(categoryRequest);
@@ -64,7 +63,6 @@ public class ProductService {
                    productresponse.add(productMapper.fromProduct(product));
         }
         categoryRepository.save(category);
-
         return productresponse;
     }
     public void DeleteCategory(Long id){
@@ -72,7 +70,6 @@ public class ProductService {
         categoryRepository.deleteById(id);
     }
     public void DeleteProduct(Long id){
-
         productRepository.deleteById(id);
     }
     @Transactional(rollbackOn=ProductPurchaseException.class)
@@ -83,7 +80,6 @@ public class ProductService {
         var storedProducts=productRepository.findAllByIdInOrderById(productIds);
         if(productIds.size()!= storedProducts.size()){
             throw new ProductPurchaseException("One or more product does not exist");
-
         }
         var sortedRequest=request.stream().sorted(
                 Comparator.comparing(PurchaseRequest::productId)
@@ -99,9 +95,7 @@ public class ProductService {
             product.setStock(newstock);
             productRepository.save(product);
             purchasedProduct.add(productMapper.toPurchaseResponse(product, productRequest.quantity()));
-
         }
         return purchasedProduct;
-
     }
 }

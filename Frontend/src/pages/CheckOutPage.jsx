@@ -1,60 +1,40 @@
 import { CartContext } from "../context/CartContext";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-
+import RazorpayButton from "./RazorPayButton";
 export default function CheckoutPage() {
     const navigate=useNavigate();
   const { cartItems, clearCart } = useContext(CartContext);
-
+const [order,setOrder]=useState();
   const [address, setAddress] = useState ({
-    name: "",
-    phone: "",
-    street: "",
+    fullName: "",
+    phoneNumber: "",
+    streetAddress: "",
     city: "",
     state: "",
-    zip: "",
+    zipCode: "",
   });
-
-  const total = cartItems.reduce(
+  const totalAmount = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
-
   const handleChange = (e) => {
     setAddress((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
-  const placeOrder = () => {
-    const order={
-        id:"ORD"+ Date.now(),
-        cartItems,
-        address,
-        total,
-    };
-    navigate("/order-confirmation", { state: { order } });
-    // Normally you'd send this to the backend
-    console.log("Order Placed:", { cartItems, address });
-    alert("🎉 Order placed successfully!");
-
-    clearCart(); // Clear cart after placing order
-  };
-
+console.log(cartItems);
   return (
     <>
- 
       <div className="max-w-6xl mx-auto px-4 py-10">
         <h1 className="text-2xl font-bold text-yellow-800 mb-8">Checkout</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Address Form */}
+        
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-gray-700">Shipping Address</h2>
 
             <input
               type="text"
-              name="name"
+              name="fullName"
               placeholder="Full Name"
               value={address.name}
               onChange={handleChange}
@@ -63,7 +43,7 @@ export default function CheckoutPage() {
             />
             <input
               type="text"
-              name="phone"
+              name="phoneNumber"
               placeholder="Phone Number"
               value={address.phone}
               onChange={handleChange}
@@ -72,7 +52,7 @@ export default function CheckoutPage() {
             />
             <input
               type="text"
-              name="street"
+              name="streetAddress"
               placeholder="Street Address"
               value={address.street}
               onChange={handleChange}
@@ -99,7 +79,7 @@ export default function CheckoutPage() {
             />
             <input
               type="text"
-              name="zip"
+              name="zipCode"
               placeholder="ZIP Code"
               value={address.zip}
               onChange={handleChange}
@@ -107,8 +87,6 @@ export default function CheckoutPage() {
               required
             />
           </div>
-
-          {/* Cart Summary */}
           <div className="border rounded-lg p-6 shadow-md">
             <h2 className="text-xl font-semibold mb-4 text-gray-700">Order Summary</h2>
 
@@ -120,21 +98,14 @@ export default function CheckoutPage() {
                 </li>
               ))}
             </ul>
-
             <hr className="my-4" />
-
-            <p className="text-lg font-bold">Total: ₹{total}</p>
-
-            <button
-              onClick={placeOrder}
-              className="mt-6 w-full bg-yellow-700 text-white py-2 rounded hover:bg-yellow-800"
-            >
-              Place Order
-            </button>
+            <p className="text-lg font-bold">Total: ₹{totalAmount}</p>
+            <div >
+             <RazorpayButton totalAmount={totalAmount} shippingAddress={address} ></RazorpayButton>
+            </div>
           </div>
         </div>
       </div>
-
     </>
   );
 }

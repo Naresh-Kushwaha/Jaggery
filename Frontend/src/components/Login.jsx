@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Login(){
     const navigate=useNavigate();
-    const { login, userDetails } = useContext(AuthContext);
+    const { login, userDetails,setUserDetails } = useContext(AuthContext);
     const backendApi=import.meta.env.VITE_BACKEND_URL;
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
@@ -43,7 +43,7 @@ export default function Login(){
         }
     };
     useEffect(()=>{
-if(localStorage.getItem("userDetails")){
+if(userDetails){
     navigate("/profile")}
     },[]);
     return(

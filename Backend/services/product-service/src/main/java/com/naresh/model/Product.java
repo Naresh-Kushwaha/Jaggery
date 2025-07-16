@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -25,7 +27,13 @@ public class Product {
    private BigDecimal price;
    private String ingredients;
    @JsonIgnore
+   @ManyToMany(mappedBy = "products" ,cascade = CascadeType.ALL)
+   private List<CartItem>cartItems=new ArrayList<>();
+   @JsonIgnore
    @ManyToOne
    @JoinColumn(name="category_id")
    private Category category;
+
+
+
 }

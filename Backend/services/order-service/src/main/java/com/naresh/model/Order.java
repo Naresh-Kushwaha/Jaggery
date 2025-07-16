@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "orders")
@@ -30,7 +31,7 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<OrderLine> orderLines = new ArrayList<>();
-    private String email;
+    private UUID userId;
     @CreatedDate
     @Column(updatable = false, nullable = false)
     private LocalDateTime createdDate;

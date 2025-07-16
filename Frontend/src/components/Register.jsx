@@ -1,7 +1,5 @@
-import { Monitor } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 export default function Register(){
     const navigate=useNavigate();
     const [email,setEmail]=useState("");
@@ -10,9 +8,8 @@ export default function Register(){
     const [name,setName]=useState("");
     const [error,setError]=useState("");
     const [success,setSuccess]=useState("");
-const backendApi=import.meta.env.VITE_BACKEND_URL;
+    const backendApi=import.meta.env.VITE_BACKEND_URL;
     const handleRegister=async(e)=>{
-        
         e.preventDefault();
         try{
             const response=await fetch(`${backendApi}/auth/register`,{
@@ -37,7 +34,6 @@ const backendApi=import.meta.env.VITE_BACKEND_URL;
             setSuccess("");
         }
     };
-    
     return(
         <div className="min-h-screen flex items-center justify-center bg-gray-100  px-4 ">
         <div>{success}</div>
@@ -88,7 +84,6 @@ const backendApi=import.meta.env.VITE_BACKEND_URL;
                     required
                     ></input>
                 </div>
-              
                <button 
                type="submit"
                className=" w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"

@@ -25,13 +25,9 @@ public class ProductController {
      public ResponseEntity<Category> getCategory(@RequestParam("categoryId") Long id){
          return ResponseEntity.status(HttpStatus.OK).body(service.getCategory(id));
      }
-     @GetMapping ("/category")
+     @GetMapping ("/getProductByCategoryId")
      public ResponseEntity<List<ProductResponse>>getProductByCategoryId(@RequestParam("id")Long id){
         return ResponseEntity.ok(service.getProductByCategory(id));
-     }
-     @GetMapping("/getAllProducts")
-     public ResponseEntity<List<ProductResponse>> getAllProduct(){
-        return ResponseEntity.ok(service.getAllProducts());
      }
 
      @PostMapping("/createCategory")
@@ -44,10 +40,9 @@ public class ProductController {
      }
     @PostMapping("/addProductListToCategory")
     public ResponseEntity<List<ProductResponse>> addProductListToCategory(@RequestParam("categoryId") Long id,
-                                                                          @RequestBody  List<ProductRequest> productRequestList){
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.addProductListToCategory(id,productRequestList));
+                                                                          @RequestBody  List<ProductRequest> productRequestList) {
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.addProductListToCategory(id, productRequestList));
     }
-
     @PostMapping("/purchase")
     public ResponseEntity<List<PurchaseResponse>> purchaseProduct(
             @RequestBody List<PurchaseRequest>req

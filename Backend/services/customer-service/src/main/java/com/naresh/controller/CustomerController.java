@@ -14,40 +14,35 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/customer")
 @RequiredArgsConstructor
 public class CustomerController {
-
     private final CustomerService service;
-    @GetMapping("/me")
-    public ResponseEntity<?>JwtDecode(@AuthenticationPrincipal Jwt jwt){
-
-        return ResponseEntity.status(HttpStatus.OK).body(jwt.getClaims());
-    }
     @PostMapping("/saveCustomerDetails")
-    public ResponseEntity<CustomerResponse> register(@RequestBody @Valid CustomerRequest customer){
+    public ResponseEntity<CustomerResponse> saveCustomerDetails(@RequestBody @Valid CustomerRequest customer,@AuthenticationPrincipal Jwt jwt){
         return ResponseEntity.status(HttpStatus.OK)
-                .body(service.saveCustomerDetails(customer));
+                .body(service.saveCustomerDetails(customer,jwt));
     }
     @GetMapping("/address")
-    public ResponseEntity<List<AddressDTO>>getAddressByCustomerId(@RequestParam("userId") String id){
-        return ResponseEntity.status(HttpStatus.OK).body(service.getAddressByCustomerId(id));
+    public ResponseEntity<List<AddressDTO>>getAddressByUserId(@AuthenticationPrincipal Jwt jwt){
+        return ResponseEntity.status(HttpStatus.OK).body(service.getAddressByUserId(jwt));
     }
-    @GetMapping("/getCustomer/{id}")
-    public ResponseEntity<CustomerResponse>getCustomer(@PathVariable String id){
-        return ResponseEntity.status(HttpStatus.OK).body(service.findCustomer(id));
+    @GetMapping("/getCustomer")
+    public ResponseEntity<CustomerResponse>getCustomerByUserId(@RequestParam UUID UserId){
+        return ResponseEntity.status(HttpStatus.OK).body(service.getCustomerByUserId(UserId));
     }
-
-    @PutMapping("/update/address")
-    public ResponseEntity<AddressDTO>updateAddByAddId(@RequestParam("id") Long id,@Valid  @RequestBody AddressDTO addressDTO){
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.updateAddByAddId(id,addressDTO));
+    @PutMapping("/update/address/{id}")
+    public ResponseEntity<AddressDTO>updateAddByAddId(@Valid  @RequestBody AddressDTO addressDTO,@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.updateAddByAddId(addressDTO,id));
     }
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCustomer(@PathVariable String id){
-        service.deleteUser(id);
+    @DeleteMapping
+    public ResponseEntity<Void> deleteCustomer(@AuthenticationPrincipal Jwt jwt){
+        service.deleteUser(jwt);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     @DeleteMapping("/address/{id}")
@@ -55,8 +50,4 @@ public class CustomerController {
         service.deleteAddress(id);
         return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
-
-
-
 }

@@ -1,8 +1,11 @@
 package com.naresh.dto;
 
+import java.util.UUID;
+
 public record CustomerResponse(
-        Long id,
-        String username,
-        String email
+        UUID userId,
+        String name,
+        String email,
+        String contact
 ) {
 }

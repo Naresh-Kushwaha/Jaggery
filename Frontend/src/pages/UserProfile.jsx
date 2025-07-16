@@ -1,122 +1,84 @@
+import { jwtDecode } from "jwt-decode";
+import { useEffect, useState } from "react";
+    const UserProfile = () => {
+      const BACKEND_URL=import.meta.env.VITE_BACKEND_URL;
+      const [user, setUser] = useState({ name: '', email: '', contact: '' });
+      const [error, setError] = useState(null);
+      const [loading, setLoading] = useState(true);  
+      useEffect(() => {
+        const fetchUserProfile = async () => {
+          try {
+            const token = localStorage.getItem('token');
+            const decode=jwtDecode(token);
+            const id=decode.sub;
+            if (!token) {
+              throw new Error('No JWT token found');
+            }
+            const response = await fetch(`${BACKEND_URL}/customer/getCustomer?UserId=${id}`, {
+              method: 'GET',
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+              },
+            });
 
-import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
-import axios from "axios";
+            if (!response.ok) {
+             
+              throw new Error('Failed to fetch user profile');
+            }
 
-const UserProfile = () => {
-  const {logout} = useContext(AuthContext);
-  const token=localStorage.getItem("token");
-  const [loading,setLoading]=useState();
-const userDetails=JSON.parse(localStorage.getItem("userDetails"));
-const backendApi=import.meta.env.VITE_BACKEND_URL;
-const [userData,setUserData]=useState();
-useEffect(() => {
-  const fetchCustomer = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(`${backendApi}/customer/getCustomer/${userDetails.email}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer " + token
-        }
-      });
+            const data = await response.json();
+            setUser({
+              name: data.name || '',
+              email: data.email || '',
+              contact: data.contact || '',
+            });
+            setLoading(false);
+          } catch (err) {
+            setError(err.message);
+             localStorage.removeItem("token");
+            setLoading(false);
+          }
+        };
 
-      if (response.ok) {
-        const data = await response.json();
-        setUserData(data);
-      } else {
-        console.error("Failed to fetch customer data:", response.status);
+        fetchUserProfile();
+      }, []);
+      if (loading) {
+        return (
+          <div className="flex items-center justify-center min-h-screen bg-gray-100">
+            <div className="text-xl font-semibold text-gray-600">Loading...</div>
+          </div>
+        );
       }
-    } catch (err) {
-      console.error("Fetch error:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  fetchCustomer();
-}, []);
-  console.log(userData)
-  
-  const addAddress=()=>{
-    
-  }
-  return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
-      <div className="max-w-md w-full bg-white shadow-lg rounded-lg p-8">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-700">
-          User Profile
-        </h2>
-
-        <div className="space-y-4">
-          <div className="flex justify-between border-b pb-2">
-            <span className="font-medium text-gray-600">Username:</span>
-            <span className="text-gray-800">{userDetails.name}</span>
+      if (error) {
+        return (
+          <div className="flex items-center justify-center min-h-screen bg-gray-100">
+            <div className="text-xl font-semibold text-red-600">Error: {error}</div>
           </div>
+        );
+      }
 
-          <div className="flex justify-between border-b pb-2">
-            <span className="font-medium text-gray-600">Email:</span>
-            <span className="text-gray-800">{userDetails.email}</span>
+      return (
+        <div className="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-md w-full bg-white shadow-lg rounded-lg p-8">
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">User Profile</h2>
+            <div className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Name</label>
+                <p className="mt-1 text-lg text-gray-900">{user.name}</p>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Email</label>
+                <p className="mt-1 text-lg text-gray-900">{user.email}</p>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Contact</label>
+                <p className="mt-1 text-lg text-gray-900">{user.contact}</p>
+              </div>
+            </div>
           </div>
-
-          <div className="flex justify-between border-b pb-2">
-            <span className="font-medium text-gray-600">Phone:</span>
-            <span className="text-gray-800">{userDetails.mobile}</span>
-          </div>
-{userData ? (
-  <div>
-    <span className="font-medium text-gray-600">Address:</span>
-    {userData.address.map((addr, index) => (
-      <div className="">
-      <div key={index} className="flex justify-between  pb-2">
-        <h2>House No.</h2>
-        <span className="text-gray-800">{addr.houseNo}</span>
-         </div>
-       <div key={index} className="flex justify-between pb-2 ">
-        <h2>Street</h2>
-        <span className="text-gray-800">{addr.street}</span>
-         </div>
-         <div key={index} className="flex justify-between pb-2 ">
-        <h2>Landmark</h2>
-        <span className="text-gray-800">{addr.landmark}</span>
-         </div>
-         <div key={index} className="flex justify-between pb-2 ">
-        <h2>District</h2>
-        <span className="text-gray-800">{addr.district}</span>
-         </div>
-         <div key={index} className="flex justify-between pb-2 ">
-        <h2>State</h2>
-        <span className="text-gray-800">{addr.state}</span>
-         </div>
-         <div key={index} className="flex justify-between pb-2 ">
-        <h2>Country</h2>
-        <span className="text-gray-800">{addr.country}</span>
-         </div>
-         <div key={index} className="flex justify-between pb-2 ">
-        <h2>pincode</h2>
-        <span className="text-gray-800">{addr.pinCode}</span>
-         </div>
-      </div>
-      
-      
-    ))}
-  </div>
-) : null}
-          <div className="flex justify-between border-b pb-2">
-            <span className="font-medium text-gray-600">Address:</span>
-           <button className="bg-blue-500 p-2 rounded-lg hover:bg-blue-600"
-            onClick={addAddress}>Add new Address</button>
-          </div>
-  <div className="flex justify-between ">
-      <button onClick={logout} className="bg-blue-500 rounded p-2 px-3 hover:bg-blue-600 w-full">Logout</button>
-     </div>
         </div>
-      </div>
-   
-        
-    </div>
-  );
-};
-
-export default UserProfile;
+      );
+    };
+export default UserProfile
+  

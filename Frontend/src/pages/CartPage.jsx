@@ -1,16 +1,13 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
-
 export default function CartPage() {
   const { cartItems, updateQuantity, removeFromCart } = useContext(CartContext);
   const total = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-
   return (
     <>
       <div className="max-w-6xl mx-auto px-4 py-10">
         <h1 className="text-2xl font-bold mb-6 text-yellow-800">Your Shopping Cart</h1>
-
         {cartItems.length === 0 ? (
           <p className="text-gray-600">
             Your cart is empty.{" "}
@@ -47,8 +44,6 @@ export default function CartPage() {
                 </div>
               ))}
             </div>
-
-            {/* Cart Summary */}
             <div className="mt-10 p-6 border rounded-lg shadow-md max-w-md ml-auto">
               <h2 className="text-xl font-bold mb-4">Cart Summary</h2>
               <p className="text-gray-700 mb-4">

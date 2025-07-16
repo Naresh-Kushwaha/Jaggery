@@ -1,20 +1,17 @@
 import axios from "axios";
-
-const RazorpayButton = ({totalAmount}) => {
-
+import { CartContext } from "../context/CartContext";
+import { useContext } from "react";
+import {  useNavigate } from "react-router-dom";
+const RazorpayButton = ({shippingAddress,totalAmount}) => {
+  const navigation=useNavigate();
+const {cartItems}=useContext(CartContext);
 const token=localStorage.getItem("token");
-
-
   const createOrder = () => {
     axios.post(
-      `http://localhost:8222/api/v1/payment/razorpay/create-order?=${totalAmount}`,
-      {
-        items: [
-          { productId: 1, quantity: 2 },
-        ],
-        shippingAddress: "Some address",
-        totalAmount: totalAmount,
-      },
+      "http://localhost:8222/api/v1/order/create-order",
+     {
+      "products": cartItems,shippingAddress,totalAmount:totalAmount*100
+     },
       {
         headers: {
           "Content-Type": "application/json",
@@ -23,12 +20,11 @@ const token=localStorage.getItem("token");
       }
     )
     .then((res) => {
-      console.log(res.data);
+    
       const data = res.data;
-     
       const order = {
         id: data.id,
-        amount: data.amount,
+        amount: data.amount*100,
       };
       startPayment(data, token, order);
     })
@@ -37,17 +33,15 @@ const token=localStorage.getItem("token");
       alert("Failed to create order");
     });
   };
-
   const startPayment = (data, token, order) => {
     const options = {
       key: "rzp_test_F1EGRQAup4QNOA",
-      amount: data.amount * 100,
+      amount: order.amount*100,
       currency: data.currency,
       order_id: data.id,
       handler: function (response) {
-        console.log(response);
         axios.post(
-  "http://localhost:8222/api/v1/payment/razorpay/verify",
+  "http://localhost:8222/api/v1/payment/verify",
   {
     razorpay_payment_id: response.razorpay_payment_id,
     razorpay_order_id: response.razorpay_order_id,
@@ -62,12 +56,14 @@ const token=localStorage.getItem("token");
         )
         .then((res) => {
           alert("Payment Verified!");
+           navigation("/payment-success")
           console.log("Verification Response:", res.data);
           console.log("Order:", order);
         })
         .catch((err) => {
           console.error(err);
           alert("Verification Failed");
+          navigation("/payment-failed")
         });
       },
       theme: {
@@ -78,7 +74,6 @@ const token=localStorage.getItem("token");
     const rzp = new window.Razorpay(options);
     rzp.open();
   };
-
   return (
     <div className="p-4">
       <button
@@ -90,5 +85,4 @@ const token=localStorage.getItem("token");
     </div>
   );
 };
-
 export default RazorpayButton;

@@ -1,50 +1,74 @@
 import { createContext } from "react";
-import { useContext, useState } from "react";
+import {  useState } from "react";
 export const CartContext=createContext()
-
 export const CartProvider=({children})=>{
-
- const [cartItems,setCartItems]=useState([]);
- 
-const addToCart = (product, quantity) => {
-  setCartItems((prev) => {
-    const existingItem = prev.find((item) => item.id === product.id);
-
-    if (existingItem) {
-      const newQuantity = existingItem.quantity + quantity;
-
-      // Check if new quantity exceeds stock
-     
-      if (newQuantity <= product.stock) {
-        return prev.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: newQuantity }
-            : item
-        );
-      } else {
-        // Optionally show an alert or return prev if exceeding stock
-        alert("Cannot add more than stock available");
-        return prev;
-      }
+const [productList,setProductList]=useState([]);
+const [cartItems,setCartItems]=useState([]);
+const token=localStorage.getItem( "token")
+const BACKEND_API=import.meta.env.VITE_BACKEND_URL;
+const addToCart=async (id)=>{
+  try{
+    const response=await fetch (`${BACKEND_API}/product/cart/addToCart`,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(id)
+    });
+    if(!response.ok){
+       throw new Error("Failed to add Product to Cart.");
     }
-
-    // If item doesn't exist, add it only if quantity is valid
-    if (quantity <= product.stock) {
-      return [...prev, { ...product, quantity }];
-    } else {
-      alert("Cannot add more than stock available");
-      return prev;
-    }
-  });
-};
-
+    alert("Product Added to cart");
+  }catch(err){
+    console.error(err);
+  }
+}
  const updateQuantity=(id,quantity)=>{
+  
     setCartItems((prev)=>{
          return prev.map((item)=>
             item.id===id?{...item,quantity}:item);
     });
  };
- const removeFromCart=(id)=>{
+ const getCartItem=async()=>{
+try{
+  const response=await fetch(`${BACKEND_API}/product/cart/getCart`,{
+    method:"GET",
+    headers:{
+      "Content-Type": "application/json",
+      "Authorization":`Bearer ${token}`,
+    },
+  });
+  if(!response.ok){
+    throw new Error("Failed to Fetch prodcts");
+  }
+  
+  const data= await response.json();
+  const itemWithQuantity=data.map(item=>({
+    ...item,quantity:1,
+  }))
+  setCartItems(itemWithQuantity);
+}catch(err){
+  console.error(err);
+}
+ }
+ const removeFromCart=async(id)=>{
+  try{
+    const response=await fetch(`${BACKEND_API}/product/cart/removeFromCart`,{
+      method:"DELETE",
+      headers:{
+        "Content-Type": "application/json",
+      "Authorization":`Bearer ${token}`,
+      },
+      body: JSON.stringify(id)
+  })
+    if(!response.ok){
+    throw new Error("Failed to Fetch prodcts");
+  }}
+  catch(err){
+    console.error(err);
+  }
     setCartItems((prev)=>prev.filter((item)=>
         item.id!==id
     ));
@@ -54,6 +78,9 @@ const addToCart = (product, quantity) => {
  }
  return (
     <CartContext.Provider value={{
+      getCartItem,
+      setProductList,
+      productList,
         cartItems,
         addToCart,
         updateQuantity,
