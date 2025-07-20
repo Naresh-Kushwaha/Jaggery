@@ -6,7 +6,6 @@ export default function Header() {
  const {cartItems,getCartItem} =useContext(CartContext);
  const totalQty=cartItems.reduce((sum,item)=>sum+item.quantity,0);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-
 useEffect(() => {
 getCartItem();
 }, []);
