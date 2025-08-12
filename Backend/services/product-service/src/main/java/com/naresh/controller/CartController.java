@@ -4,7 +4,10 @@ import com.naresh.model.CartItem;
 import com.naresh.model.Product;
 import com.naresh.service.CartService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -14,13 +17,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
+@RefreshScope
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/product/cart")
+@Slf4j
 public class CartController {
    private final CartService cartService;
     @GetMapping("/getCart")
     public List<Product> getCart(@AuthenticationPrincipal Jwt jwt) {
+
         return cartService.getCart(jwt);
     }
     @PostMapping("/addToCart")

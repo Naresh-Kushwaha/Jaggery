@@ -8,6 +8,8 @@ import com.naresh.model.Customer;
 import com.naresh.service.CustomerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 import java.util.List;
 import java.util.UUID;
-
+@RefreshScope
 @RestController
 @RequestMapping("/api/v1/customer")
 @RequiredArgsConstructor

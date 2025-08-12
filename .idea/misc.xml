@@ -13,10 +13,14 @@
         <option value="$PROJECT_DIR$/Backend/services/customer-service/pom.xml" />
         <option value="$PROJECT_DIR$/Backend/services/product-service/pom.xml" />
         <option value="$PROJECT_DIR$/Backend/services/notification-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Backend/services/auth-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Backend/services/order-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Backend/services/payment-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Backend/services/discovery-server/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="valhalla-ea-23" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

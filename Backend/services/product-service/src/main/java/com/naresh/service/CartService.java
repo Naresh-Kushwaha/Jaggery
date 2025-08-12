@@ -8,12 +8,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
-
-import javax.swing.text.html.Option;
-import java.security.Principal;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -27,11 +23,11 @@ public class CartService {
         Map<String,Object>claims=jwt.getClaims();
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
-
-        CartItem cartItem = cartRepository.findByUserId((UUID) claims.get("sub"))
+        UUID userId=UUID.fromString((String) claims.get("sub"));
+        CartItem cartItem = cartRepository.findByUserId(userId)
                 .orElseGet(() -> {
                     CartItem newCart = new CartItem();
-                    newCart.setUserId((UUID) claims.get("sub"));
+                    newCart.setUserId(userId);
                     return newCart;
                 });
 
@@ -43,13 +39,15 @@ public class CartService {
     }
     public List<Product> getCart(Jwt jwt){
         Map<String,Object>claims=jwt.getClaims();
-        return cartRepository.findByUserId((UUID) claims.get("sub")).orElseThrow(()->
+        UUID userId=UUID.fromString((String) claims.get("sub"));
+        return cartRepository.findByUserId(userId).orElseThrow(()->
         new RuntimeException("cart not found")).getProducts();
 
     }
     public void removeFromCart(Long id,Jwt jwt){
         Map<String,Object>claims=jwt.getClaims();
-    CartItem cartItem=cartRepository.findByUserId((UUID) claims.get("sub")).orElseThrow(()->
+        UUID userId=UUID.fromString((String) claims.get("sub"));
+    CartItem cartItem=cartRepository.findByUserId(userId).orElseThrow(()->
         new RuntimeException("Cart NotFound")
     );
  boolean removed=cartItem.getProducts().removeIf(

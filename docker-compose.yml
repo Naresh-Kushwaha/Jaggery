@@ -1,0 +1,247 @@
+
+services:
+  config-server:
+    build: Backend/services/config-server
+    container_name: config-server
+    depends_on:
+      - rabbitmq
+    ports:
+      - "8888:8888"
+    networks:
+      - jaggery-net
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8888/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  discovery-server:
+    build: Backend/services/discovery-server
+    container_name: discovery-server
+    depends_on:
+      rabbitmq:
+        condition: service_started
+      config-server:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8761/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
+    ports:
+      - "8761:8761"
+    networks:
+      - jaggery-net
+  api-gateway:
+    build: Backend/services/api-gateway
+    container_name: api-gateway
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      discovery-server:
+        condition: service_healthy
+      config-server:
+        condition: service_healthy
+
+      rabbitmq:
+        condition: service_started
+    ports:
+      - "8222:8222"
+    networks:
+      - jaggery-net
+  auth-service:
+    build: Backend/services/auth-service
+    container_name: auth-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+    depends_on:
+      discovery-server:
+        condition: service_healthy
+      config-server:
+        condition: service_healthy
+
+      rabbitmq:
+        condition: service_started
+    ports:
+      - "9090:9090"
+    networks:
+      - jaggery-net
+  customer-service:
+    build: Backend/services/customer-service
+    container_name: customer-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      discovery-server:
+        condition: service_healthy
+      config-server:
+        condition: service_healthy
+
+      rabbitmq:
+        condition: service_started
+    ports:
+      - "8081:8081"
+    networks:
+      - jaggery-net
+  notification-service:
+    build: Backend/services/notification-service
+    container_name: notification-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      discovery-server:
+        condition: service_healthy
+      config-server:
+        condition: service_healthy
+
+      rabbitmq:
+        condition: service_started
+    ports:
+      - "8083:8083"
+    networks:
+      - jaggery-net
+  order-service:
+    build: Backend/services/order-service
+    container_name: order-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      discovery-server:
+        condition: service_healthy
+      config-server:
+        condition: service_healthy
+
+      rabbitmq:
+        condition: service_started
+    ports:
+      - "8084:8084"
+    networks:
+      - jaggery-net
+  payment-service:
+    build: Backend/services/payment-service
+    container_name: payment-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      discovery-server:
+        condition: service_healthy
+      config-server:
+        condition: service_healthy
+
+      rabbitmq:
+        condition: service_started
+    ports:
+      - "8085:8085"
+    networks:
+      - jaggery-net
+
+  product-service:
+    build: Backend/services/product-service
+    container_name: product-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      discovery-server:
+        condition: service_healthy
+      config-server:
+        condition: service_healthy
+
+      rabbitmq:
+        condition: service_started
+    ports:
+      - "8082:8082"
+    networks:
+      - jaggery-net
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - api-gateway
+    networks:
+      - jaggery-net
+    environment:
+      - VITE_BACKEND_URL=http://api-gateway:8222
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.3
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - jaggery-net
+
+  kafka:
+    image: confluentinc/cp-kafka:7.4.3
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:9093
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+    networks:
+      - jaggery-net
+  postgres:
+    image: postgres:16
+    command: postgres -c port=5434
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: jaggery
+    ports:
+      - "5434:5434"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+    networks:
+      - jaggery-net
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - jaggery-net
+
+
+volumes:
+  postgres_data:
+  rabbitmq_data:
+networks:
+  jaggery-net:
+    driver: bridge

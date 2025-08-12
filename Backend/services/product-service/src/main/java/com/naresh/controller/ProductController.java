@@ -4,13 +4,14 @@ import com.naresh.dto.*;
 import com.naresh.model.Category;
 import com.naresh.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
+@RefreshScope
 @RestController
 @RequestMapping("/api/v1/product")
 @RequiredArgsConstructor
@@ -31,11 +32,11 @@ public class ProductController {
      }
 
      @PostMapping("/createCategory")
-    public ResponseEntity<Category>createCategory(@RequestBody CategoryRequest categoryRequest){
+    public ResponseEntity<List<Category>> createCategory(@RequestBody List<CategoryRequest> categoryRequest){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.createCategory(categoryRequest));
      }
      @PostMapping("/addProductToCategory")
-     public ResponseEntity <ProductResponse> addProductToCategory(@RequestParam("categoryId") Long id, @RequestBody ProductRequest productRequest){
+     public ResponseEntity <String> addProductToCategory(@RequestParam("categoryId") Long id, @RequestBody List<ProductRequest> productRequest){
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.addProductToCategory(id,productRequest));
      }
     @PostMapping("/addProductListToCategory")

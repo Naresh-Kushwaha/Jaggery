@@ -14,7 +14,6 @@ import java.util.List;
 public record OrderRequest(
         @Positive(message="order amount should be positive")
         BigDecimal totalAmount,
-        @NotNull(message="customer should be present")
         @NotEmpty(message="you should at least purchase one product")
         List<PurchaseRequest> products
 ) {
