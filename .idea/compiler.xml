@@ -8,23 +8,49 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="config-server" />
+        <module name="discovery-server" />
+        <module name="payment-service" />
         <module name="customer-service" />
-        <module name="api-gateway" />
         <module name="discovey-server" />
+        <module name="api-gateway" />
         <module name="product-service" />
+        <module name="order-service" />
         <module name="notification-service" />
         <module name="Discovey-Server" />
       </profile>
+      <profile name="Annotation profile for auth-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+        </processorPath>
+        <module name="auth-service" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gateway (1)" target="1.5" />
+      <module name="auth-service (1)" target="1.5" />
+      <module name="config-server (1)" target="1.5" />
+      <module name="customer-service (1)" target="1.5" />
+      <module name="notification-service (1)" target="1.5" />
+      <module name="order-service (1)" target="1.5" />
+      <module name="payment-service (1)" target="1.5" />
+      <module name="product-service (1)" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Discovey-Server" options="-parameters" />
       <module name="api-gateway" options="-parameters" />
+      <module name="auth-service" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="customer-service" options="-parameters" />
+      <module name="discovery-server" options="-parameters" />
       <module name="discovey-server" options="-parameters" />
       <module name="notification-service" options="-parameters" />
+      <module name="order-service" options="-parameters" />
+      <module name="payment-service" options="-parameters" />
       <module name="product-service" options="-parameters" />
     </option>
   </component>

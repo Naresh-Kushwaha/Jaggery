@@ -7,6 +7,7 @@ import com.naresh.kafka.payment.PaymentConfirmation;
 import com.naresh.kafka.payment.PaymentConfirmationDTO;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
-
+@RefreshScope
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("api/v1/notification")

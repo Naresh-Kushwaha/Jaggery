@@ -41,17 +41,23 @@ public class ProductService {
        }
         return productRepository.findAllByCategoryId(id);
     }
-    public Category createCategory(CategoryRequest categoryRequest){
-        Category category= categoryMapper.toCategory(categoryRequest);
-       return categoryRepository.save(category);
+    public List<Category> createCategory(List<CategoryRequest> categoryRequest){
+        List<Category> categoryList=new ArrayList<>();
+        for(CategoryRequest cat: categoryRequest){
+            Category category= categoryMapper.toCategory(cat);
+        categoryList.add(category);
+        }
+       return categoryRepository.saveAll(categoryList);
     }
-    public ProductResponse addProductToCategory(Long id, ProductRequest productRequest){
+    public String addProductToCategory(Long id, List<ProductRequest> productRequest){
         Category category=getCategory(id);
-        Product  product=productMapper.toProduct(productRequest);
-        product.setCategory(category);
-        category.getProductList().add(product);
+        for(ProductRequest prod:productRequest){
+            Product  product=productMapper.toProduct(prod);
+            product.setCategory(category);
+            category.getProductList().add(product);
+        }
         categoryRepository.save(category);
-        return productMapper.fromProduct(product);
+        return "Products Added suggessfully";
     }
     public List<ProductResponse> addProductListToCategory(Long id, List<ProductRequest> productRequestList){
         Category category=getCategory(id);

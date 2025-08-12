@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="config-server" />
         <module name="payment-service" />
+        <module name="discovery-server" />
         <module name="customer-service" />
         <module name="api-gateway" />
         <module name="discovey-server" />
@@ -28,6 +29,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="config-server (1)" target="21" />
       <module name="Jwt_Module" target="21" />
     </bytecodeTargetLevel>
   </component>
@@ -37,7 +39,9 @@
       <module name="api-gateway" options="-parameters" />
       <module name="auth-service" options="-parameters" />
       <module name="config-server" options="-parameters" />
+      <module name="config-server (1)" options="-parameters" />
       <module name="customer-service" options="-parameters" />
+      <module name="discovery-server" options="-parameters" />
       <module name="discovey-server" options="-parameters" />
       <module name="notification-service" options="-parameters" />
       <module name="order-service" options="-parameters" />

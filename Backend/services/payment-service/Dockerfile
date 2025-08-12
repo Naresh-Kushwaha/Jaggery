@@ -1,22 +1,12 @@
-# Stage 1: Build with Maven (optional if JAR already exists)
-FROM maven:3.9.6-eclipse-temurin-21 AS builder
-
+# Stage 1: Build the JAR
+FROM eclipse-temurin-21-jdk AS build
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
-# Stage 2: Create final image
-FROM openjdk:21-jdk-slim
-
-LABEL maintainer="Naresh Kushwaha"
-
+# Stage 2: Run the JAR
+FROM eclipse-temurin:21-jdk
 WORKDIR /app
-
-# Copy JAR from the builder stage
-COPY --from=builder /app/target/*.jar app.jar
-
-# Expose port (override in docker-compose)
+COPY target/*.jar app.jar
 EXPOSE 8085
-
-# Entry point (can be overridden by docker-compose)
 ENTRYPOINT ["java", "-jar", "app.jar"]
