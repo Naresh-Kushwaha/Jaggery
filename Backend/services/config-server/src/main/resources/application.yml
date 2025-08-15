@@ -1,6 +1,7 @@
 server:
   port: 8888
 spring:
+
   profiles:
     active: dev
   application:
@@ -9,12 +10,13 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Naresh-Kushwaha/jaggery_configuration.git
-          username: Naresh-Kushwaha
-          password: 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
+          uri: ${GIT_URI}
+          username: ${GIT_USERNAME}
+          password: ${GIT_PASSWORD}
           clone-on-start: true
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+

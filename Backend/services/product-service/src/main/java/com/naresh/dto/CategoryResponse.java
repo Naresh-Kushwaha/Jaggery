@@ -1,7 +1,7 @@
 package com.naresh.dto;
 
 public record CategoryResponse(
-        Long id,
+       String id,
         String name,
         String description
 ) {

@@ -1,0 +1,991 @@
+2025-08-15T09:32:45.346+05:30  INFO 14640 --- [customer-service] [main] com.naresh.CustomerServiceApplication    : Starting CustomerServiceApplication using Java 23-valhalla with PID 14640 (C:\Users\nares\OneDrive\Desktop\Jaggery\Backend\services\customer-service\target\classes started by nares in C:\Users\nares\OneDrive\Desktop\Jaggery)
+2025-08-15T09:32:45.351+05:30  INFO 14640 --- [customer-service] [main] com.naresh.CustomerServiceApplication    : The following 1 profile is active: "dev"
+2025-08-15T09:32:45.460+05:30  INFO 14640 --- [customer-service] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2025-08-15T09:32:45.469+05:30  INFO 14640 --- [customer-service] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=customer-service, profiles=[dev], label=null, version=16626fc2767f42c565c3c9546559632d3c99f32b, state=
+2025-08-15T09:32:45.469+05:30  INFO 14640 --- [customer-service] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2025-08-15T09:32:45.470+05:30  INFO 14640 --- [customer-service] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=customer-service, profiles=[default], label=null, version=16626fc2767f42c565c3c9546559632d3c99f32b, state=
+2025-08-15T09:32:48.050+05:30  INFO 14640 --- [customer-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-15T09:32:48.308+05:30  INFO 14640 --- [customer-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 238 ms. Found 2 JPA repository interfaces.
+2025-08-15T09:32:48.743+05:30  INFO 14640 --- [customer-service] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2025-08-15T09:32:48.760+05:30  INFO 14640 --- [customer-service] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2025-08-15T09:32:48.972+05:30  INFO 14640 --- [customer-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2d8705f4-0f0b-30d9-9926-042b6195cfd6
+2025-08-15T09:32:50.087+05:30  INFO 14640 --- [customer-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-08-15T09:32:50.112+05:30  INFO 14640 --- [customer-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-15T09:32:50.112+05:30  INFO 14640 --- [customer-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-08-15T09:32:50.231+05:30  INFO 14640 --- [customer-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-15T09:32:50.232+05:30  INFO 14640 --- [customer-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4759 ms
+2025-08-15T09:32:50.848+05:30  INFO 14640 --- [customer-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-15T09:32:50.977+05:30  INFO 14640 --- [customer-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-08-15T09:32:51.057+05:30  INFO 14640 --- [customer-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-15T09:32:51.635+05:30  INFO 14640 --- [customer-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-15T09:32:51.681+05:30  INFO 14640 --- [customer-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-15T09:32:56.486+05:30  INFO 14640 --- [customer-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2e2546bf
+2025-08-15T09:32:56.488+05:30  INFO 14640 --- [customer-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-15T09:32:56.725+05:30  WARN 14640 --- [customer-service] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-15T09:32:57.121+05:30  INFO 14640 --- [customer-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-15T09:32:59.143+05:30  INFO 14640 --- [customer-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-15T09:33:02.704+05:30  INFO 14640 --- [customer-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-15T09:33:03.533+05:30  WARN 14640 --- [customer-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-15T09:33:04.465+05:30  INFO 14640 --- [customer-service] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-08-15T09:33:05.450+05:30  WARN 14640 --- [customer-service] [main] c.f.c.c.BeanFactoryAwareFunctionRegistry : Failed to locate function 'busConsumer' for function definition 'busConsumer'. Returning null.
+2025-08-15T09:33:05.549+05:30  INFO 14640 --- [customer-service] [main] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'customer-service.springCloudBusInput' has 1 subscriber(s).
+2025-08-15T09:33:05.910+05:30  INFO 14640 --- [customer-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-08-15T09:33:05.979+05:30  WARN 14640 --- [customer-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-08-15T09:33:06.107+05:30  INFO 14640 --- [customer-service] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2025-08-15T09:33:06.107+05:30  INFO 14640 --- [customer-service] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'customer-service.errorChannel' has 1 subscriber(s).
+2025-08-15T09:33:06.108+05:30  INFO 14640 --- [customer-service] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2025-08-15T09:33:06.181+05:30  INFO 14640 --- [customer-service] [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-08-15T09:33:06.215+05:30  INFO 14640 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-08-15T09:33:06.219+05:30  INFO 14640 --- [customer-service] [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-15T09:33:06.230+05:30  INFO 14640 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-08-15T09:33:06.230+05:30  INFO 14640 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-08-15T09:33:06.231+05:30  INFO 14640 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-08-15T09:33:06.231+05:30  INFO 14640 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-08-15T09:33:06.231+05:30  INFO 14640 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-08-15T09:33:06.231+05:30  INFO 14640 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-08-15T09:33:06.231+05:30  INFO 14640 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-08-15T09:33:06.553+05:30  INFO 14640 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-08-15T09:33:06.556+05:30  INFO 14640 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-08-15T09:33:06.558+05:30  INFO 14640 --- [customer-service] [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-08-15T09:33:06.560+05:30  INFO 14640 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1755230586559 with initial instances count: 2
+2025-08-15T09:33:06.564+05:30  INFO 14640 --- [customer-service] [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CUSTOMER-SERVICE with eureka with status UP
+2025-08-15T09:33:06.566+05:30  INFO 14640 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1755230586566, current=UP, previous=STARTING]
+2025-08-15T09:33:06.568+05:30  INFO 14640 --- [customer-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUSTOMER-SERVICE/customer-service: registering service...
+2025-08-15T09:33:06.569+05:30  INFO 14640 --- [customer-service] [main] o.s.c.s.binder.DefaultBinderFactory      : Creating binder: rabbit
+2025-08-15T09:33:06.570+05:30  INFO 14640 --- [customer-service] [main] o.s.c.s.binder.DefaultBinderFactory      : Constructing binder child context for rabbit
+2025-08-15T09:33:06.637+05:30  INFO 14640 --- [customer-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUSTOMER-SERVICE/customer-service - registration status: 204
+2025-08-15T09:33:06.739+05:30  INFO 14640 --- [customer-service] [main] o.s.c.s.binder.DefaultBinderFactory      : Caching the binder: rabbit
+2025-08-15T09:33:06.774+05:30  INFO 14640 --- [customer-service] [main] c.s.b.r.p.RabbitExchangeQueueProvisioner : declaring queue for inbound: springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g, bound to: springCloudBus
+2025-08-15T09:33:06.786+05:30  INFO 14640 --- [customer-service] [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:33:06.813+05:30  INFO 14640 --- [customer-service] [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:33:06.842+05:30  INFO 14640 --- [customer-service] [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:33:06.892+05:30  INFO 14640 --- [customer-service] [main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'rabbit-293792856.springCloudBusInput.errors' has 1 subscriber(s).
+2025-08-15T09:33:06.894+05:30  INFO 14640 --- [customer-service] [main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'rabbit-293792856.springCloudBusInput.errors' has 2 subscriber(s).
+2025-08-15T09:33:06.897+05:30  INFO 14640 --- [customer-service] [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:33:06.899+05:30  INFO 14640 --- [customer-service] [main] o.s.a.r.l.SimpleMessageListenerContainer : Broker not available; cannot force queue declarations during start: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:33:06.912+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-1] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:33:06.913+05:30  INFO 14640 --- [customer-service] [main] o.s.i.a.i.AmqpInboundChannelAdapter      : started bean 'inbound.springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g'
+2025-08-15T09:33:06.938+05:30  INFO 14640 --- [customer-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-08-15T09:33:06.939+05:30  INFO 14640 --- [customer-service] [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8081
+2025-08-15T09:33:07.002+05:30  INFO 14640 --- [customer-service] [main] com.naresh.CustomerServiceApplication    : Started CustomerServiceApplication in 28.483 seconds (process running for 29.566)
+2025-08-15T09:33:11.985+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-1] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:33:11.990+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-1] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@448ec893: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:33:11.993+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-2] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:33:17.079+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-2] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:33:17.080+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-2] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@3164211c: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:33:17.083+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-3] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:33:22.174+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-3] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:33:22.174+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-3] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@6453dd9c: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:33:22.177+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-4] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:33:27.262+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-4] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:33:27.262+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-4] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@6b2687a9: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:33:27.265+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-5] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:33:32.346+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-5] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:33:32.347+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-5] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@758a8482: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:33:32.349+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-6] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:33:37.435+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-6] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:33:37.435+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-6] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@46d259e7: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:33:37.438+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-7] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:33:42.555+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-7] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:33:42.556+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-7] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@404fc823: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:33:42.560+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-8] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:33:47.652+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-8] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:33:47.653+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-8] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@6a8b0ed5: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:33:47.655+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-9] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:33:52.726+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-9] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:33:52.726+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-9] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@3705284: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:33:52.729+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-10] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:33:57.814+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-10] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:33:57.815+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-10] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@7f249f90: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:33:57.817+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-11] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:34:02.925+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-11] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:34:02.926+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-11] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@74c990dc: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:34:02.928+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-12] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:34:08.056+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-12] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:34:08.057+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-12] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@5c774875: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:34:08.060+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-13] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:34:13.172+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-13] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:34:13.172+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-13] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@44d7e607: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:34:13.175+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-14] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:34:18.286+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-14] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:34:18.287+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-14] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@65d46392: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:34:18.289+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-15] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:34:23.368+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-15] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:34:23.368+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-15] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@4f641bc0: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:34:23.371+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-16] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:34:28.455+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-16] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:34:28.456+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-16] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@756c2950: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:34:28.457+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-17] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:34:33.556+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-17] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:34:33.556+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-17] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@1cbefd9e: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:34:33.559+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-18] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:34:38.674+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-18] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:34:38.675+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-18] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@4a1b8c18: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:34:38.677+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-19] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:34:43.779+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-19] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:34:43.780+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-19] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@41a9ad44: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:34:43.782+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-20] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:34:48.890+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-20] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:34:48.892+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-20] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@2e8208bf: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:34:48.895+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-21] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:34:53.988+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-21] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:34:53.989+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-21] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@56ac9372: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:34:53.990+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-22] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:34:59.090+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-22] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:34:59.090+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-22] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@a6c992d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:34:59.090+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-23] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:35:04.191+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-23] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:35:04.194+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-23] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@1d48855: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:35:04.197+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-24] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:35:09.293+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-24] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:35:09.294+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-24] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@f66ae66: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:35:09.296+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-25] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:35:14.390+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-25] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:35:14.391+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-25] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@60b19019: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:35:14.394+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-26] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:35:19.480+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-26] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:35:19.480+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-26] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@59e957e0: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:35:19.483+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-27] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:35:24.556+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-27] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:35:24.557+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-27] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@389cad86: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:35:24.559+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-28] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:35:29.635+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-28] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:35:29.636+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-28] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@45f602af: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:35:29.638+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-29] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:35:34.738+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-29] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:35:34.738+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-29] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@4d417bb7: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:35:34.740+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-30] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:35:39.857+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-30] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:35:39.857+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-30] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@79313c36: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:35:39.860+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-31] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:35:44.931+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-31] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:35:44.931+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-31] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@5a26ccd1: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:35:44.933+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-32] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:35:50.045+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-32] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:35:50.046+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-32] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@6eea1313: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:35:50.048+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-33] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:35:55.173+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-33] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:35:55.173+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-33] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@2725bcaa: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:35:55.175+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-34] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:36:00.274+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-34] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:36:00.275+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-34] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@711f0a08: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:36:00.277+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-35] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:36:05.376+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-35] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:36:05.377+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-35] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@6f730b52: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:36:05.379+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-36] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:36:10.469+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-36] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:36:10.469+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-36] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@4d6c63fe: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:36:10.472+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-37] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:36:15.593+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-37] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:36:15.593+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-37] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@13a23e9a: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:36:15.595+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-38] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:36:20.689+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-38] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:36:20.689+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-38] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@57ecd764: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:36:20.691+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-39] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:36:25.811+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-39] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:36:25.812+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-39] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@5ed50c01: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:36:25.814+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-40] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:36:30.896+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-40] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:36:30.896+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-40] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@20fb753c: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:36:30.898+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-41] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:36:35.988+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-41] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:36:35.989+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-41] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@56a3af37: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:36:35.993+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-42] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:36:41.103+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-42] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:36:41.104+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-42] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@74256a9a: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:36:41.106+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-43] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:36:46.191+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-43] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:36:46.191+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-43] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@274e64cf: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:36:46.193+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-44] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:36:51.312+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-44] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:36:51.313+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-44] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@4ad726e9: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:36:51.315+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-45] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:36:56.420+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-45] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:36:56.420+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-45] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@4a1af785: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:36:56.423+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-46] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:37:01.514+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-46] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:37:01.515+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-46] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@d53fe1f: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:37:01.517+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-47] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:37:06.631+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-47] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:37:06.632+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-47] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@72b0fb1b: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:37:06.634+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-48] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:37:11.732+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-48] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:37:11.732+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-48] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@5b0649fb: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:37:11.735+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-49] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:37:16.819+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-49] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:37:16.820+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-49] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@4b1cbb54: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:37:16.822+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-50] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:37:21.915+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-50] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:37:21.916+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-50] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@367f439c: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:37:21.918+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-51] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:37:27.031+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-51] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:37:27.032+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-51] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@60d510b: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:37:27.034+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-52] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:37:32.133+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-52] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:37:32.133+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-52] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@612f212e: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:37:32.135+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-53] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:37:37.236+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-53] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:37:37.237+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-53] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@9801a69: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:37:37.239+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-54] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:37:42.322+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-54] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:37:42.322+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-54] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@66214ef7: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:37:42.325+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-55] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:37:47.421+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-55] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:37:47.422+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-55] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@6f65f62a: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:37:47.424+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-56] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:37:52.525+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-56] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:37:52.526+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-56] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@4380b8d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:37:52.528+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-57] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:37:57.603+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-57] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:37:57.604+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-57] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@1738bae5: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:37:57.606+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-58] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:38:02.688+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-58] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:38:02.689+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-58] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@4dffc868: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:38:02.691+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-59] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:38:06.248+05:30  INFO 14640 --- [customer-service] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-15T09:38:07.792+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-59] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:38:07.792+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-59] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@4ab49c6d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:38:07.795+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-60] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:38:12.878+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-60] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:38:12.878+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-60] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@13c37e18: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:38:12.881+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-61] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:38:17.958+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-61] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:38:17.959+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-61] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@4b946a48: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:38:17.962+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-62] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:38:23.055+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-62] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:38:23.055+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-62] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@32fd34df: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:38:23.058+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-63] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:38:28.159+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-63] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:38:28.159+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-63] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@21291153: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:38:28.162+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-64] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:38:33.283+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-64] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:38:33.284+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-64] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@51c7d23a: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:38:33.286+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-65] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:38:38.386+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-65] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:38:38.386+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-65] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@2eed16a7: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:38:38.388+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-66] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:38:43.484+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-66] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:38:43.485+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-66] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@3f9f6332: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:38:43.488+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-67] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:38:48.582+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-67] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:38:48.583+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-67] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@4d01dcea: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:38:48.585+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-68] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:38:53.689+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-68] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:38:53.690+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-68] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@e51c249: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:38:53.692+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-69] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:38:58.787+05:30  WARN 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-69] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:38:58.787+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-69] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@6b1101fa: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:38:58.790+05:30  INFO 14640 --- [customer-service] [springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g-70] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:39:01.721+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application CUSTOMER-SERVICE with eureka with status DOWN
+2025-08-15T09:39:01.721+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1755230941721, current=DOWN, previous=UP]
+2025-08-15T09:39:01.721+05:30  INFO 14640 --- [customer-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUSTOMER-SERVICE/customer-service: registering service...
+2025-08-15T09:39:01.726+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-15T09:39:01.737+05:30  INFO 14640 --- [customer-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUSTOMER-SERVICE/customer-service - registration status: 204
+2025-08-15T09:39:01.738+05:30  INFO 14640 --- [customer-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-15T09:39:01.742+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2025-08-15T09:39:01.743+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2025-08-15T09:39:01.743+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] o.s.i.a.i.AmqpInboundChannelAdapter      : stopped bean 'inbound.springCloudBus.anonymous.52ndx-n_SBedvCjg4HkM8g'
+2025-08-15T09:39:01.768+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] o.s.c.stream.binder.BinderErrorChannel   : Channel 'customer-service.rabbit-293792856.springCloudBusInput.errors' has 1 subscriber(s).
+2025-08-15T09:39:01.770+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] o.s.c.stream.binder.BinderErrorChannel   : Channel 'customer-service.rabbit-293792856.springCloudBusInput.errors' has 0 subscriber(s).
+2025-08-15T09:39:01.827+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2025-08-15T09:39:01.828+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'customer-service.errorChannel' has 0 subscriber(s).
+2025-08-15T09:39:01.829+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2025-08-15T09:39:01.843+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-15T09:39:01.846+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-15T09:39:03.981+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-15T09:39:03.983+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2025-08-15T09:39:06.988+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2025-08-15T09:39:06.988+05:30  WARN 14640 --- [customer-service] [DiscoveryClient-%d] c.netflix.discovery.TimedSupervisorTask  : task supervisor shutting down, can't accept the task
+2025-08-15T09:39:06.995+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUSTOMER-SERVICE/customer-service - deregister  status: 200
+2025-08-15T09:39:06.995+05:30  INFO 14640 --- [customer-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2025-08-15T09:39:15.778+05:30  INFO 24564 --- [customer-service] [main] com.naresh.CustomerServiceApplication    : Starting CustomerServiceApplication using Java 23-valhalla with PID 24564 (C:\Users\nares\OneDrive\Desktop\Jaggery\Backend\services\customer-service\target\classes started by nares in C:\Users\nares\OneDrive\Desktop\Jaggery)
+2025-08-15T09:39:15.781+05:30  INFO 24564 --- [customer-service] [main] com.naresh.CustomerServiceApplication    : The following 1 profile is active: "dev"
+2025-08-15T09:39:15.862+05:30  INFO 24564 --- [customer-service] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2025-08-15T09:39:15.863+05:30  INFO 24564 --- [customer-service] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=customer-service, profiles=[dev], label=null, version=16626fc2767f42c565c3c9546559632d3c99f32b, state=
+2025-08-15T09:39:15.863+05:30  INFO 24564 --- [customer-service] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2025-08-15T09:39:15.863+05:30  INFO 24564 --- [customer-service] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=customer-service, profiles=[default], label=null, version=16626fc2767f42c565c3c9546559632d3c99f32b, state=
+2025-08-15T09:39:17.766+05:30  INFO 24564 --- [customer-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-15T09:39:17.959+05:30  INFO 24564 --- [customer-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 177 ms. Found 2 JPA repository interfaces.
+2025-08-15T09:39:18.312+05:30  INFO 24564 --- [customer-service] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2025-08-15T09:39:18.326+05:30  INFO 24564 --- [customer-service] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2025-08-15T09:39:18.479+05:30  INFO 24564 --- [customer-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2d8705f4-0f0b-30d9-9926-042b6195cfd6
+2025-08-15T09:39:19.361+05:30  INFO 24564 --- [customer-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-08-15T09:39:19.383+05:30  INFO 24564 --- [customer-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-15T09:39:19.383+05:30  INFO 24564 --- [customer-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-08-15T09:39:19.513+05:30  INFO 24564 --- [customer-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-15T09:39:19.514+05:30  INFO 24564 --- [customer-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3647 ms
+2025-08-15T09:39:20.041+05:30  INFO 24564 --- [customer-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-15T09:39:20.139+05:30  INFO 24564 --- [customer-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-08-15T09:39:20.181+05:30  INFO 24564 --- [customer-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-15T09:39:20.612+05:30  INFO 24564 --- [customer-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-15T09:39:20.660+05:30  INFO 24564 --- [customer-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-15T09:39:23.648+05:30  INFO 24564 --- [customer-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5c141c7b
+2025-08-15T09:39:23.651+05:30  INFO 24564 --- [customer-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-15T09:39:24.016+05:30  WARN 24564 --- [customer-service] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-15T09:39:24.383+05:30  INFO 24564 --- [customer-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-15T09:39:26.118+05:30  INFO 24564 --- [customer-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-15T09:39:27.731+05:30  INFO 24564 --- [customer-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-15T09:39:28.588+05:30  WARN 24564 --- [customer-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-15T09:39:29.428+05:30  INFO 24564 --- [customer-service] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-08-15T09:39:30.211+05:30  WARN 24564 --- [customer-service] [main] c.f.c.c.BeanFactoryAwareFunctionRegistry : Failed to locate function 'busConsumer' for function definition 'busConsumer'. Returning null.
+2025-08-15T09:39:30.326+05:30  INFO 24564 --- [customer-service] [main] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'customer-service.springCloudBusInput' has 1 subscriber(s).
+2025-08-15T09:39:30.596+05:30  INFO 24564 --- [customer-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-08-15T09:39:30.652+05:30  WARN 24564 --- [customer-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-08-15T09:39:30.774+05:30  INFO 24564 --- [customer-service] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2025-08-15T09:39:30.775+05:30  INFO 24564 --- [customer-service] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'customer-service.errorChannel' has 1 subscriber(s).
+2025-08-15T09:39:30.775+05:30  INFO 24564 --- [customer-service] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2025-08-15T09:39:30.841+05:30  INFO 24564 --- [customer-service] [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-08-15T09:39:30.878+05:30  INFO 24564 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-08-15T09:39:30.883+05:30  INFO 24564 --- [customer-service] [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-15T09:39:30.897+05:30  INFO 24564 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-08-15T09:39:30.897+05:30  INFO 24564 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-08-15T09:39:30.897+05:30  INFO 24564 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-08-15T09:39:30.897+05:30  INFO 24564 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-08-15T09:39:30.897+05:30  INFO 24564 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-08-15T09:39:30.897+05:30  INFO 24564 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-08-15T09:39:30.898+05:30  INFO 24564 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-08-15T09:39:31.207+05:30  INFO 24564 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-08-15T09:39:31.210+05:30  INFO 24564 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-08-15T09:39:31.213+05:30  INFO 24564 --- [customer-service] [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-08-15T09:39:31.215+05:30  INFO 24564 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1755230971214 with initial instances count: 4
+2025-08-15T09:39:31.219+05:30  INFO 24564 --- [customer-service] [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CUSTOMER-SERVICE with eureka with status UP
+2025-08-15T09:39:31.219+05:30  INFO 24564 --- [customer-service] [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1755230971219, current=UP, previous=STARTING]
+2025-08-15T09:39:31.222+05:30  INFO 24564 --- [customer-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUSTOMER-SERVICE/customer-service: registering service...
+2025-08-15T09:39:31.222+05:30  INFO 24564 --- [customer-service] [main] o.s.c.s.binder.DefaultBinderFactory      : Creating binder: rabbit
+2025-08-15T09:39:31.222+05:30  INFO 24564 --- [customer-service] [main] o.s.c.s.binder.DefaultBinderFactory      : Constructing binder child context for rabbit
+2025-08-15T09:39:31.307+05:30  INFO 24564 --- [customer-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUSTOMER-SERVICE/customer-service - registration status: 204
+2025-08-15T09:39:31.427+05:30  INFO 24564 --- [customer-service] [main] o.s.c.s.binder.DefaultBinderFactory      : Caching the binder: rabbit
+2025-08-15T09:39:31.461+05:30  INFO 24564 --- [customer-service] [main] c.s.b.r.p.RabbitExchangeQueueProvisioner : declaring queue for inbound: springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ, bound to: springCloudBus
+2025-08-15T09:39:31.468+05:30  INFO 24564 --- [customer-service] [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:39:31.490+05:30  INFO 24564 --- [customer-service] [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:39:31.506+05:30  INFO 24564 --- [customer-service] [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:39:31.530+05:30  INFO 24564 --- [customer-service] [main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'rabbit-683884247.springCloudBusInput.errors' has 1 subscriber(s).
+2025-08-15T09:39:31.531+05:30  INFO 24564 --- [customer-service] [main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'rabbit-683884247.springCloudBusInput.errors' has 2 subscriber(s).
+2025-08-15T09:39:31.535+05:30  INFO 24564 --- [customer-service] [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:39:31.536+05:30  INFO 24564 --- [customer-service] [main] o.s.a.r.l.SimpleMessageListenerContainer : Broker not available; cannot force queue declarations during start: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:39:31.546+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-1] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:39:31.566+05:30  INFO 24564 --- [customer-service] [main] o.s.i.a.i.AmqpInboundChannelAdapter      : started bean 'inbound.springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ'
+2025-08-15T09:39:31.593+05:30  INFO 24564 --- [customer-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-08-15T09:39:31.594+05:30  INFO 24564 --- [customer-service] [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8081
+2025-08-15T09:39:31.647+05:30  INFO 24564 --- [customer-service] [main] com.naresh.CustomerServiceApplication    : Started CustomerServiceApplication in 22.372 seconds (process running for 23.362)
+2025-08-15T09:39:36.622+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-1] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:39:36.628+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-1] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@16df17e6: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:39:36.631+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-2] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:39:41.753+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-2] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:39:41.754+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-2] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@5c12e47d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:39:41.757+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-3] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:39:46.863+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-3] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:39:46.863+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-3] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@2f1624cd: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:39:46.866+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-4] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:39:51.961+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-4] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:39:51.962+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-4] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@7e32aa73: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:39:51.965+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-5] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:39:57.064+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-5] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:39:57.065+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-5] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@197fc57e: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:39:57.068+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-6] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:40:02.147+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-6] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:40:02.148+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-6] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@7e2a6503: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:40:02.151+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-7] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:40:07.236+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-7] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:40:07.237+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-7] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@9a0410e: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:40:07.240+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-8] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:40:12.335+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-8] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:40:12.336+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-8] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@11171b58: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:40:12.339+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-9] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:40:17.442+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-9] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:40:17.443+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-9] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@7f8fd376: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:40:17.446+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-10] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:40:22.547+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-10] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:40:22.548+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-10] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@a082314: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:40:22.551+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-11] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:40:27.643+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-11] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:40:27.644+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-11] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@159ef30e: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:40:27.647+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-12] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:40:32.724+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-12] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:40:32.726+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-12] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@412d0383: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:40:32.728+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-13] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:40:37.838+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-13] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:40:37.838+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-13] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@19352994: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:40:37.841+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-14] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:40:42.955+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-14] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:40:42.956+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-14] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@19bba5ff: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:40:42.959+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-15] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:40:48.064+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-15] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:40:48.065+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-15] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@feeffdc: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:40:48.067+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-16] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:40:53.145+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-16] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:40:53.146+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-16] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@56ffb399: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:40:53.150+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-17] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:40:58.223+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-17] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:40:58.224+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-17] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@70c4ae66: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:40:58.227+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-18] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:41:03.309+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-18] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:41:03.310+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-18] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@6b2237d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:41:03.312+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-19] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:41:08.417+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-19] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:41:08.418+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-19] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@1ec0c5d2: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:41:08.420+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-20] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:41:13.493+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-20] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:41:13.494+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-20] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@74637d2d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:41:13.496+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-21] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:41:18.609+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-21] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:41:18.609+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-21] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@66ed6089: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:41:18.611+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-22] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:41:23.707+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-22] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:41:23.708+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-22] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@78275636: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:41:23.710+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-23] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:41:28.809+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-23] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:41:28.810+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-23] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@73d6925: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:41:28.812+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-24] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:41:33.906+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-24] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:41:33.907+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-24] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@8d58b04: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:41:33.909+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-25] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:41:39.002+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-25] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:41:39.003+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-25] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@5d239b0: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:41:39.005+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-26] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:41:44.095+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-26] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:41:44.095+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-26] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@59f3b5c3: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:41:44.098+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-27] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:41:49.206+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-27] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:41:49.207+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-27] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@7d1fa44d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:41:49.209+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-28] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:41:54.294+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-28] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:41:54.295+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-28] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@5d4995b8: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:41:54.297+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-29] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:41:59.396+05:30  WARN 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-29] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-08-15T09:41:59.397+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-29] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@11e10028: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-08-15T09:41:59.399+05:30  INFO 24564 --- [customer-service] [springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ-30] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2025-08-15T09:42:00.515+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application CUSTOMER-SERVICE with eureka with status DOWN
+2025-08-15T09:42:00.520+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1755231120520, current=DOWN, previous=UP]
+2025-08-15T09:42:00.521+05:30  INFO 24564 --- [customer-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUSTOMER-SERVICE/customer-service: registering service...
+2025-08-15T09:42:00.541+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-15T09:42:00.547+05:30  INFO 24564 --- [customer-service] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on POST request for "http://localhost:8761/eureka/apps/CUSTOMER-SERVICE": localhost:8761 failed to respond stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/CUSTOMER-SERVICE": localhost:8761 failed to respond
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.register(RestTemplateEurekaHttpClient.java:87)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125)
+	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: org.apache.hc.core5.http.NoHttpResponseException: localhost:8761 failed to respond
+	at org.apache.hc.core5.http.impl.io.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:333)
+	at org.apache.hc.core5.http.impl.io.HttpRequestExecutor.execute(HttpRequestExecutor.java:196)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.lambda$execute$0(InternalExecRuntime.java:236)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager$InternalConnectionEndpoint.execute(PoolingHttpClientConnectionManager.java:791)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.execute(InternalExecRuntime.java:233)
+	at org.apache.hc.client5.http.impl.classic.MainClientExec.execute(MainClientExec.java:120)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:198)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:183)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$2(RestTemplateTransportClientFactory.java:145)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 21 more
+
+2025-08-15T09:42:00.548+05:30  WARN 24564 --- [customer-service] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/CUSTOMER-SERVICE": localhost:8761 failed to respond
+2025-08-15T09:42:00.576+05:30  INFO 24564 --- [customer-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-15T09:42:00.579+05:30  INFO 24564 --- [customer-service] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/CUSTOMER-SERVICE": An established connection was aborted by the software in your host machine stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/CUSTOMER-SERVICE": An established connection was aborted by the software in your host machine
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.register(RestTemplateEurekaHttpClient.java:87)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125)
+	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: java.net.SocketException: An established connection was aborted by the software in your host machine
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:46)
+	at java.base/sun.nio.ch.NioSocketImpl.tryRead(NioSocketImpl.java:256)
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:274)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:304)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796)
+	at java.base/java.net.Socket$SocketInputStream.implRead(Socket.java:1115)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1102)
+	at org.apache.hc.core5.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:149)
+	at org.apache.hc.core5.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.hc.core5.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:250)
+	at org.apache.hc.core5.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:56)
+	at org.apache.hc.core5.http.impl.io.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:331)
+	at org.apache.hc.core5.http.impl.io.HttpRequestExecutor.execute(HttpRequestExecutor.java:196)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.lambda$execute$0(InternalExecRuntime.java:236)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager$InternalConnectionEndpoint.execute(PoolingHttpClientConnectionManager.java:791)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.execute(InternalExecRuntime.java:233)
+	at org.apache.hc.client5.http.impl.classic.MainClientExec.execute(MainClientExec.java:120)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:198)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:183)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$2(RestTemplateTransportClientFactory.java:145)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 22 more
+
+2025-08-15T09:42:00.580+05:30  WARN 24564 --- [customer-service] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/CUSTOMER-SERVICE": An established connection was aborted by the software in your host machine
+2025-08-15T09:42:00.580+05:30  WARN 24564 --- [customer-service] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUSTOMER-SERVICE/customer-service - registration failed Cannot execute request on any known server
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105) ~[eureka-client-2.0.4.jar:2.0.4]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
+
+2025-08-15T09:42:00.588+05:30  WARN 24564 --- [customer-service] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105) ~[eureka-client-2.0.4.jar:2.0.4]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
+
+2025-08-15T09:42:00.596+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2025-08-15T09:42:00.597+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2025-08-15T09:42:00.597+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] o.s.i.a.i.AmqpInboundChannelAdapter      : stopped bean 'inbound.springCloudBus.anonymous.9g8VlTizQ9alww4ClOCmUQ'
+2025-08-15T09:42:00.619+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] o.s.c.stream.binder.BinderErrorChannel   : Channel 'customer-service.rabbit-683884247.springCloudBusInput.errors' has 1 subscriber(s).
+2025-08-15T09:42:00.621+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] o.s.c.stream.binder.BinderErrorChannel   : Channel 'customer-service.rabbit-683884247.springCloudBusInput.errors' has 0 subscriber(s).
+2025-08-15T09:42:00.691+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2025-08-15T09:42:00.692+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'customer-service.errorChannel' has 0 subscriber(s).
+2025-08-15T09:42:00.693+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2025-08-15T09:42:00.727+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-15T09:42:00.735+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-15T09:42:01.336+05:30  INFO 24564 --- [customer-service] [DiscoveryClient-HeartbeatExecutor-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on PUT request for "http://localhost:8761/eureka/apps/CUSTOMER-SERVICE/customer-service": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on PUT request for "http://localhost:8761/eureka/apps/CUSTOMER-SERVICE/customer-service": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.sendHeartBeat(RestTemplateEurekaHttpClient.java:119)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:845)
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1402)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:759)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:183)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$2(RestTemplateTransportClientFactory.java:145)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 20 more
+
+2025-08-15T09:42:01.336+05:30  WARN 24564 --- [customer-service] [DiscoveryClient-HeartbeatExecutor-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on PUT request for "http://localhost:8761/eureka/apps/CUSTOMER-SERVICE/customer-service": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+2025-08-15T09:42:01.337+05:30 ERROR 24564 --- [customer-service] [DiscoveryClient-HeartbeatExecutor-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUSTOMER-SERVICE/customer-service - was unable to send heartbeat!
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:845) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1402) ~[eureka-client-2.0.4.jar:2.0.4]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
+
+2025-08-15T09:42:01.346+05:30  INFO 24564 --- [customer-service] [DiscoveryClient-CacheRefreshExecutor-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on GET request for "http://localhost:8761/eureka/apps/delta": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8761/eureka/apps/delta": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplicationsInternal(RestTemplateEurekaHttpClient.java:174)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getDelta(RestTemplateEurekaHttpClient.java:186)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1080)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:963)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1473)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1441)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:759)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:183)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$2(RestTemplateTransportClientFactory.java:145)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 22 more
+
+2025-08-15T09:42:01.346+05:30  WARN 24564 --- [customer-service] [DiscoveryClient-CacheRefreshExecutor-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on GET request for "http://localhost:8761/eureka/apps/delta": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+2025-08-15T09:42:01.377+05:30  INFO 24564 --- [customer-service] [DiscoveryClient-CacheRefreshExecutor-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on GET request for "http://localhost:8761/eureka/apps/delta": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8761/eureka/apps/delta": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplicationsInternal(RestTemplateEurekaHttpClient.java:174)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getDelta(RestTemplateEurekaHttpClient.java:186)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1080)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:963)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1473)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1441)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:759)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:183)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$2(RestTemplateTransportClientFactory.java:145)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 23 more
+
+2025-08-15T09:42:01.378+05:30  WARN 24564 --- [customer-service] [DiscoveryClient-CacheRefreshExecutor-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on GET request for "http://localhost:8761/eureka/apps/delta": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+2025-08-15T09:42:01.378+05:30  INFO 24564 --- [customer-service] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUSTOMER-SERVICE/customer-service - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1080)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:963)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1473)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1441)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+2025-08-15T09:42:03.383+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-15T09:42:03.385+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2025-08-15T09:42:06.395+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2025-08-15T09:42:06.448+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/CUSTOMER-SERVICE/customer-service": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/CUSTOMER-SERVICE/customer-service": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:100)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:387)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:134)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:798)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:748)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1474)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:707)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1467)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1219)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1180)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:179)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1126)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:147)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:116)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:759)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:183)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$2(RestTemplateTransportClientFactory.java:145)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 38 more
+
+2025-08-15T09:42:06.448+05:30  WARN 24564 --- [customer-service] [SpringApplicationShutdownHook] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/CUSTOMER-SERVICE/customer-service": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+2025-08-15T09:42:06.449+05:30 ERROR 24564 --- [customer-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUSTOMER-SERVICE/customer-service - de-registration failedCannot execute request on any known server
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900) ~[eureka-client-2.0.4.jar:2.0.4]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:387) ~[spring-cloud-context-4.3.0-RC1.jar:4.3.0-RC1]
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:134) ~[spring-cloud-context-4.3.0-RC1.jar:4.3.0-RC1]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:798) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:748) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1474) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:707) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1467) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1219) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1180) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:179) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1126) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:147) ~[spring-boot-3.5.0.jar:3.5.0]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:116) ~[spring-boot-3.5.0.jar:3.5.0]
+	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
+
+2025-08-15T09:42:06.454+05:30  INFO 24564 --- [customer-service] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient

@@ -30,12 +30,12 @@ public class CartController {
         return cartService.getCart(jwt);
     }
     @PostMapping("/addToCart")
-    public ResponseEntity<String> addToCart(@RequestBody Long id,@AuthenticationPrincipal Jwt jwt){
+    public ResponseEntity<String> addToCart(@RequestBody String id,@AuthenticationPrincipal Jwt jwt){
         System.out.println(id);
         return  ResponseEntity.ok(cartService.addToCart(id, jwt));
     }
     @DeleteMapping("/removeFromCart")
-    public void removeFromCart(@RequestBody Long id,@AuthenticationPrincipal Jwt jwt) {
+    public void removeFromCart(@RequestBody String id,@AuthenticationPrincipal Jwt jwt) {
         cartService.removeFromCart(id, jwt);
     }
 }

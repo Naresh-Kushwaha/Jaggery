@@ -1,37 +1,33 @@
 package com.naresh.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Document
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
    @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
+   private String id;
    private String name;
    private String image;
    private String description;
    private double stock;
    private BigDecimal price;
    private String ingredients;
-   @JsonIgnore
-   @ManyToMany(mappedBy = "products" ,cascade = CascadeType.ALL)
-   private List<CartItem>cartItems=new ArrayList<>();
-   @JsonIgnore
-   @ManyToOne
-   @JoinColumn(name="category_id")
+   @DBRef
    private Category category;
 
 

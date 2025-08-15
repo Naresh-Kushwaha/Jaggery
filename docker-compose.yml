@@ -78,74 +78,74 @@ services:
       - "9090:9090"
     networks:
       - jaggery-net
-  customer-service:
-    build: Backend/services/customer-service
-    container_name: customer-service
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
-    depends_on:
-      discovery-server:
-        condition: service_healthy
-      config-server:
-        condition: service_healthy
-
-      rabbitmq:
-        condition: service_started
-    ports:
-      - "8081:8081"
-    networks:
-      - jaggery-net
-  notification-service:
-    build: Backend/services/notification-service
-    container_name: notification-service
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
-    depends_on:
-      discovery-server:
-        condition: service_healthy
-      config-server:
-        condition: service_healthy
-
-      rabbitmq:
-        condition: service_started
-    ports:
-      - "8083:8083"
-    networks:
-      - jaggery-net
-  order-service:
-    build: Backend/services/order-service
-    container_name: order-service
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
-    depends_on:
-      discovery-server:
-        condition: service_healthy
-      config-server:
-        condition: service_healthy
-
-      rabbitmq:
-        condition: service_started
-    ports:
-      - "8084:8084"
-    networks:
-      - jaggery-net
-  payment-service:
-    build: Backend/services/payment-service
-    container_name: payment-service
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
-    depends_on:
-      discovery-server:
-        condition: service_healthy
-      config-server:
-        condition: service_healthy
-
-      rabbitmq:
-        condition: service_started
-    ports:
-      - "8085:8085"
-    networks:
-      - jaggery-net
+#  customer-service:
+#    build: Backend/services/customer-service
+#    container_name: customer-service
+#    environment:
+#      SPRING_PROFILES_ACTIVE: docker
+#    depends_on:
+#      discovery-server:
+#        condition: service_healthy
+#      config-server:
+#        condition: service_healthy
+#
+#      rabbitmq:
+#        condition: service_started
+#    ports:
+#      - "8081:8081"
+#    networks:
+#      - jaggery-net
+#  notification-service:
+#    build: Backend/services/notification-service
+#    container_name: notification-service
+#    environment:
+#      SPRING_PROFILES_ACTIVE: docker
+#    depends_on:
+#      discovery-server:
+#        condition: service_healthy
+#      config-server:
+#        condition: service_healthy
+#
+#      rabbitmq:
+#        condition: service_started
+#    ports:
+#      - "8083:8083"
+#    networks:
+#      - jaggery-net
+#  order-service:
+#    build: Backend/services/order-service
+#    container_name: order-service
+#    environment:
+#      SPRING_PROFILES_ACTIVE: docker
+#    depends_on:
+#      discovery-server:
+#        condition: service_healthy
+#      config-server:
+#        condition: service_healthy
+#
+#      rabbitmq:
+#        condition: service_started
+#    ports:
+#      - "8084:8084"
+#    networks:
+#      - jaggery-net
+#  payment-service:
+#    build: Backend/services/payment-service
+#    container_name: payment-service
+#    environment:
+#      SPRING_PROFILES_ACTIVE: docker
+#    depends_on:
+#      discovery-server:
+#        condition: service_healthy
+#      config-server:
+#        condition: service_healthy
+#
+#      rabbitmq:
+#        condition: service_started
+#    ports:
+#      - "8085:8085"
+#    networks:
+#      - jaggery-net
 
   product-service:
     build: Backend/services/product-service
@@ -164,22 +164,22 @@ services:
       - "8082:8082"
     networks:
       - jaggery-net
-  frontend:
-    build:
-      context: ./Frontend
-      dockerfile: Dockerfile
-    container_name: frontend
-    ports:
-      - "5173:5173"
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-    depends_on:
-      - api-gateway
-    networks:
-      - jaggery-net
-    environment:
-      - VITE_BACKEND_URL=http://api-gateway:8222
+#  frontend:
+#    build:
+#      context: ./Frontend
+#      dockerfile: Dockerfile
+#    container_name: frontend
+#    ports:
+#      - "5173:5173"
+#    volumes:
+#      - ./frontend:/app
+#      - /app/node_modules
+#    depends_on:
+#      - api-gateway
+#    networks:
+#      - jaggery-net
+#    environment:
+#      - VITE_BACKEND_URL=http://api-gateway:8222
   zookeeper:
     image: confluentinc/cp-zookeeper:7.4.3
     container_name: zookeeper
@@ -208,22 +208,20 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
     networks:
       - jaggery-net
-  postgres:
-    image: postgres:16
-    command: postgres -c port=5434
-    container_name: postgres
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: jaggery
-    ports:
-      - "5434:5434"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-
-    networks:
-      - jaggery-net
+#  postgres:
+#    image: postgres:16
+#    command: postgres -c port=5434
+#    container_name: postgres
+#    environment:
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: root
+#      POSTGRES_DB: jaggery
+#    ports:
+#      - "5434:5434"
+#    volumes:
+#      - postgres_data:/var/lib/postgresql/data
+#    networks:
+#      - jaggery-net
   rabbitmq:
     image: rabbitmq:4-management
     container_name: rabbitmq

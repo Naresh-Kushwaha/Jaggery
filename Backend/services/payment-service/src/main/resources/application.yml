@@ -1,9 +1,3 @@
 spring:
    application:
      name: payment-service
-   config:
-     import: optional:configserver:http://config-server:8888
-
-razorpay:
-  key_secret: sxmzw7GyheKVFMOMUVolml4T
-  key_id: rzp_test_F1EGRQAup4QNOA

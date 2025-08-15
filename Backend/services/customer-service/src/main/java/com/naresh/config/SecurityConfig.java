@@ -1,5 +1,6 @@
 package com.naresh.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,6 +17,8 @@ import java.util.Base64;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+    @Value("${jwt.secret}")
+    private String base64Secret;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(auth->auth
@@ -27,7 +30,6 @@ public class SecurityConfig {
     }
     @Bean
     public JwtDecoder jwtDecoder() {
-        String base64Secret = "VYm92hHgq/FS0I4awR87SFnD7t68dZ0je8PI4Q45ZwhJex9VILCWdJhbfipCROpHZ8J7Z5CfoqWqPpgQ0Yo4CA==";
         byte[] decodedSecret = Base64.getDecoder().decode(base64Secret);
         return NimbusJwtDecoder
                 .withSecretKey(new SecretKeySpec(decodedSecret, "HmacSHA512"))

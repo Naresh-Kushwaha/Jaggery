@@ -4,10 +4,11 @@ import com.naresh.Repository.CartRepository;
 import com.naresh.Repository.ProductRepository;
 import com.naresh.model.CartItem;
 import com.naresh.model.Product;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -19,7 +20,7 @@ public class CartService {
     private final ProductRepository productRepository;
 
     @Transactional
-    public String addToCart(Long productId, Jwt jwt) {
+    public String addToCart(String productId, Jwt jwt) {
         Map<String,Object>claims=jwt.getClaims();
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
@@ -44,7 +45,7 @@ public class CartService {
         new RuntimeException("cart not found")).getProducts();
 
     }
-    public void removeFromCart(Long id,Jwt jwt){
+    public void removeFromCart(String id,Jwt jwt){
         Map<String,Object>claims=jwt.getClaims();
         UUID userId=UUID.fromString((String) claims.get("sub"));
     CartItem cartItem=cartRepository.findByUserId(userId).orElseThrow(()->

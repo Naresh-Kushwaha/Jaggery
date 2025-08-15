@@ -7,6 +7,8 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
@@ -17,9 +19,15 @@ import java.util.function.Function;
 
 @Component
 public class JwtService {
-    String base64Secret = "VYm92hHgq/FS0I4awR87SFnD7t68dZ0je8PI4Q45ZwhJex9VILCWdJhbfipCROpHZ8J7Z5CfoqWqPpgQ0Yo4CA==";
-    byte[] decodedSecret = Base64.getDecoder().decode(base64Secret);
-    SecretKey key = Keys.hmacShaKeyFor(decodedSecret);
+    @Value("${jwt.secret}")
+    private String base64Secret;
+    private SecretKey key;
+    @PostConstruct
+    public void init() {
+        byte[] decodedSecret = Base64.getDecoder().decode(base64Secret);
+        this.key = Keys.hmacShaKeyFor(decodedSecret);
+        System.out.println("✅ JWT Secret successfully loaded and decoded.");
+    }
 
     public String generateToken( UserEntity userEntity){
         Map<String,Object> claims=new HashMap<>();

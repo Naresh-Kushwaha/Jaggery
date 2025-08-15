@@ -8,9 +8,10 @@ import com.naresh.mapper.CategoryMapper;
 import com.naresh.mapper.ProductMapper;
 import com.naresh.model.Category;
 import com.naresh.model.Product;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -22,12 +23,15 @@ public class ProductService {
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
     private final ProductMapper productMapper;
-    public Category getCategory(Long id){
+    public Category getCategory(String id){
         return categoryRepository.findById(id).orElseThrow(()->{
              return new CategoryNotFoundException("Category not found with the give ID: "+id);
          });
     }
-    public Optional<ProductResponse> getProductById(Long id){
+    public List<Category> getAllCategory(){
+        return categoryRepository.findAll();
+    }
+    public Optional<ProductResponse> getProductById(String id){
         return Optional.ofNullable(productRepository.findById(id).map(productMapper::fromProduct).orElseThrow(() -> {
             return new ProductPurchaseException("Product not found with the give ID: " + id);
         }));
@@ -35,8 +39,8 @@ public class ProductService {
     public List<ProductResponse> getAllProducts(){
       return productRepository.findAll().stream().map(productMapper::fromProduct).toList();
     }
-    public List<ProductResponse>getProductByCategory(Long id){
-       if(id==0){
+    public List<ProductResponse>getProductByCategory(String id){
+       if(id==null){
            return getAllProducts();
        }
         return productRepository.findAllByCategoryId(id);
@@ -49,36 +53,26 @@ public class ProductService {
         }
        return categoryRepository.saveAll(categoryList);
     }
-    public String addProductToCategory(Long id, List<ProductRequest> productRequest){
+
+    public List<Product> addProductListToCategory(String id, List<ProductRequest> productRequestList){
         Category category=getCategory(id);
-        for(ProductRequest prod:productRequest){
-            Product  product=productMapper.toProduct(prod);
-            product.setCategory(category);
-            category.getProductList().add(product);
-        }
-        categoryRepository.save(category);
-        return "Products Added suggessfully";
-    }
-    public List<ProductResponse> addProductListToCategory(Long id, List<ProductRequest> productRequestList){
-        Category category=getCategory(id);
-        List<ProductResponse> productresponse=new ArrayList<>();
+        List<Product> products=new ArrayList<>();
         for(ProductRequest req:productRequestList){
            Product product=productMapper.toProduct(req);
                    product.setCategory(category);
-                   category.getProductList().add(product);
-                   productresponse.add(productMapper.fromProduct(product));
+
+                   products.add(product);
         }
-        categoryRepository.save(category);
-        return productresponse;
+        return productRepository.saveAll(products);
     }
-    public void DeleteCategory(Long id){
+    public void DeleteCategory(String id){
         getCategory(id);
         categoryRepository.deleteById(id);
     }
-    public void DeleteProduct(Long id){
+    public void DeleteProduct(String id){
         productRepository.deleteById(id);
     }
-    @Transactional(rollbackOn=ProductPurchaseException.class)
+    @Transactional()
     public List<PurchaseResponse>purchaseProduct(List<PurchaseRequest>request ){
         var productIds=request
                 .stream().map(PurchaseRequest::productId )

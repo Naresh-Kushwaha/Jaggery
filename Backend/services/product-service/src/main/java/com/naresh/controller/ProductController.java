@@ -2,6 +2,7 @@ package com.naresh.controller;
 
 import com.naresh.dto.*;
 import com.naresh.model.Category;
+import com.naresh.model.Product;
 import com.naresh.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -19,29 +20,32 @@ public class ProductController {
     private final ProductService service;
 
     @GetMapping()
-    public ResponseEntity<Optional<ProductResponse>> getProductById(@RequestParam("id") Long id){
+    public ResponseEntity<Optional<ProductResponse>> getProductById(@RequestParam("productId") String id){
         return ResponseEntity.ok(service.getProductById(id));
     }
     @GetMapping("/getCategory")
-     public ResponseEntity<Category> getCategory(@RequestParam("categoryId") Long id){
+     public ResponseEntity<Category> getCategory(@RequestParam("categoryId") String id){
          return ResponseEntity.status(HttpStatus.OK).body(service.getCategory(id));
      }
+    @GetMapping("/getAllCategory")
+    public ResponseEntity<List<Category>> getAllCategory(){
+        return ResponseEntity.status(HttpStatus.OK).body(service.getAllCategory());
+    }
      @GetMapping ("/getProductByCategoryId")
-     public ResponseEntity<List<ProductResponse>>getProductByCategoryId(@RequestParam("id")Long id){
+     public ResponseEntity<List<ProductResponse>>getProductByCategoryId(@RequestParam("categoryId")String id){
         return ResponseEntity.ok(service.getProductByCategory(id));
      }
-
+     @GetMapping("/getAllProducts")
+     public ResponseEntity<List<ProductResponse>>getAllProduct(){
+         return ResponseEntity.ok(service.getAllProducts());
+     }
      @PostMapping("/createCategory")
     public ResponseEntity<List<Category>> createCategory(@RequestBody List<CategoryRequest> categoryRequest){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.createCategory(categoryRequest));
      }
-     @PostMapping("/addProductToCategory")
-     public ResponseEntity <String> addProductToCategory(@RequestParam("categoryId") Long id, @RequestBody List<ProductRequest> productRequest){
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.addProductToCategory(id,productRequest));
-     }
     @PostMapping("/addProductListToCategory")
-    public ResponseEntity<List<ProductResponse>> addProductListToCategory(@RequestParam("categoryId") Long id,
-                                                                          @RequestBody  List<ProductRequest> productRequestList) {
+    public ResponseEntity<List<Product>> addProductListToCategory(@RequestParam("categoryId") String id,
+                                                                  @RequestBody  List<ProductRequest> productRequestList) {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.addProductListToCategory(id, productRequestList));
     }
     @PostMapping("/purchase")
@@ -51,12 +55,12 @@ public class ProductController {
         return ResponseEntity.ok(service.purchaseProduct(req));
     }
     @DeleteMapping("/deleteCategory")
-    public ResponseEntity deleteCategory(@RequestParam("category_id") Long id){
+    public ResponseEntity deleteCategory(@RequestParam("category_id") String id){
         service.DeleteCategory(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
     @DeleteMapping("/deleteProduct")
-    public ResponseEntity deleteProdcut(@RequestParam("category_id") Long id){
+    public ResponseEntity deleteProdcut(@RequestParam("category_id") String id){
         service.DeleteProduct(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
